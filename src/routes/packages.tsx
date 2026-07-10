@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Clock, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -14,7 +14,16 @@ import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
 import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.jpg";
 import pkgHero from "@/assets/Across/Hero images/hero 1.jpg";
 
+type PackageSearch = {
+  package?: string;
+};
+
 export const Route = createFileRoute("/packages")({
+  validateSearch: (search: Record<string, unknown>): PackageSearch => {
+    return {
+      package: (search.package as string) || undefined,
+    };
+  },
   component: PackagesPage,
 });
 
@@ -273,6 +282,7 @@ function PackageCard({
 }
 
 function PackagesPage() {
+  const { package: packageParam } = Route.useSearch();
   const [selectedPackage, setSelectedPackage] = useState("");
   const { t, lang } = useLanguage();
 
@@ -283,6 +293,24 @@ function PackagesPage() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    if (packageParam) {
+      const matchedPkg = packages.find(
+        (p) => p.title.en === packageParam || p.title.pt === packageParam
+      );
+      if (matchedPkg) {
+        setSelectedPackage(matchedPkg.title[lang]);
+        // Scroll to the inquiry form after layout completes
+        setTimeout(() => {
+          const element = document.getElementById("inquiry");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 150);
+      }
+    }
+  }, [packageParam, lang]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">

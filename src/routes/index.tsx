@@ -368,6 +368,7 @@ function FeaturedTourCard({
         {/* CTA */}
         <Link
           to="/packages"
+          search={{ package: tour.title.en }}
           className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg text-sm tracking-wider uppercase transition-colors text-center block"
         >
           {t("Inquire Now", "Pedir Informações")}
