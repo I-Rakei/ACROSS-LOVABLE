@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 type Language = "en" | "pt";
 
@@ -11,13 +11,16 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("across_lang");
-      return (saved === "en" || saved === "pt" ? saved : "en");
+  // Always start with "en" so SSR and first client render match.
+  const [lang, setLangState] = useState<Language>("en");
+
+  // After hydration, read the user's saved preference from localStorage.
+  useEffect(() => {
+    const saved = localStorage.getItem("across_lang");
+    if (saved === "pt") {
+      setLangState("pt");
     }
-    return "en";
-  });
+  }, []);
 
   const setLang = (newLang: Language) => {
     setLangState(newLang);
