@@ -8,6 +8,7 @@ import {
   Car,
   ChevronLeft,
   ChevronRight,
+  Clock,
   Compass,
   Mail,
   MapPin,
@@ -102,6 +103,11 @@ const tours = [
       pt: "Maputo, anteriormente conhecida como a Cidade das Acácias, é a capital e maior cidade de Moçambique. Com uma cena cultural vibrante e uma arquitectura marcante, esta experiência proporciona aos visitantes uma leitura estruturada da cidade. O almoço, composto por frango piri-piri ou marisco, será servido num dos melhores restaurantes costeiros da cidade, acompanhado pela cerveja moçambicana 2M.",
     },
     img: pkgMaputo,
+    price: { en: "$65 per person", pt: "$65 por pessoa" },
+    inclusions: {
+      en: ["Private air-conditioned transport", "English/Portuguese speaking guide", "All entrance fees", "Traditional lunch option"],
+      pt: ["Transporte privado com ar condicionado", "Guia fluente em Inglês/Português", "Todas as taxas de entrada", "Opção de almoço tradicional"],
+    },
   },
   {
     title: {
@@ -121,6 +127,11 @@ const tours = [
       pt: "O tour Mafalala é uma visita de 3 horas a um dos bairros mais antigos, emblemáticos e históricos da cidade de Maputo. Conduzida por guias locais, esta experiência conta a evolução de Maputo desde o período colonial, quando a cidade ainda se chamava Lourenço Marques, e contextualiza a luta pela independência de Moçambique.",
     },
     img: pkgMafalala,
+    price: { en: "$45 per person", pt: "$45 por pessoa" },
+    inclusions: {
+      en: ["Local certified guide", "Mafalala museum entry", "Traditional dance performance", "Bottled water"],
+      pt: ["Guia local certificado", "Entrada no museu da Mafalala", "Apresentação de dança tradicional", "Água engarrafada"],
+    },
   },
   {
     title: {
@@ -140,6 +151,11 @@ const tours = [
       pt: "Esta excursão de dia inteiro leva-o a descobrir dois dos destinos mais emblemáticos e preservados da região de Maputo, envoltos pelas águas quentes do Oceano Índico. Desfrute de snorkeling em águas cristalinas, observação de golfinhos e baleias (consoante a época), visitas a aldeias locais com artesanato e paragem na Ilha Portuguesa.",
     },
     img: pkgInhaca,
+    price: { en: "$180 per person", pt: "$180 por pessoa" },
+    inclusions: {
+      en: ["Boat cruise transfers", "Marine reserve permits", "Snorkeling equipment rental", "Fresh seafood lunch"],
+      pt: ["Transferes de barco", "Licenças da reserva marinha", "Aluguer de equipamento de snorkeling", "Almoço de marisco fresco"],
+    },
   },
   {
     title: {
@@ -159,6 +175,11 @@ const tours = [
       pt: "Conhecido como o parque dos Big 5, localizado a apenas 100 km da cidade de Maputo, o Parque Nacional Kruger é uma das experiências mais emblemáticas da região. O motorista fará a recolha no hotel em Maputo, seguindo pela EN1 e pela fronteira de Ressano Garcia, onde será prestado apoio em todas as formalidades fronteiriças. A aventura de dia completo dentro do parque permite observar a diversidade do ecossistema.",
     },
     img: pkgKruger,
+    price: { en: "$220 per person", pt: "$220 por pessoa" },
+    inclusions: {
+      en: ["Return transport from Maputo", "Professional driver/guide", "Big 5 game drive", "Packed lunch"],
+      pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Safári Big 5", "Almoço embalado"],
+    },
   },
   {
     title: {
@@ -178,6 +199,11 @@ const tours = [
       pt: "A Ponta Day Trip foi concebida para proporcionar aos hóspedes uma escapada de um dia a um dos destinos costeiros mais procurados da região sul de Moçambique. Combinando paisagens naturais, ambiente descontraído e uma forte componente de lazer, esta experiência oferece aos visitantes a oportunidade de desfrutar da beleza de Ponta do Ouro.",
     },
     img: pkgPonta,
+    price: { en: "$95 per person", pt: "$95 por pessoa" },
+    inclusions: {
+      en: ["Return transport from Maputo", "Professional guide", "Beach access & leisure time", "Lunch at local restaurant"],
+      pt: ["Transporte de ida e volta a partir de Maputo", "Guia profissional", "Acesso à praia e tempo livre", "Almoço em restaurante local"],
+    },
   },
   {
     title: {
@@ -197,6 +223,11 @@ const tours = [
       pt: "Explore o melhor de eSwatini numa excursão cultural de dia inteiro com saída de Maputo ao amanhecer e regresso ao início da noite. A experiência inicia-se no Manzini Market e no Mantenga Craft & Lifestyle Centre, ideais para contacto com artesanato e joalharia Siswati, seguindo para o Mantenga Cultural Village, onde se descobre a história e tradições locais.",
     },
     img: pkgEswatini,
+    price: { en: "$145 per person", pt: "$145 por pessoa" },
+    inclusions: {
+      en: ["Round-trip transport from Maputo", "Professional driver/guide", "Mantenga Village entry fee", "Traditional lunch"],
+      pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Entrada na Aldeia de Mantenga", "Almoço tradicional"],
+    },
   },
 ];
 
@@ -598,19 +629,59 @@ function Home() {
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                       />
                     </div>
-                    <div className="p-7 flex-1 flex flex-col">
-                      <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
-                        <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3" /> {tour.location[lang]}</span>
-                        <span>·</span>
-                        <span>{tour.duration[lang]}</span>
+                    <div className="p-6 flex-1 flex flex-col justify-between">
+                      <div>
+                        {/* Meta */}
+                        <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
+                          <span className="inline-flex items-center gap-1">
+                            <MapPin className="w-3.5 h-3.5 text-accent" /> {tour.location[lang]}
+                          </span>
+                          <span>·</span>
+                          <span className="inline-flex items-center gap-1">
+                            <Clock className="w-3.5 h-3.5 text-accent" /> {tour.duration[lang]}
+                          </span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-xl font-bold text-ink mb-3 line-clamp-1">{tour.title[lang]}</h3>
+
+                        {/* Description — 5-line clamp + Read more link */}
+                        <p className="text-sm text-ink-soft leading-relaxed line-clamp-5 mb-1">{tour.desc[lang]}</p>
+                        <Link
+                          to="/packages"
+                          className="text-xs font-semibold text-accent hover:underline mb-4 inline-block"
+                        >
+                          {t("Read more", "Ler mais")} →
+                        </Link>
+
+                        {/* Price */}
+                        <div className="flex items-baseline gap-2 mb-4 pb-4 border-b border-border/40">
+                          <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
+                          <span className="text-xl font-bold text-accent">{tour.price[lang]}</span>
+                        </div>
+
+                        {/* Top 3 inclusions */}
+                        <div className="mb-5">
+                          <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
+                            {t("Includes:", "Inclui:")}
+                          </span>
+                          <ul className="space-y-1.5">
+                            {tour.inclusions[lang].slice(0, 3).map((inc) => (
+                              <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                                <span className="truncate">{inc}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <h3 className="text-xl mb-3">{tour.title[lang]}</h3>
-                      <p className="text-base text-ink-soft leading-relaxed flex-1">{tour.desc[lang]}</p>
+
+                      {/* CTA */}
                       <Link
                         to="/packages"
-                        className="mt-6 inline-flex items-center gap-2 text-base font-bold text-accent border-b border-accent pb-1 w-fit"
+                        className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg text-sm tracking-wider uppercase transition-colors text-center block"
                       >
-                        {t("SEE MORE", "VER MAIS")}
+                        {t("Inquire Now", "Pedir Informações")}
                       </Link>
                     </div>
                   </article>
