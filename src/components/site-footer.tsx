@@ -8,7 +8,7 @@ const QUICK_LINKS = [
   { label: "Products & Services", to: "/", hash: "services" },
   { label: "Activities", to: "/", hash: "activities" },
   { label: "Special Packages", to: "/packages" },
-  { label: "Contact Us", to: "/", hash: "quote" },
+  { label: "Contact Us", to: "/", hash: "contact" },
 ];
 
 const SERVICES_LINKS = [
@@ -62,15 +62,15 @@ export function SiteFooter() {
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </span>
-                <span className="pt-1.5">Av. Tomás Nduda, No. 942, 1st floor · Maputo, Mozambique</span>
+                <span className="pt-1.5">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar · Maputo, Mozambique</span>
               </li>
               <li className="flex gap-3">
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center mt-1">
                   <Phone className="w-4 h-4" />
                 </span>
                 <span>
-                  Office: +258 21 487 399<br />
-                  Mobile: +258 82 940 7360
+                  Mobile: +258 84 438 3501<br />
+                  Emergency: +258 87 402 6626
                 </span>
               </li>
               <li className="flex gap-3 items-center">
@@ -123,7 +123,7 @@ export function SiteFooter() {
             <p className="text-sm text-white/80 mb-4">
               24/7 Emergency Support Line for our travellers currently on the ground.
             </p>
-            <div className="text-lg font-bold">+258 87 402 6625 (emergency)</div>
+            <div className="text-lg font-bold">+258 87 402 6626 (emergency)</div>
             <div className="mt-6 flex items-center gap-4">
               <img src="/logos/iata.svg" alt="IATA Certified" className="h-16 w-auto" />
               <div className="text-xs text-white/60 leading-relaxed">

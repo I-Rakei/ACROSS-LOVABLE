@@ -57,28 +57,28 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     icon: Briefcase,
-    title: { en: "Business Travel", pt: "Viagens de Negócios" },
+    title: { en: "Corporate Travel", pt: "Viagens Corporativas" },
     desc: {
-      en: "Comprehensive corporate travel services designed to support companies, groups, business enterprises, and executives.",
-      pt: "Serviços abrangentes de viagens corporativas concebidos para apoiar empresas, grupos e executivos.",
+      en: "Complete corporate travel services designed to support companies, executives, and organized business groups.",
+      pt: "Serviços completos de viagens corporativas concebidos para apoiar empresas, executivos e grupos empresariais organizados.",
     },
     img: serviceBusiness,
   },
   {
     icon: Compass,
-    title: { en: "Africa Holiday", pt: "Férias em África" },
+    title: { en: "Holiday Packages", pt: "Pacotes para Férias" },
     desc: {
-      en: "Authentic leisure experiences, designed with deep local knowledge and full flexibility",
-      pt: "Experiências de lazer autênticas, desenhadas com profundo conhecimento local e flexibilidade.",
+      en: "Authentic travel experiences, developed with deep local knowledge and high flexibility.",
+      pt: "Experiências de viagem autênticas, desenvolvidas com profundo conhecimento local e elevada flexibilidade.",
     },
     img: serviceHoliday,
   },
   {
     icon: Car,
-    title: { en: "Transport Logistics", pt: "Logística de Transporte" },
+    title: { en: "Transport & Logistics", pt: "Transporte & Logística" },
     desc: {
-      en: "Integrated ground transportation and mobility solutions, ensuring reliability, safety, and operational efficiency.",
-      pt: "Soluções integradas de transporte terrestre e mobilidade, garantindo fiabilidade e segurança.",
+      en: "Integrated ground mobility solutions, ensuring reliability, safety, and operational efficiency.",
+      pt: "Soluções integradas de mobilidade terrestre, garantindo fiabilidade, segurança e eficiência operacional.",
     },
     img: serviceTransport,
   },
@@ -463,7 +463,7 @@ function Home() {
               </p>
               <div className="mt-8">
                 <a
-                  href="#quote"
+                  href="#contact"
                   className="inline-flex items-center justify-center bg-accent text-white px-6 sm:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base tracking-widest hover:bg-accent/95 transition rounded-lg"
                 >
                   {t("GET IN TOUCH", "ENTRAR EM CONTACTO")}
@@ -536,7 +536,7 @@ function Home() {
             {[
               {
                 icon: Award,
-                label: t("Value Added", "Valor Acrescentado"),
+                label: t("Added Value", "Valor Acrescentado"),
                 text: t("Relationship based on competitiveness, expressing to the customer the satisfaction and the most attainable value for money.", "Relação baseada na competitividade, oferecendo ao cliente a máxima satisfação e a melhor relação custo-benefício."),
               },
               {
@@ -565,7 +565,7 @@ function Home() {
         <div className="container-x">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <Reveal>
-              <div className="eyebrow mb-4">{t("Leisure & Business Travel Solutions", "Soluções de Viagem Corporativa e de Lazer")}</div>
+              <div className="eyebrow mb-4">{t("Products & Services", "Produtos & Serviços")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
                 {t("Our services are delivered through 3 business units", "Os nossos serviços dividem-se em 3 unidades de negócios")}
               </h2>
@@ -670,11 +670,11 @@ function Home() {
       </section>
 
       {/* FEATURED TOURS */}
-      <section id="packages" className="py-20 bg-background">
+      <section id="activities" className="py-20 bg-background">
         <div className="container-x">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <Reveal>
-              <div className="eyebrow mb-4">{t("Featured Tours", "Visitas em Destaque")}</div>
+              <div className="eyebrow mb-4">{t("Activities", "Actividades")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
                 {t("Handpicked experiences across Mozambique", "Experiências seleccionadas em Moçambique")}
               </h2>
@@ -879,10 +879,10 @@ function Home() {
       </section>
 
       {/* QUOTE FORM */}
-      <section id="quote" className="py-20 bg-background text-foreground">
+      <section id="contact" className="py-20 bg-background text-foreground">
         <div className="container-x grid lg:grid-cols-2 gap-16">
           <Reveal>
-            <div className="eyebrow mb-4">{t("Contact", "Contacto")}</div>
+            <div className="eyebrow mb-4">{t("Contact Us", "Contacte-nos")}</div>
             <h2 className="text-4xl lg:text-5xl leading-tight mb-6">
               {t("Tell Us About Your Trip", "Conte-nos Sobre a Sua Viagem")}
             </h2>
@@ -897,7 +897,7 @@ function Home() {
                 <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold text-ink">{t("Address", "Endereço")}</div>
-                  <div className="text-ink-soft">Av. Tomás Nduda, Nº 942, 1º andar, Maputo - Mozambique</div>
+                  <div className="text-ink-soft">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar, Maputo - Mozambique</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -905,9 +905,8 @@ function Home() {
                 <div>
                   <div className="font-semibold text-ink">{t("Phone & WhatsApp", "Telefone & WhatsApp")}</div>
                   <div className="text-ink-soft">
-                    {t("Office", "Escritório")}: +258 21 487 399<br />
-                    {t("Mobile", "Telemóvel")}: +258 82 940 7360<br />
-                    {t("Emergency", "Emergência")}: +258 87 402 6625
+                    {t("Mobile", "Telemóvel")}: +258 84 438 3501<br />
+                    {t("Emergency", "Emergência")}: +258 87 402 6626
                   </div>
                 </div>
               </div>

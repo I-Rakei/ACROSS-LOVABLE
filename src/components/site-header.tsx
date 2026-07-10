@@ -5,11 +5,11 @@ import { useLanguage } from "@/components/language-provider";
 
 const NAV = [
   { label: "Home", to: "/", hash: "top" },
-  { label: "About", to: "/", hash: "about" },
-  { label: "Services", to: "/", hash: "services" },
+  { label: "About Us", to: "/", hash: "about" },
+  { label: "Products & Services", to: "/", hash: "services" },
   { label: "Activities", to: "/", hash: "activities" },
-  { label: "Packages", to: "/packages" },
-  { label: "Contact", to: "/", hash: "contact" },
+  { label: "Special Packages", to: "/packages" },
+  { label: "Contact Us", to: "/", hash: "contact" },
 ];
 
 export function SiteHeader() {
@@ -47,16 +47,16 @@ export function SiteHeader() {
               key={n.label}
               to={n.to}
               hash={n.hash}
-              className={`px-4 py-2 text-base font-medium transition ${
+              className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition ${
                 scrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
               }`}
             >
               {n.label === "Home" ? (lang === "en" ? "Home" : "Início") :
-               n.label === "About" ? (lang === "en" ? "About" : "Sobre Nós") :
-               n.label === "Services" ? (lang === "en" ? "Services" : "Serviços") :
+               n.label === "About Us" ? (lang === "en" ? "About Us" : "Sobre Nós") :
+               n.label === "Products & Services" ? (lang === "en" ? "Products & Services" : "Produtos & Serviços") :
                n.label === "Activities" ? (lang === "en" ? "Activities" : "Actividades") :
-               n.label === "Packages" ? (lang === "en" ? "Packages" : "Pacotes") :
-               n.label === "Contact" ? (lang === "en" ? "Contact" : "Contacto") : n.label}
+               n.label === "Special Packages" ? (lang === "en" ? "Special Packages" : "Pacotes Especiais") :
+               n.label === "Contact Us" ? (lang === "en" ? "Contact Us" : "Contacte-nos") : n.label}
             </Link>
           ))}
         </nav>
@@ -96,7 +96,7 @@ export function SiteHeader() {
 
           <a
             href="#portal"
-            className={`inline-flex items-center gap-2 px-4 py-2 text-base font-semibold transition-all duration-300 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all duration-300 ${
               scrolled
                 ? "text-foreground hover:text-accent"
                 : "text-white/90 hover:text-white"
@@ -128,11 +128,11 @@ export function SiteHeader() {
                 className="py-3 text-foreground font-medium border-b border-border"
               >
                 {n.label === "Home" ? (lang === "en" ? "Home" : "Início") :
-                 n.label === "About" ? (lang === "en" ? "About" : "Sobre Nós") :
-                 n.label === "Services" ? (lang === "en" ? "Services" : "Serviços") :
+                 n.label === "About Us" ? (lang === "en" ? "About Us" : "Sobre Nós") :
+                 n.label === "Products & Services" ? (lang === "en" ? "Products & Services" : "Produtos & Serviços") :
                  n.label === "Activities" ? (lang === "en" ? "Activities" : "Actividades") :
-                 n.label === "Packages" ? (lang === "en" ? "Packages" : "Pacotes") :
-                 n.label === "Contact" ? (lang === "en" ? "Contact" : "Contacto") : n.label}
+                 n.label === "Special Packages" ? (lang === "en" ? "Special Packages" : "Pacotes Especiais") :
+                 n.label === "Contact Us" ? (lang === "en" ? "Contact Us" : "Contacte-nos") : n.label}
               </Link>
             ))}
             
