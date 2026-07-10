@@ -183,6 +183,95 @@ const packages = [
   },
 ];
 
+interface PackageType {
+  title: { en: string; pt: string };
+  duration: { en: string; pt: string };
+  location: { en: string; pt: string };
+  desc: { en: string; pt: string };
+  img: string;
+  inclusions: { en: string[]; pt: string[] };
+  price: { en: string; pt: string };
+}
+
+function PackageCard({
+  pkg,
+  lang,
+  handleSelectPackage,
+  t,
+}: {
+  pkg: PackageType;
+  lang: "en" | "pt";
+  handleSelectPackage: (title: string) => void;
+  t: (en: string, pt: string) => string;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <article className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
+      <div className="aspect-[4/3] overflow-hidden">
+        <img 
+          src={pkg.img} 
+          alt={pkg.title[lang]} 
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div className="p-7 flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-accent" /> {pkg.location[lang]}
+            </span>
+            <span>·</span>
+            <span className="inline-flex items-center gap-1">
+              <Clock className="w-3.5 h-3.5 text-accent" /> {pkg.duration[lang]}
+            </span>
+          </div>
+          <h2 className="text-xl font-bold text-ink mb-3 line-clamp-1">{pkg.title[lang]}</h2>
+          
+          <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
+            {pkg.desc[lang]}
+          </p>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-xs font-semibold text-accent hover:underline mb-4 inline-block text-left"
+          >
+            {isExpanded ? t("Read less", "Ler menos") + " ←" : t("Read more", "Ler mais") + " →"}
+          </button>
+          
+          {/* Price displayed in card body */}
+          <div className="flex items-baseline gap-2 mb-5 pb-4 border-b border-border/40">
+            <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
+            <span className="text-xl font-bold text-accent">{pkg.price[lang]}</span>
+          </div>
+
+          {/* Inclusions summary list */}
+          <div className="mb-6">
+            <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
+              {t("Includes:", "Inclui:")}
+            </span>
+            <ul className="space-y-1.5">
+              {pkg.inclusions[lang].slice(0, 3).map((inc) => (
+                <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                  <span className="truncate">{inc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <button 
+          onClick={() => handleSelectPackage(pkg.title[lang])}
+          className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3.5 rounded-lg text-base tracking-wider uppercase transition-colors text-center"
+        >
+          {t("Inquire Now", "Pedir Informações")}
+        </button>
+      </div>
+    </article>
+  );
+}
+
 function PackagesPage() {
   const [selectedPackage, setSelectedPackage] = useState("");
   const { t, lang } = useLanguage();
@@ -225,59 +314,12 @@ function PackagesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packages.map((pkg, i) => (
               <Reveal key={pkg.title.en} delay={i * 0.1}>
-                <article className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={pkg.img} 
-                      alt={pkg.title[lang]} 
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-7 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
-                        <span className="inline-flex items-center gap-1">
-                          <MapPin className="w-3.5 h-3.5 text-accent" /> {pkg.location[lang]}
-                        </span>
-                        <span>·</span>
-                        <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-accent" /> {pkg.duration[lang]}
-                        </span>
-                      </div>
-                      <h2 className="text-xl font-bold text-ink mb-3 line-clamp-1">{pkg.title[lang]}</h2>
-                      <p className="text-base text-ink-soft leading-relaxed line-clamp-3 mb-4">{pkg.desc[lang]}</p>
-                      
-                      {/* Price displayed in card body */}
-                      <div className="flex items-baseline gap-2 mb-5 pb-4 border-b border-border/40">
-                        <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
-                        <span className="text-xl font-bold text-accent">{pkg.price[lang]}</span>
-                      </div>
-
-                      {/* Inclusions summary list */}
-                      <div className="mb-6">
-                        <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
-                          {t("Includes:", "Inclui:")}
-                        </span>
-                        <ul className="space-y-1.5">
-                          {pkg.inclusions[lang].slice(0, 3).map((inc) => (
-                            <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
-                              <span className="truncate">{inc}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    <button 
-                      onClick={() => handleSelectPackage(pkg.title[lang])}
-                      className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3.5 rounded-lg text-base tracking-wider uppercase transition-colors text-center"
-                    >
-                      {t("Inquire Now", "Pedir Informações")}
-                    </button>
-                  </div>
-                </article>
+                <PackageCard
+                  pkg={pkg}
+                  lang={lang}
+                  handleSelectPackage={handleSelectPackage}
+                  t={t}
+                />
               </Reveal>
             ))}
           </div>

@@ -285,6 +285,98 @@ const SLIDES = [
   },
 ];
 
+interface TourType {
+  title: { en: string; pt: string };
+  duration: { en: string; pt: string };
+  location: { en: string; pt: string };
+  desc: { en: string; pt: string };
+  img: string;
+  price: { en: string; pt: string };
+  inclusions: { en: string[]; pt: string[] };
+}
+
+function FeaturedTourCard({
+  tour,
+  lang,
+  t,
+}: {
+  tour: TourType;
+  lang: "en" | "pt";
+  t: (en: string, pt: string) => string;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <article className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
+      <div className="aspect-[4/3] overflow-hidden">
+        <img
+          src={tour.img}
+          alt={tour.title[lang]}
+          loading="lazy"
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        />
+      </div>
+      <div className="p-6 flex-1 flex flex-col justify-between">
+        <div>
+          {/* Meta */}
+          <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-accent" /> {tour.location[lang]}
+            </span>
+            <span>·</span>
+            <span className="inline-flex items-center gap-1">
+              <Clock className="w-3.5 h-3.5 text-accent" /> {tour.duration[lang]}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-bold text-ink mb-3 line-clamp-1">{tour.title[lang]}</h3>
+
+          {/* Description — 5-line clamp + Read more toggle in place */}
+          <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
+            {tour.desc[lang]}
+          </p>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-xs font-semibold text-accent hover:underline mb-4 inline-block text-left"
+          >
+            {isExpanded ? t("Read less", "Ler menos") + " ←" : t("Read more", "Ler mais") + " →"}
+          </button>
+
+          {/* Price */}
+          <div className="flex items-baseline gap-2 mb-4 pb-4 border-b border-border/40">
+            <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
+            <span className="text-xl font-bold text-accent">{tour.price[lang]}</span>
+          </div>
+
+          {/* Top 3 inclusions */}
+          <div className="mb-5">
+            <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
+              {t("Includes:", "Inclui:")}
+            </span>
+            <ul className="space-y-1.5">
+              {tour.inclusions[lang].slice(0, 3).map((inc) => (
+                <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                  <span className="truncate">{inc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <Link
+          to="/packages"
+          className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg text-sm tracking-wider uppercase transition-colors text-center block"
+        >
+          {t("Inquire Now", "Pedir Informações")}
+        </Link>
+      </div>
+    </article>
+  );
+}
+
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [tourIndex, setTourIndex] = useState(0);
@@ -620,71 +712,11 @@ function Home() {
                   key={tour.title.en} 
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
                 >
-                  <article className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={tour.img}
-                        alt={tour.title[lang]}
-                        loading="lazy"
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-                    <div className="p-6 flex-1 flex flex-col justify-between">
-                      <div>
-                        {/* Meta */}
-                        <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
-                          <span className="inline-flex items-center gap-1">
-                            <MapPin className="w-3.5 h-3.5 text-accent" /> {tour.location[lang]}
-                          </span>
-                          <span>·</span>
-                          <span className="inline-flex items-center gap-1">
-                            <Clock className="w-3.5 h-3.5 text-accent" /> {tour.duration[lang]}
-                          </span>
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-xl font-bold text-ink mb-3 line-clamp-1">{tour.title[lang]}</h3>
-
-                        {/* Description — 5-line clamp + Read more link */}
-                        <p className="text-sm text-ink-soft leading-relaxed line-clamp-5 mb-1">{tour.desc[lang]}</p>
-                        <Link
-                          to="/packages"
-                          className="text-xs font-semibold text-accent hover:underline mb-4 inline-block"
-                        >
-                          {t("Read more", "Ler mais")} →
-                        </Link>
-
-                        {/* Price */}
-                        <div className="flex items-baseline gap-2 mb-4 pb-4 border-b border-border/40">
-                          <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
-                          <span className="text-xl font-bold text-accent">{tour.price[lang]}</span>
-                        </div>
-
-                        {/* Top 3 inclusions */}
-                        <div className="mb-5">
-                          <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
-                            {t("Includes:", "Inclui:")}
-                          </span>
-                          <ul className="space-y-1.5">
-                            {tour.inclusions[lang].slice(0, 3).map((inc) => (
-                              <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
-                                <span className="truncate">{inc}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      {/* CTA */}
-                      <Link
-                        to="/packages"
-                        className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg text-sm tracking-wider uppercase transition-colors text-center block"
-                      >
-                        {t("Inquire Now", "Pedir Informações")}
-                      </Link>
-                    </div>
-                  </article>
+                  <FeaturedTourCard
+                    tour={tour}
+                    lang={lang}
+                    t={t}
+                  />
                 </div>
               ))}
             </div>
