@@ -22,13 +22,32 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 
-import heroImg from "@/assets/hero-mozambique.jpg";
-import mafalalaImg from "@/assets/tour-mafalala.jpg";
-import eswatiniImg from "@/assets/tour-eswatini.jpg";
-import maputoImg from "@/assets/tour-maputo.jpg";
-import transferImg from "@/assets/service-transfer.jpg";
-import corporateImg from "@/assets/service-corporate.jpg";
-import holidayImg from "@/assets/service-holiday.jpg";
+// Hero Images
+import hero1 from "@/assets/Across/Hero images/hero 1.jpg";
+import hero2 from "@/assets/Across/Hero images/hero 2.jpg";
+import hero3 from "@/assets/Across/Hero images/hero 3.jpg";
+
+// Leisure & Business Travel Solutions
+import serviceBusiness from "@/assets/Across/Leisure & Business Travel Solutions/Business Travel.png";
+import serviceHoliday from "@/assets/Across/Leisure & Business Travel Solutions/Africa Holiday.jpg";
+import serviceTransport from "@/assets/Across/Leisure & Business Travel Solutions/Transport Logistics.jpg";
+
+// Special Packages Images
+import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
+import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.webp";
+import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.jpg";
+import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
+import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
+import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.jpg";
+
+// Facts Image
+import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-location-map-flag-pin.avif";
+
+// Why Choose Us Background
+import whyChooseUsImg from "@/assets/Across/Why choose US/why choose us.jpg";
+
+// Visa Section Image
+import visaImg from "@/assets/Across/VISA/Image.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -42,7 +61,7 @@ const services = [
       en: "Comprehensive corporate travel services designed to support companies, groups, business enterprises, and executives.",
       pt: "Serviços abrangentes de viagens corporativas concebidos para apoiar empresas, grupos e executivos.",
     },
-    img: corporateImg,
+    img: serviceBusiness,
   },
   {
     icon: Compass,
@@ -51,7 +70,7 @@ const services = [
       en: "Authentic leisure experiences, designed with deep local knowledge and full flexibility",
       pt: "Experiências de lazer autênticas, desenhadas com profundo conhecimento local e flexibilidade.",
     },
-    img: holidayImg,
+    img: serviceHoliday,
   },
   {
     icon: Car,
@@ -60,11 +79,30 @@ const services = [
       en: "Integrated ground transportation and mobility solutions, ensuring reliability, safety, and operational efficiency.",
       pt: "Soluções integradas de transporte terrestre e mobilidade, garantindo fiabilidade e segurança.",
     },
-    img: transferImg,
+    img: serviceTransport,
   },
 ];
 
 const tours = [
+  {
+    title: {
+      en: "Maputo City Tour",
+      pt: "Passeio pela Cidade de Maputo",
+    },
+    duration: {
+      en: "5 Hours",
+      pt: "5 Horas",
+    },
+    location: {
+      en: "Maputo, Mozambique",
+      pt: "Maputo, Moçambique",
+    },
+    desc: {
+      en: "Maputo, formerly known as the City of Acacias, is the capital and largest city of Mozambique. With a vibrant cultural scene and striking architecture, this experience provides visitors with a structured insight into the city. Lunch, consisting of piri-piri chicken or seafood, will be served at one of the city's finest coastal restaurants, accompanied by the famous Mozambican 2M beer.",
+      pt: "Maputo, anteriormente conhecida como a Cidade das Acácias, é a capital e maior cidade de Moçambique. Com uma cena cultural vibrante e uma arquitectura marcante, esta experiência proporciona aos visitantes uma leitura estruturada da cidade. O almoço, composto por frango piri-piri ou marisco, será servido num dos melhores restaurantes costeiros da cidade, acompanhado pela cerveja moçambicana 2M.",
+    },
+    img: pkgMaputo,
+  },
   {
     title: {
       en: "Mafalala Walking Tour",
@@ -79,11 +117,67 @@ const tours = [
       pt: "Maputo, Moçambique",
     },
     desc: {
-      en: "Discover Mafalala, one of Maputo's oldest and most emblematic neighbourhoods, through an immersive cultural experience guided by local residents.",
-      pt: "Descubra a Mafalala, um dos bairros mais antigos e emblemáticos de Maputo, através de uma experiência cultural imersiva guiada por residentes locais.",
+      en: "The Mafalala tour is a 3-hour visit to one of the oldest, most iconic and historic neighborhoods of Maputo. Led by local guides, this experience tells the story of Maputo's evolution since the colonial period, when the city was still called Lourenço Marques, and contextualizes Mozambique's independence struggle.",
+      pt: "O tour Mafalala é uma visita de 3 horas a um dos bairros mais antigos, emblemáticos e históricos da cidade de Maputo. Conduzida por guias locais, esta experiência conta a evolução de Maputo desde o período colonial, quando a cidade ainda se chamava Lourenço Marques, e contextualiza a luta pela independência de Moçambique.",
     },
-    img: mafalalaImg,
-    bgColor: "bg-[#F39C12]",
+    img: pkgMafalala,
+  },
+  {
+    title: {
+      en: "Santa Maria and Inhaca Island Day Trip",
+      pt: "Excursão à Ilha da Inhaca e Santa Maria",
+    },
+    duration: {
+      en: "Full Day",
+      pt: "Dia Inteiro",
+    },
+    location: {
+      en: "Inhaca Island, Mozambique",
+      pt: "Ilha da Inhaca, Moçambique",
+    },
+    desc: {
+      en: "This full-day excursion takes you to discover two of the most iconic and preserved destinations in the Maputo region, surrounded by the warm waters of the Indian Ocean. Enjoy snorkeling in crystal clear waters, dolphin and whale watching (season dependent), local village visits with traditional crafts, and a beautiful stop at Portuguese Island.",
+      pt: "Esta excursão de dia inteiro leva-o a descobrir dois dos destinos mais emblemáticos e preservados da região de Maputo, envoltos pelas águas quentes do Oceano Índico. Desfrute de snorkeling em águas cristalinas, observação de golfinhos e baleias (consoante a época), visitas a aldeias locais com artesanato e paragem na Ilha Portuguesa.",
+    },
+    img: pkgInhaca,
+  },
+  {
+    title: {
+      en: "Kruger National Park Day Trip",
+      pt: "Excursão de um Dia ao Parque Kruger",
+    },
+    duration: {
+      en: "Full Day",
+      pt: "Dia Inteiro",
+    },
+    location: {
+      en: "South Africa",
+      pt: "África do Sul",
+    },
+    desc: {
+      en: "Known as the home of the Big 5, located just 100 km from Maputo, Kruger National Park is one of the region's most iconic experiences. Our driver will collect you from your Maputo hotel, traveling along the EN1 and through the Ressano Garcia border, where assistance with border formalities is provided. The adventure inside the park lets you observe a diverse ecosystem, flora, fauna, and the Big 5.",
+      pt: "Conhecido como o parque dos Big 5, localizado a apenas 100 km da cidade de Maputo, o Parque Nacional Kruger é uma das experiências mais emblemáticas da região. O motorista fará a recolha no hotel em Maputo, seguindo pela EN1 e pela fronteira de Ressano Garcia, onde será prestado apoio em todas as formalidades fronteiriças. A aventura de dia completo dentro do parque permite observar a diversidade do ecossistema.",
+    },
+    img: pkgKruger,
+  },
+  {
+    title: {
+      en: "Ponta D'ouro Day Trip",
+      pt: "Excursão de um Dia à Ponta D'ouro",
+    },
+    duration: {
+      en: "Full Day",
+      pt: "Dia Inteiro",
+    },
+    location: {
+      en: "Ponta D'ouro, Mozambique",
+      pt: "Ponta D'ouro, Moçambique",
+    },
+    desc: {
+      en: "The Ponta Day Trip is designed to offer guests a one-day escape to one of the most sought-after coastal destinations in southern Mozambique. Combining natural landscapes, a relaxed atmosphere, and leisure, this experience offers visitors the chance to enjoy the beauty of Ponta do Ouro, known for its beaches, crystal clear waters, and vibrant atmosphere.",
+      pt: "A Ponta Day Trip foi concebida para proporcionar aos hóspedes uma escapada de um dia a um dos destinos costeiros mais procurados da região sul de Moçambique. Combinando paisagens naturais, ambiente descontraído e uma forte componente de lazer, esta experiência oferece aos visitantes a oportunidade de desfrutar da beleza de Ponta do Ouro.",
+    },
+    img: pkgPonta,
   },
   {
     title: {
@@ -99,77 +193,16 @@ const tours = [
       pt: "Eswatini",
     },
     desc: {
-      en: "Depart from Maputo at dawn and enjoy a structured immersion into the cultural heritage of Eswatini.",
-      pt: "Parta de Maputo ao amanhecer e desfrute de uma imersão estruturada no património cultural de Eswatini.",
+      en: "Explore the best of Eswatini in a full-day cultural tour departing Maputo at dawn and returning in the early evening. The experience starts at Manzini Market and the Mantenga Craft & Lifestyle Centre, ideal for Siswati crafts and jewelry, followed by the Mantenga Cultural Village to discover local history and traditions with a traditional dance performance.",
+      pt: "Explore o melhor de eSwatini numa excursão cultural de dia inteiro com saída de Maputo ao amanhecer e regresso ao início da noite. A experiência inicia-se no Manzini Market e no Mantenga Craft & Lifestyle Centre, ideais para contacto com artesanato e joalharia Siswati, seguindo para o Mantenga Cultural Village, onde se descobre a história e tradições locais.",
     },
-    img: eswatiniImg,
-    bgColor: "bg-[#E74C3C]",
-  },
-  {
-    title: {
-      en: "Maputo City Tour",
-      pt: "Passeio pela Cidade de Maputo",
-    },
-    duration: {
-      en: "5 Hours",
-      pt: "5 Horas",
-    },
-    location: {
-      en: "Maputo, Mozambique",
-      pt: "Maputo, Moçambique",
-    },
-    desc: {
-      en: "Once known as the Acacia City, Maputo — formerly Lourenço Marques — is the capital and cultural heart of Mozambique.",
-      pt: "Outrora conhecida como a Cidade das Acácias, Maputo — anteriormente Lourenço Marques — é a capital e o coração cultural de Moçambique.",
-    },
-    img: maputoImg,
-    bgColor: "bg-[#F1C40F]",
-  },
-  {
-    title: {
-      en: "Inhaca Island Day Trip",
-      pt: "Excursão de um Dia à Ilha da Inhaca",
-    },
-    duration: {
-      en: "Full Day",
-      pt: "Dia Inteiro",
-    },
-    location: {
-      en: "Inhaca Island, Mozambique",
-      pt: "Ilha da Inhaca, Moçambique",
-    },
-    desc: {
-      en: "Embark on a pristine boat cruise to Inhaca Island to explore marine life, white sands, and local coral reefs.",
-      pt: "Embarque num cruzeiro de barco imaculado para a Ilha da Inhaca para explorar a vida marinha, areias brancas e recifes de coral locais.",
-    },
-    img: holidayImg,
-    bgColor: "bg-[#1ABC9C]",
-  },
-  {
-    title: {
-      en: "Chiloane Island Escape",
-      pt: "Refúgio na Ilha de Chiloane",
-    },
-    duration: {
-      en: "2 Days",
-      pt: "2 Dias",
-    },
-    location: {
-      en: "Sofala, Mozambique",
-      pt: "Sofala, Moçambique",
-    },
-    desc: {
-      en: "A remote island getaway featuring local dhow excursions, pristine sandy beaches, and authentic island community life.",
-      pt: "Um refúgio numa ilha remota com excursões de dhow locais, praias de areia intocadas e vida comunitária autêntica da ilha.",
-    },
-    img: heroImg,
-    bgColor: "bg-[#9B59B6]",
+    img: pkgEswatini,
   },
 ];
 
 const SLIDES = [
   {
-    image: heroImg,
+    image: hero1,
     titleEn: (
       <>
         Business and Leisure<br />
@@ -186,7 +219,7 @@ const SLIDES = [
     descPt: "Desenho, gestão e execução de soluções integradas de viagens e logística em Moçambique, África e em todo o mundo.",
   },
   {
-    image: maputoImg,
+    image: hero2,
     titleEn: (
       <>
         Explore Authentic<br />
@@ -203,7 +236,7 @@ const SLIDES = [
     descPt: "Experimente pacotes personalizados, visitas culturais guiadas e belas paisagens africanas com guias locais experientes.",
   },
   {
-    image: holidayImg,
+    image: hero3,
     titleEn: (
       <>
         Tailor-Made<br />
@@ -301,13 +334,13 @@ function Home() {
               <h1 className="text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight">
                 {lang === "en" ? SLIDES[currentSlide].titleEn : SLIDES[currentSlide].titlePt}
               </h1>
-              <p className="mt-8 max-w-xl text-lg text-white leading-relaxed">
+              <p className="mt-8 max-w-xl text-base sm:text-lg text-white leading-relaxed">
                 {lang === "en" ? SLIDES[currentSlide].descEn : SLIDES[currentSlide].descPt}
               </p>
               <div className="mt-8">
                 <a
                   href="#quote"
-                  className="inline-flex items-center justify-center bg-accent text-white px-8 py-4 font-bold text-base tracking-widest hover:bg-accent/95 transition rounded-lg"
+                  className="inline-flex items-center justify-center bg-accent text-white px-6 sm:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base tracking-widest hover:bg-accent/95 transition rounded-lg"
                 >
                   {t("GET IN TOUCH", "ENTRAR EM CONTACTO")}
                 </a>
@@ -429,7 +462,7 @@ function Home() {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/60 to-transparent" />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <s.icon className="w-8 h-8 text-accent mb-4" />
+                    <s.icon className="w-8 h-8 text-white mb-4" />
                     <h3 className="text-2xl mb-2 text-white">{s.title[lang]}</h3>
                     <p className="text-white text-base leading-relaxed">{s.desc[lang]}</p>
                   </div>
@@ -441,16 +474,7 @@ function Home() {
       </section>
 
       {/* PRODUCTS & SERVICES DETAILS */}
-      <section id="services-details" className="relative py-20 text-white overflow-hidden">
-        {/* Background Image covering 100% */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${holidayImg})` }}
-          aria-hidden="true"
-        />
-        {/* Linear gradient shadow overlay — transparent on top, fading to brand blue/ink at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-blue/90 to-ink/95 z-0" aria-hidden="true" />
-
+      <section id="services-details" className="relative py-20 text-white overflow-hidden bg-brand-blue">
         <div className="relative container-x z-10">
           <Reveal>
             <div className="eyebrow !text-white mb-4">{t("Our Products & Services", "Os Nossos Produtos & Serviços")}</div>
@@ -620,8 +644,8 @@ function Home() {
               <Reveal>
                 <div className="relative">
                   <img 
-                    src={maputoImg} 
-                    alt="Maputo Mozambique sunset view" 
+                    src={factsImg} 
+                    alt="Mozambique location map" 
                     loading="lazy" 
                     className="w-full aspect-[4/5] object-cover rounded-2xl shadow-xl"
                   />
@@ -682,16 +706,59 @@ function Home() {
         </div>
       </section>
 
+      {/* PASSPORT & TRAVEL REQUIREMENTS */}
+      <section className="py-20 bg-background">
+        <div className="container-x">
+          <Reveal>
+            <div className="bg-card border border-border/60 rounded-2xl shadow-sm overflow-hidden grid md:grid-cols-2">
+              {/* Content */}
+              <div className="p-8 lg:p-12 flex flex-col justify-center order-2 md:order-1">
+                <div className="eyebrow mb-4">
+                  {t("Travel Preparation", "Preparação de Viagem")}
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-ink leading-tight mb-5">
+                  {t("Passport & Travel Requirements", "Passaporte e Requisitos de Viagem")}
+                </h2>
+                <p className="text-base text-ink-soft leading-relaxed mb-6">
+                  {t(
+                    "At Across Tour, we believe that seamless travel starts with proper preparation. Keeping your passport and travel documentation current is essential to ensuring a smooth and stress-free journey. As your trusted DMC, we provide expert guidance on visa requirements, entry regulations, and essential travel documentation, allowing you to focus on the experience ahead while we help you navigate the details with confidence.",
+                    "Na Across Tour, acreditamos que uma viagem tranquila começa com uma preparação adequada. Manter o seu passaporte e documentação de viagem actualizados é essencial para garantir uma viagem sem problemas. Como seu DMC de confiança, fornecemos orientação especializada sobre requisitos de visto, regulamentos de entrada e documentação de viagem essencial."
+                  )}
+                </p>
+                <a
+                  href="https://www.visahq.com/mozambique/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition whitespace-nowrap self-start"
+                >
+                  {t("Visa Requirements", "Requisitos de Visto")} →
+                </a>
+              </div>
+
+              {/* Image */}
+              <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[360px] order-1 md:order-2">
+                <img
+                  src={visaImg}
+                  alt="Passport and travel documents"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* WHY CHOOSE US */}
       <section className="relative py-20 text-white overflow-hidden">
-        {/* Background Image covering 100% */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImg})` }}
+        {/* Background Image covering 100% — anchored to top */}
+        <div
+          className="absolute inset-0 bg-cover bg-top"
+          style={{ backgroundImage: `url(${whyChooseUsImg})` }}
           aria-hidden="true"
         />
-        {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-ink/70 z-0" aria-hidden="true" />
+        {/* Blue gradient overlay matching the footer */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/70 via-brand-blue/90 to-ink/95" aria-hidden="true" />
 
         <div className="relative container-x max-w-4xl text-center z-10">
           <Reveal>
@@ -713,12 +780,12 @@ function Home() {
           <Reveal>
             <div className="eyebrow mb-4">{t("Contact", "Contacto")}</div>
             <h2 className="text-4xl lg:text-5xl leading-tight mb-6">
-              {t("Get in Touch With Us", "Entre em Contacto Connosco")}
+              {t("Tell Us About Your Trip", "Conte-nos Sobre a Sua Viagem")}
             </h2>
             <p className="text-ink-soft text-base leading-relaxed mb-10">
               {t(
-                "Feel free to send us a message if you have any questions about our services or would like someone from our office to contact you.",
-                "Não hesite em enviar-nos uma mensagem se tiver alguma dúvida sobre os nossos serviços ou se pretender que o nosso escritório entre em contacto consigo."
+                "Tell us about your trip so we can prepare the best quotation for you.",
+                "Conte-nos sobre a sua viagem para que possamos preparar o melhor orçamento para si."
               )}
             </p>
             <div className="space-y-6 text-sm">

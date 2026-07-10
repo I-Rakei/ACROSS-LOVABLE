@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import footerBg from "@/assets/footer-bg.jpg";
+import footerBg from "@/assets/Across/footer/image.png";
 
 const QUICK_LINKS = [
   { label: "Home", to: "/", hash: "top" },
@@ -28,7 +28,7 @@ export function SiteFooter() {
         style={{ backgroundImage: `url(${footerBg})` }}
         aria-hidden
       />
-      <div className="absolute inset-0 bg-brand-blue/85" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/70 via-brand-blue/90 to-ink/95" aria-hidden />
 
       <div className="relative">
         {/* Top strip: logo + contact quick */}
@@ -56,7 +56,7 @@ export function SiteFooter() {
         {/* Main columns */}
         <div className="container-x py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <h4 className="eyebrow !text-white/70 mb-5">Need Help?</h4>
+            <h4 className="eyebrow !text-white mb-5">Need Help?</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center">
@@ -85,7 +85,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="eyebrow !text-white/70 mb-5">Quick Links</h4>
+            <h4 className="eyebrow !text-white mb-5">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
@@ -102,7 +102,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="eyebrow !text-white/70 mb-5">Services</h4>
+            <h4 className="eyebrow !text-white mb-5">Services</h4>
             <ul className="space-y-3 text-sm">
               {SERVICES_LINKS.map((link) => (
                 <li key={link.label}>
@@ -119,13 +119,13 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="eyebrow !text-white/70 mb-5">Emergency & Certification</h4>
+            <h4 className="eyebrow !text-white mb-5">Emergency & Certification</h4>
             <p className="text-sm text-white/80 mb-4">
               24/7 Emergency Support Line for our travellers currently on the ground.
             </p>
             <div className="text-lg font-bold">+258 87 402 6625 (emergency)</div>
             <div className="mt-6 flex items-center gap-4">
-              <img src="/logos/iata.svg" alt="IATA Certified" className="h-10 w-auto" />
+              <img src="/logos/iata.svg" alt="IATA Certified" className="h-16 w-auto" />
               <div className="text-xs text-white/60 leading-relaxed">
                 Officially<br />IATA accredited<br />agency
               </div>

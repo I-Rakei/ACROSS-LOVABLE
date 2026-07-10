@@ -6,17 +6,46 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 
-import mafalalaImg from "@/assets/tour-mafalala.jpg";
-import eswatiniImg from "@/assets/tour-eswatini.jpg";
-import maputoImg from "@/assets/tour-maputo.jpg";
-import holidayImg from "@/assets/service-holiday.jpg";
-import heroImg from "@/assets/hero-mozambique.jpg";
+import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
+import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.webp";
+import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.jpg";
+import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
+import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
+import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.jpg";
+import pkgHero from "@/assets/Across/Hero images/hero 1.jpg";
 
 export const Route = createFileRoute("/packages")({
   component: PackagesPage,
 });
 
 const packages = [
+  {
+    title: {
+      en: "Maputo City Tour",
+      pt: "Passeio pela Cidade de Maputo",
+    },
+    duration: {
+      en: "5 Hours",
+      pt: "5 Horas",
+    },
+    location: {
+      en: "Maputo, Mozambique",
+      pt: "Maputo, Moçambique",
+    },
+    desc: {
+      en: "Maputo, formerly known as the City of Acacias, is the capital and largest city of Mozambique. With a vibrant cultural scene and striking architecture, this experience provides visitors with a structured insight into the city. Lunch, consisting of piri-piri chicken or seafood, will be served at one of the city's finest coastal restaurants, accompanied by the famous Mozambican 2M beer.",
+      pt: "Maputo, anteriormente conhecida como a Cidade das Acácias, é a capital e maior cidade de Moçambique. Com uma cena cultural vibrante e uma arquitectura marcante, esta experiência proporciona aos visitantes uma leitura estruturada da cidade. O almoço, composto por frango piri-piri ou marisco, será servido num dos melhores restaurantes costeiros da cidade, acompanhado pela cerveja moçambicana 2M.",
+    },
+    img: pkgMaputo,
+    inclusions: {
+      en: ["Private air-conditioned transport", "English/Portuguese speaking guide", "All entrance fees", "Central market guided walk", "Traditional lunch option"],
+      pt: ["Transporte privado com ar condicionado", "Guia fluente em Inglês/Português", "Todas as taxas de entrada", "Caminhada guiada pelo mercado central", "Opção de almoço tradicional"],
+    },
+    price: {
+      en: "$65 per person",
+      pt: "$65 por pessoa",
+    },
+  },
   {
     title: {
       en: "Mafalala Cultural Walking Tour",
@@ -31,10 +60,10 @@ const packages = [
       pt: "Maputo, Moçambique",
     },
     desc: {
-      en: "Discover Mafalala, one of Maputo's oldest and most emblematic neighbourhoods, through an immersive cultural experience guided by local residents. Walk through its historic streets, meet local artisans, and learn about its role in the struggle for independence and cultural heritage.",
-      pt: "Descubra a Mafalala, um dos bairros mais antigos e emblemáticos de Maputo, através de uma experiência cultural imersiva guiada por residentes locais. Caminhe pelas suas ruas históricas, conheça artesãos locais e saiba mais sobre o seu papel na luta pela independência e património cultural.",
+      en: "The Mafalala tour is a 3-hour visit to one of the oldest, most iconic and historic neighborhoods of Maputo. Led by local guides, this experience tells the story of Maputo's evolution since the colonial period, when the city was still called Lourenço Marques, and contextualizes Mozambique's independence struggle.",
+      pt: "O tour Mafalala é uma visita de 3 horas a um dos bairros mais antigos, emblemáticos e históricos da cidade de Maputo. Conduzida por guias locais, esta experiência conta a evolução de Maputo desde o período colonial, quando a cidade ainda se chamava Lourenço Marques, e contextualiza a luta pela independência de Moçambique.",
     },
-    img: mafalalaImg,
+    img: pkgMafalala,
     inclusions: {
       en: ["Local certified guide", "Mafalala museum entry", "Traditional dance performance", "Bottled water"],
       pt: ["Guia local certificado", "Entrada no museu da Mafalala", "Apresentação de dança tradicional", "Água engarrafada"],
@@ -42,6 +71,87 @@ const packages = [
     price: {
       en: "$45 per person",
       pt: "$45 por pessoa",
+    },
+  },
+  {
+    title: {
+      en: "Santa Maria and Inhaca Island Day Trip",
+      pt: "Excursão à Ilha da Inhaca e Santa Maria",
+    },
+    duration: {
+      en: "Full Day",
+      pt: "Dia Inteiro",
+    },
+    location: {
+      en: "Inhaca Island, Mozambique",
+      pt: "Ilha da Inhaca, Moçambique",
+    },
+    desc: {
+      en: "This full-day excursion takes you to discover two of the most iconic and preserved destinations in the Maputo region, surrounded by the warm waters of the Indian Ocean. Enjoy snorkeling in crystal clear waters, dolphin and whale watching (season dependent), local village visits with traditional crafts, and a beautiful stop at Portuguese Island.",
+      pt: "Esta excursão de dia inteiro leva-o a descobrir dois dos destinos mais emblemáticos e preservados da região de Maputo, envoltos pelas águas quentes do Oceano Índico. Desfrute de snorkeling em águas cristalinas, observação de golfinhos e baleias (consoante a época), visitas a aldeias locais com artesanato e paragem na Ilha Portuguesa.",
+    },
+    img: pkgInhaca,
+    inclusions: {
+      en: ["Boat cruise transfers", "Marine reserve permits", "Snorkeling equipment rental", "Fresh seafood lunch", "Mineral water & soft drinks"],
+      pt: ["Transferes de barco", "Licenças da reserva marinha", "Aluguer de equipamento de snorkeling", "Almoço de marisco fresco", "Água mineral e refrigerantes"],
+    },
+    price: {
+      en: "$180 per person",
+      pt: "$180 por pessoa",
+    },
+  },
+  {
+    title: {
+      en: "Kruger National Park Day Trip",
+      pt: "Excursão de um Dia ao Parque Kruger",
+    },
+    duration: {
+      en: "Full Day",
+      pt: "Dia Inteiro",
+    },
+    location: {
+      en: "South Africa",
+      pt: "África do Sul",
+    },
+    desc: {
+      en: "Known as the home of the Big 5, located just 100 km from Maputo, Kruger National Park is one of the region's most iconic experiences. Our driver will collect you from your Maputo hotel, traveling along the EN1 and through the Ressano Garcia border, where assistance with border formalities is provided. The adventure inside the park lets you observe a diverse ecosystem, flora, fauna, and the Big 5.",
+      pt: "Conhecido como o parque dos Big 5, localizado a apenas 100 km da cidade de Maputo, o Parque Nacional Kruger é uma das experiências mais emblemáticas da região. O motorista fará a recolha no hotel em Maputo, seguindo pela EN1 e pela fronteira de Ressano Garcia, onde será prestado apoio em todas as formalidades fronteiriças. A aventura de dia completo dentro do parque permite observar a diversidade do ecossistema.",
+    },
+    img: pkgKruger,
+    inclusions: {
+      en: ["Return transport from Maputo", "Professional driver/guide", "Big 5 game drive", "Packed lunch", "Border assistance"],
+      pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Safári Big 5", "Almoço embalado", "Assistência na fronteira"],
+    },
+    price: {
+      en: "$220 per person",
+      pt: "$220 por pessoa",
+    },
+  },
+  {
+    title: {
+      en: "Ponta D'ouro Day Trip",
+      pt: "Excursão de um Dia à Ponta D'ouro",
+    },
+    duration: {
+      en: "Full Day",
+      pt: "Dia Inteiro",
+    },
+    location: {
+      en: "Ponta D'ouro, Mozambique",
+      pt: "Ponta D'ouro, Moçambique",
+    },
+    desc: {
+      en: "The Ponta Day Trip is designed to offer guests a one-day escape to one of the most sought-after coastal destinations in southern Mozambique. Combining natural landscapes, a relaxed atmosphere, and leisure, this experience offers visitors the chance to enjoy the beauty of Ponta do Ouro, known for its beaches, crystal clear waters, and vibrant atmosphere.",
+      pt: "A Ponta Day Trip foi concebida para proporcionar aos hóspedes uma escapada de um dia a um dos destinos costeiros mais procurados da região sul de Moçambique. Combinando paisagens naturais, ambiente descontraído e uma forte componente de lazer, esta experiência oferece aos visitantes a oportunidade de desfrutar da beleza de Ponta do Ouro.",
+    },
+    img: pkgPonta,
+    inclusions: {
+      en: ["Return transport from Maputo", "Professional guide", "Beach access & leisure time", "Lunch at local restaurant", "Dolphin spotting opportunity"],
+      pt: ["Transporte de ida e volta a partir de Maputo", "Guia profissional", "Acesso à praia e tempo livre", "Almoço em restaurante local", "Oportunidade de avistamento de golfinhos"],
+    },
+    price: {
+      en: "$95 per person",
+      pt: "$95 por pessoa",
     },
   },
   {
@@ -58,10 +168,10 @@ const packages = [
       pt: "Eswatini",
     },
     desc: {
-      en: "Depart from Maputo at dawn and enjoy a structured immersion into the cultural heritage of Eswatini. Visit the Mantenga Cultural Village to experience a traditional Swazi beehive village, watch a spectacular Swazi dance performance, and explore the beautiful Mantenga nature reserve.",
-      pt: "Parta de Maputo ao amanhecer e desfrute de uma imersão estruturada na herança cultural de Eswatini. Visite a Aldeia Cultural de Mantenga para vivenciar uma aldeia tradicional Swazi, assista a um espectáculo de dança espectacular e explore a bela reserva natural de Mantenga.",
+      en: "Explore the best of Eswatini in a full-day cultural tour departing Maputo at dawn and returning in the early evening. The experience starts at Manzini Market and the Mantenga Craft & Lifestyle Centre, ideal for Siswati crafts and jewelry, followed by the Mantenga Cultural Village to discover local history and traditions with a traditional dance performance.",
+      pt: "Explore o melhor de eSwatini numa excursão cultural de dia inteiro com saída de Maputo ao amanhecer e regresso ao início da noite. A experiência inicia-se no Manzini Market e no Mantenga Craft & Lifestyle Centre, ideais para contacto com artesanato e joalharia Siswati, seguindo para o Mantenga Cultural Village, onde se descobre a história e tradições locais.",
     },
-    img: eswatiniImg,
+    img: pkgEswatini,
     inclusions: {
       en: ["Round-trip transport from Maputo", "Professional driver/guide", "Mantenga Village entry fee", "Traditional lunch", "Border assistance"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Entrada na Aldeia de Mantenga", "Almoço tradicional", "Assistência na fronteira"],
@@ -69,87 +179,6 @@ const packages = [
     price: {
       en: "$145 per person",
       pt: "$145 por pessoa",
-    },
-  },
-  {
-    title: {
-      en: "Maputo City Tour",
-      pt: "Passeio pela Cidade de Maputo",
-    },
-    duration: {
-      en: "5 Hours",
-      pt: "5 Horas",
-    },
-    location: {
-      en: "Maputo, Mozambique",
-      pt: "Maputo, Moçambique",
-    },
-    desc: {
-      en: "Once known as the Acacia City, Maputo is the capital and cultural heart of Mozambique. Our guided city tour explores key architectural and historical highlights, including the Maputo Railway Station, the Iron House, the Natural History Museum, and the vibrant Central Market.",
-      pt: "Outrora conhecida como a Cidade das Acácias, Maputo é a capital e o coração cultural de Moçambique. O nosso passeio guiado pela cidade explora os principais destaques arquitectónicos e históricos, incluindo a Estação de Caminhos de Ferro de Maputo, a Casa de Ferro, o Museu de História Natural e o vibrante Mercado Central.",
-    },
-    img: maputoImg,
-    inclusions: {
-      en: ["Private air-conditioned transport", "English/Portuguese speaking guide", "All entrance fees", "Central market guided walk", "Traditional lunch option"],
-      pt: ["Transporte privado com ar condicionado", "Guia fluente em Inglês/Português", "Todas as taxas de entrada", "Caminhada guiada pelo mercado central", "Opção de almoço tradicional"],
-    },
-    price: {
-      en: "$65 per person",
-      pt: "$65 por pessoa",
-    },
-  },
-  {
-    title: {
-      en: "Inhaca Island Day Trip",
-      pt: "Excursão de um Dia à Ilha da Inhaca",
-    },
-    duration: {
-      en: "Full Day",
-      pt: "Dia Inteiro",
-    },
-    location: {
-      en: "Inhaca Island, Mozambique",
-      pt: "Ilha da Inhaca, Moçambique",
-    },
-    desc: {
-      en: "Embark on a pristine boat cruise across Maputo Bay to Inhaca Island. Explore beautiful marine life with snorkeling at the Coral Barrier, enjoy a beachside seafood lunch, visit the local lighthouse, and relax on the white sands of Portuguese Island.",
-      pt: "Embarque num cruzeiro de barco pela Baía de Maputo até à Ilha da Inhaca. Explore a deslumbrante vida marinha com snorkeling na Barreira de Coral, desfrute de um almoço de marisco à beira-mar, visite o farol local e relaxe nas areias brancas da Ilha dos Portugueses.",
-    },
-    img: holidayImg,
-    inclusions: {
-      en: ["Boat cruise transfers", "Marine reserve permits", "Snorkeling equipment rental", "Fresh seafood lunch", "Mineral water & soft drinks"],
-      pt: ["Transferes de barco", "Licenças da reserva marinha", "Aluguer de equipamento de snorkeling", "Almoço de marisco fresco", "Água mineral e refrigerantes"],
-    },
-    price: {
-      en: "$180 per person",
-      pt: "$180 por pessoa",
-    },
-  },
-  {
-    title: {
-      en: "Chiloane Island Escape",
-      pt: "Refúgio na Ilha de Chiloane",
-    },
-    duration: {
-      en: "2 Days",
-      pt: "2 Dias",
-    },
-    location: {
-      en: "Sofala, Mozambique",
-      pt: "Sofala, Moçambique",
-    },
-    desc: {
-      en: "A remote island getaway featuring local dhow excursions, pristine sandy beaches, and authentic island community life. Walk the ancient coconut groves, sample locally caught seafood prepared in traditional style, and watch the sunset from a traditional sailing dhow.",
-      pt: "Um refúgio numa ilha remota com excursões de dhow locais, praias de areia intocadas e vida comunitária autêntica. Caminhe pelos antigos palmeirais, saboreie o marisco pescado localmente preparado ao estilo tradicional e assista ao pôr do sol a partir de um veleiro dhow tradicional.",
-    },
-    img: heroImg,
-    inclusions: {
-      en: ["Dhow boat transfers", "1 night accommodation in eco-lodge", "All meals included", "Guided village walk", "Snorkeling & fishing activity"],
-      pt: ["Transferes de barco dhow", "1 noite de alojamento em eco-lodge", "Todas as refeições incluídas", "Caminhada guiada pela aldeia", "Actividades de snorkeling e pesca"],
-    },
-    price: {
-      en: "$320 per person",
-      pt: "$320 por pessoa",
     },
   },
 ];
@@ -174,7 +203,7 @@ function PackagesPage() {
       <div className="relative pt-40 pb-20 bg-ink text-white overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
-          style={{ backgroundImage: `url(${holidayImg})` }}
+          style={{ backgroundImage: `url(${pkgHero})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/30 to-brand-blue/90" />
         <div className="relative container-x">
