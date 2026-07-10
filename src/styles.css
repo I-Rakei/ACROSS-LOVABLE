@@ -142,8 +142,18 @@
 @utility container-x {
   width: 100%;
   margin-inline: auto;
-  padding-inline: 1.5rem;
-  max-width: 88rem;
+  padding-inline: 1.25rem;
+  max-width: 80rem;
+}
+@media (min-width: 640px) {
+  .container-x {
+    padding-inline: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-x {
+    padding-inline: 2.5rem;
+  }
 }
 
 @utility hover-lift {

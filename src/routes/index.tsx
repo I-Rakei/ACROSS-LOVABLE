@@ -474,28 +474,28 @@ function Home() {
       </section>
 
       {/* PRODUCTS & SERVICES DETAILS */}
-      <section id="services-details" className="relative py-20 text-white overflow-hidden bg-brand-blue">
-        <div className="relative container-x z-10">
+      <section id="services-details" className="py-8 sm:py-12 bg-background overflow-hidden">
+        <div className="container-x">
           <Reveal>
-            <div className="eyebrow !text-white mb-4">{t("Our Products & Services", "Os Nossos Produtos & Serviços")}</div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-16 text-white tracking-tight">
+            <div className="eyebrow mb-2 sm:mb-3 text-xs sm:text-sm">{t("Our Products & Services", "Os Nossos Produtos & Serviços")}</div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-5 sm:mb-8 text-ink tracking-tight">
               {t("Comprehensive Ground Handling", "Gestão Global em Terra")}
             </h2>
           </Reveal>
 
-          {/* Two columns layout with space between */}
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+          {/* Two columns layout */}
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10">
             {/* Corporate Card */}
             <Reveal>
-              <div className="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-10 hover:bg-white/[0.06] transition-all duration-300">
-                <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-6 h-6 text-white" />
+              <div className="bg-card border border-border/60 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-md transition-all duration-300">
+                <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold tracking-tight">{t("Corporate", "Corporativo")}</h3>
+                  <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">{t("Corporate", "Corporativo")}</h3>
                 </div>
-                <div className="h-px bg-white/10 w-full mb-6" />
-                <ul className="space-y-5">
+                <div className="h-px bg-border/60 w-full mb-3 sm:mb-4" />
+                <ul className="space-y-2 sm:space-y-3">
                   {[
                     t("We customise accommodation solutions for your corporate travellers;", "Personalizamos soluções de alojamento para os seus viajantes corporativos;"),
                     t("We are specialists at managing group travel bookings;", "Somos especialistas na gestão de reservas de viagens de grupo;"),
@@ -504,9 +504,9 @@ function Home() {
                     t("We provide countrywide chauffeur drive from reliable outlets;", "Oferecemos serviço de motorista a nível nacional através de fornecedores fiáveis;"),
                     t("AcrossTours organises small business dinners to large conferences;", "A AcrossTours organiza desde pequenos jantares de negócios a grandes conferências;")
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3.5 text-white/90 text-base">
-                      <div className="w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                    <li key={idx} className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm">
+                      <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-accent" />
                       </div>
                       <span className="flex-1 leading-relaxed">{item}</span>
                     </li>
@@ -517,23 +517,23 @@ function Home() {
 
             {/* Leisure Card */}
             <Reveal delay={0.15}>
-              <div className="bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-10 hover:bg-white/[0.06] transition-all duration-300">
-                <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
-                    <Compass className="w-6 h-6 text-white" />
+              <div className="bg-card border border-border/60 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-md transition-all duration-300">
+                <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <Compass className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold tracking-tight">{t("Leisure", "Lazer")}</h3>
+                  <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">{t("Leisure", "Lazer")}</h3>
                 </div>
-                <div className="h-px bg-white/10 w-full mb-6" />
-                <ul className="space-y-5">
+                <div className="h-px bg-border/60 w-full mb-3 sm:mb-4" />
+                <ul className="space-y-2 sm:space-y-3">
                   {[
                     t("Enjoy the best guided tours in Mozambique;", "Desfrute das melhores visitas guiadas em Moçambique;"),
                     t("Book your flights with us;", "Reserve os seus voos connosco;"),
                     t("Our tailor made packages will provide you a unique lifetime experience.", "Os nossos pacotes personalizados proporcionar-lhe-ão uma experiência única para a vida.")
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3.5 text-white/90 text-base">
-                      <div className="w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                    <li key={idx} className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm">
+                      <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-accent" />
                       </div>
                       <span className="flex-1 leading-relaxed">{item}</span>
                     </li>
