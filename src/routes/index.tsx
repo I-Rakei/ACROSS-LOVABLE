@@ -582,12 +582,12 @@ function Home() {
                       </div>
                       <h3 className="text-xl mb-3">{tour.title[lang]}</h3>
                       <p className="text-base text-ink-soft leading-relaxed flex-1">{tour.desc[lang]}</p>
-                      <a
-                        href="#quote"
+                      <Link
+                        to="/packages"
                         className="mt-6 inline-flex items-center gap-2 text-base font-bold text-accent border-b border-accent pb-1 w-fit"
                       >
                         {t("SEE MORE", "VER MAIS")}
-                      </a>
+                      </Link>
                     </div>
                   </article>
                 </div>
