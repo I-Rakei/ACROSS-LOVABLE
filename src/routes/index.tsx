@@ -982,6 +982,21 @@ function Home() {
               </div>
               <div>
                 <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
+                  {t("How did you hear about us?", "Como ouviu falar de nós?")}
+                </label>
+                <select
+                  required
+                  className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                >
+                  <option value="">{t("Select an option", "Seleccione uma opção")}</option>
+                  <option value="Google">{t("Google Search", "Pesquisa no Google")}</option>
+                  <option value="Social Media">{t("Social Media (Facebook, Instagram, etc.)", "Redes Sociais (Facebook, Instagram, etc.)")}</option>
+                  <option value="Recommendation">{t("Recommendation / Friend", "Recomendação / Amigo")}</option>
+                  <option value="Other">{t("Other", "Outro")}</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                   {t("Trip Details", "Detalhes da Viagem")}
                 </label>
                 <textarea
