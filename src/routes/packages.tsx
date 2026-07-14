@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { MapPin, Clock, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
@@ -138,7 +139,7 @@ const packages = [
   },
   {
     title: {
-      en: "Ponta D'ouro Day Trip",
+      en: "Ponta D'Ouro Day Tour",
       pt: "Excursão de um Dia à Ponta D'ouro",
     },
     duration: {
@@ -165,7 +166,7 @@ const packages = [
   },
   {
     title: {
-      en: "Eswatini Cultural Day Trip",
+      en: "Eswatini Cultural Day Tour",
       pt: "Excursão Cultural de um Dia a Eswatini",
     },
     duration: {
@@ -216,7 +217,7 @@ function PackageCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <article className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
+    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-xl overflow-hidden shadow-sm border border-border/40">
       <div className="aspect-[4/3] overflow-hidden">
         <img 
           src={pkg.img} 
@@ -225,9 +226,9 @@ function PackageCard({
           loading="lazy"
         />
       </div>
-      <div className="p-7 flex-1 flex flex-col justify-between">
+      <div className="p-5 flex-1 flex flex-col justify-between">
         <div>
-          <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
+          <div className="flex items-center gap-3 text-xs text-ink-soft mb-2.5">
             <span className="inline-flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-accent" /> {pkg.location[lang]}
             </span>
@@ -236,48 +237,60 @@ function PackageCard({
               <Clock className="w-3.5 h-3.5 text-accent" /> {pkg.duration[lang]}
             </span>
           </div>
-          <h2 className="text-xl font-bold text-ink mb-3 line-clamp-1">{pkg.title[lang]}</h2>
+          <h2 className="text-lg font-bold text-ink mb-2.5 line-clamp-1">{pkg.title[lang]}</h2>
           
-          <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
-            {pkg.desc[lang]}
-          </p>
+          <motion.div layout="size" transition={{ duration: 0.3 }} className="overflow-hidden">
+            <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
+              {pkg.desc[lang]}
+            </p>
+          </motion.div>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-xs font-semibold text-accent hover:underline mb-4 inline-block text-left"
+            className="text-xs font-semibold text-accent hover:underline mb-3 inline-block text-left"
           >
             {isExpanded ? t("Read less", "Ler menos") + " ←" : t("Read more", "Ler mais") + " →"}
           </button>
           
           {/* Price displayed in card body */}
-          <div className="flex items-baseline gap-2 mb-5 pb-4 border-b border-border/40">
+          <div className="flex items-baseline gap-2 mb-4 pb-3 border-b border-border/40">
             <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
-            <span className="text-xl font-bold text-accent">{pkg.price[lang]}</span>
+            <span className="text-lg font-bold text-accent">{pkg.price[lang]}</span>
           </div>
 
           {/* Inclusions summary list */}
-          <div className="mb-6">
-            <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
-              {t("Includes:", "Inclui:")}
-            </span>
-            <ul className="space-y-1.5">
-              {pkg.inclusions[lang].slice(0, 3).map((inc) => (
-                <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
-                  <span className="truncate">{inc}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <AnimatePresence initial={false}>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden mb-4"
+              >
+                <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
+                  {t("Includes:", "Inclui:")}
+                </span>
+                <ul className="space-y-1.5">
+                  {pkg.inclusions[lang].map((inc) => (
+                    <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                      <span className="truncate">{inc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
         
         <button 
           onClick={() => handleSelectPackage(pkg.title[lang])}
-          className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3.5 rounded-lg text-base tracking-wider uppercase transition-colors text-center"
+          className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-2.5 rounded-md text-sm tracking-wider uppercase transition-colors text-center"
         >
           {t("Inquire Now", "Pedir Informações")}
         </button>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -331,7 +344,7 @@ function PackagesPage() {
             {t("Special Packages", "Pacotes Especiais")}
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/80 leading-relaxed">
-            {t("Explore our curated tour packages designed to give you unforgettable travel and cultural experiences in Mozambique and Africa.", "Explore os nossos pacotes turísticos seleccionados para lhe proporcionar experiências de viagem e culturais inesquecíveis em Moçambique e África.")}
+            {t("Explore our creative tour packages designed to give you unforgettable travel and cultural experiences in Mozambique and Africa.", "Explore os nossos pacotes turísticos seleccionados para lhe proporcionar experiências de viagem e culturais inesquecíveis em Moçambique e África.")}
           </p>
         </div>
       </div>
@@ -355,7 +368,7 @@ function PackagesPage() {
       </section>
 
       {/* Inquiry Form */}
-      <section id="inquiry" className="py-20 bg-secondary/35 border-t border-border/40">
+      <section id="inquiry" className="py-20 bg-background border-t border-border/40">
         <div className="container-x max-w-4xl">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-12">
@@ -364,14 +377,14 @@ function PackagesPage() {
                 {t("Customize Your Dream Package", "Personalize o Seu Pacote de Sonho")}
               </h2>
               <p className="text-base text-ink-soft leading-relaxed">
-                {t("Select your desired tour package, or tell us your preferences and we'll craft a tailor-made travel itinerary suited to your exact needs.", "Seleccione o pacote pretendido, ou indique as suas preferências e criaremos um itinerário à sua medida.")}
+                {t("Select your desired tour package, or tell us your preferences and will craft a tailored-made itinerary suited to your exact needs.", "Seleccione o pacote pretendido, ou indique as suas preferências e criaremos um itinerário à sua medida.")}
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-background border border-border/80 p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm">
-              <div className="grid sm:grid-cols-2 gap-5">
+            <form onSubmit={(e) => e.preventDefault()} className="bg-secondary/35 border border-border/80 p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                     {t("Full Name", "Nome Completo")}
@@ -379,7 +392,7 @@ function PackagesPage() {
                   <input
                     type="text"
                     required
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                     placeholder={t("Your name", "O seu nome")}
                   />
                 </div>
@@ -390,7 +403,7 @@ function PackagesPage() {
                   <input
                     type="email"
                     required
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -401,7 +414,7 @@ function PackagesPage() {
                   <input
                     type="text"
                     required
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                     placeholder="+258..."
                   />
                 </div>
@@ -412,7 +425,7 @@ function PackagesPage() {
                   <select
                     value={selectedPackage}
                     onChange={(e) => setSelectedPackage(e.target.value)}
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   >
                     <option value="">{t("Custom Package (Let us design one)", "Pacote Personalizado (Nós desenhamos)")}</option>
                     {packages.map((pkg) => (
@@ -422,7 +435,7 @@ function PackagesPage() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                     {t("Adults", "Adultos")}
@@ -431,7 +444,7 @@ function PackagesPage() {
                     type="number"
                     defaultValue={1}
                     min={1}
-                    className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
                 <div>
@@ -442,7 +455,7 @@ function PackagesPage() {
                     type="number"
                     defaultValue={0}
                     min={0}
-                    className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
                 <div>
@@ -453,7 +466,7 @@ function PackagesPage() {
                     type="number"
                     defaultValue={0}
                     min={0}
-                    className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
                 <div>
@@ -464,19 +477,19 @@ function PackagesPage() {
                     type="number"
                     defaultValue={0}
                     min={0}
-                    className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
               </div>
               
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                     {t("Preferred Departure Date", "Data de Partida Preferida")}
                   </label>
                   <input
                     type="date"
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
                 <div>
@@ -485,7 +498,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="date"
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
               </div>
@@ -496,7 +509,7 @@ function PackagesPage() {
                 </label>
                 <select
                   required
-                  className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                  className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
                   <option value="">{t("Select an option", "Seleccione uma opção")}</option>
                   <option value="Google">{t("Google Search", "Pesquisa no Google")}</option>
@@ -512,14 +525,14 @@ function PackagesPage() {
                 </label>
                 <textarea
                   rows={4}
-                  className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
+                  className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
                   placeholder={t("Specify any dietary requirements, physical limitations, or custom itinerary desires...", "Especifique quaisquer requisitos dietéticos, limitações físicas ou desejos de itinerário...")}
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-accent text-white py-4 font-bold text-base tracking-widest hover:opacity-90 transition rounded-lg"
+                className="w-full bg-accent text-white py-2.5 font-bold text-sm tracking-wider hover:opacity-90 transition rounded-lg"
               >
                 {t("SUBMIT INQUIRY", "SUBMETER INFORMAÇÃO")}
               </button>

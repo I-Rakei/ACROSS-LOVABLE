@@ -57,21 +57,12 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     icon: Briefcase,
-    title: { en: "Corporate Travel", pt: "Viagens Corporativas" },
+    title: { en: "Corporate Travel Solutions", pt: "Soluções de Viagens Corporativas" },
     desc: {
       en: "Complete corporate travel services designed to support companies, executives, and organized business groups.",
       pt: "Serviços completos de viagens corporativas concebidos para apoiar empresas, executivos e grupos empresariais organizados.",
     },
     img: serviceBusiness,
-  },
-  {
-    icon: Compass,
-    title: { en: "Holiday Packages", pt: "Pacotes para Férias" },
-    desc: {
-      en: "Authentic travel experiences, developed with deep local knowledge and high flexibility.",
-      pt: "Experiências de viagem autênticas, desenvolvidas com profundo conhecimento local e elevada flexibilidade.",
-    },
-    img: serviceHoliday,
   },
   {
     icon: Car,
@@ -81,6 +72,15 @@ const services = [
       pt: "Soluções integradas de mobilidade terrestre, garantindo fiabilidade, segurança e eficiência operacional.",
     },
     img: serviceTransport,
+  },
+  {
+    icon: Compass,
+    title: { en: "Holiday Packages", pt: "Pacotes para Férias" },
+    desc: {
+      en: "Authentic travel experiences, developed with deep local knowledge and high flexibility.",
+      pt: "Experiências de viagem autênticas, desenvolvidas com profundo conhecimento local e elevada flexibilidade.",
+    },
+    img: serviceHoliday,
   },
 ];
 
@@ -183,7 +183,7 @@ const tours = [
   },
   {
     title: {
-      en: "Ponta D'ouro Day Trip",
+      en: "Ponta D'Ouro Day Tour",
       pt: "Excursão de um Dia à Ponta D'ouro",
     },
     duration: {
@@ -207,7 +207,7 @@ const tours = [
   },
   {
     title: {
-      en: "Eswatini Cultural Day Trip",
+      en: "Eswatini Cultural Day Tour",
       pt: "Excursão Cultural de um Dia a Eswatini",
     },
     duration: {
@@ -307,7 +307,7 @@ function FeaturedTourCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <article className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
+    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={tour.img}
@@ -333,9 +333,11 @@ function FeaturedTourCard({
           <h3 className="text-xl font-bold text-ink mb-3 line-clamp-1">{tour.title[lang]}</h3>
 
           {/* Description — 5-line clamp + Read more toggle in place */}
-          <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
-            {tour.desc[lang]}
-          </p>
+          <motion.div layout="size" transition={{ duration: 0.3 }} className="overflow-hidden">
+            <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
+              {tour.desc[lang]}
+            </p>
+          </motion.div>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-xs font-semibold text-accent hover:underline mb-4 inline-block text-left"
@@ -349,20 +351,30 @@ function FeaturedTourCard({
             <span className="text-xl font-bold text-accent">{tour.price[lang]}</span>
           </div>
 
-          {/* Top 3 inclusions */}
-          <div className="mb-5">
-            <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
-              {t("Includes:", "Inclui:")}
-            </span>
-            <ul className="space-y-1.5">
-              {tour.inclusions[lang].slice(0, 3).map((inc) => (
-                <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
-                  <span className="truncate">{inc}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Inclusions summary list */}
+          <AnimatePresence initial={false}>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden mb-5"
+              >
+                <span className="text-xs uppercase tracking-wider text-ink font-bold block mb-2">
+                  {t("Includes:", "Inclui:")}
+                </span>
+                <ul className="space-y-1.5">
+                  {tour.inclusions[lang].map((inc) => (
+                    <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                      <span className="truncate">{inc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* CTA */}
@@ -374,7 +386,7 @@ function FeaturedTourCard({
           {t("Inquire Now", "Pedir Informações")}
         </Link>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -398,7 +410,7 @@ function Home() {
         const maxIdx = tours.length - visibleCards;
         return prev >= maxIdx ? 0 : prev + 1;
       });
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer);
   }, [visibleCards]);
 
@@ -513,21 +525,28 @@ function Home() {
 
       {/* ABOUT */}
       <section id="about" className="py-20 bg-background">
-        <div className="container-x grid lg:grid-cols-12 gap-16">
-          <Reveal className="lg:col-span-5">
-            <div className="eyebrow mb-4">{t("About Us", "Sobre Nós")}</div>
-            <h2 className="text-4xl lg:text-5xl leading-tight">
-              {t("Travel & Destination Management", "Gestão de Viagens & Destino")}
-            </h2>
+        <div className="container-x">
+          <Reveal className="text-center mb-12">
+            <div className="eyebrow">{t("About Us", "Sobre Nós")}</div>
           </Reveal>
-          <Reveal delay={0.15} className="lg:col-span-7 space-y-6 text-base text-ink-soft leading-relaxed">
-            <p>
-              <strong>AcrossTours</strong> {t("is a travel and destination management company. We are specialized in both Inbound and Outbound travel solutions.", "é uma empresa de gestão de destinos e viagens. Somos especializados em soluções de viagens receptivas (Inbound) e emissivas (Outbound).")}
-            </p>
-            <p>
-              {t("Our main services outline include providing full ground handling services from accommodation bookings, car rental, chauffeur drive, airport transfers, conferencing, tours, among others, as well as flights when required for both leisure and business travel including private air charters. We are currently based in Mozambique and Angola.", "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.")}
-            </p>
-          </Reveal>
+
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+            <Reveal className="lg:col-span-4 flex justify-center lg:justify-start">
+              <img
+                src="/logos/across-tour.svg"
+                alt="Across Tour"
+                className="h-40 sm:h-48 lg:h-56 w-auto animate-fade-in"
+              />
+            </Reveal>
+            <Reveal delay={0.15} className="lg:col-span-8 space-y-6 text-base text-ink-soft leading-relaxed">
+              <p>
+                <strong>Across Tour</strong> {t("is a travel and destination management company. We are specialized in both Inbound and Outbound travel solutions.", "é uma empresa de gestão de destinos e viagens. Somos especializados em soluções de viagens receptivas (Inbound) e emissivas (Outbound).")}
+              </p>
+              <p>
+                {t("Our main services outline include providing full ground handling services from accommodation bookings, car rental, chauffeur drive, airport transfers, conferencing, tours, among others, as well as flights when required for both leisure and business travel including private air charters. We are currently based in Mozambique and Angola.", "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.")}
+              </p>
+            </Reveal>
+          </div>
         </div>
 
         {/* Mission / Vision / Value */}
@@ -626,7 +645,7 @@ function Home() {
                     t("We provide countrywide vehicle rental from reliable outlets;", "Oferecemos aluguer de viaturas a nível nacional através de fornecedores fiáveis;"),
                     t("Enjoy our cost-effective transfers point to point;", "Desfrute dos nossos transfers de ponto a ponto com boa relação custo-benefício;"),
                     t("We provide countrywide chauffeur drive from reliable outlets;", "Oferecemos serviço de motorista a nível nacional através de fornecedores fiáveis;"),
-                    t("AcrossTours organises small business dinners to large conferences;", "A AcrossTours organiza desde pequenos jantares de negócios a grandes conferências;")
+                    t("Across Tour organises small business dinners to large conferences;", "A Across Tour organiza desde pequenos jantares de negócios a grandes conferências;")
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm">
                       <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -870,8 +889,8 @@ function Home() {
             <h2 className="text-4xl lg:text-5xl mb-6 text-white">{t("Exceptional Service & Custom Solutions", "Serviço Excepcional & Soluções À Medida")}</h2>
             <p className="text-base text-white/90 leading-relaxed max-w-3xl mx-auto">
               {t(
-                "We pride ourselves in that we make arrangements aimed at delivering successful itineraries and experiences, based on the most attainable value for money. We tailor all our packages to suit your exact needs. At AcrossTours we pride ourselves on great service and attention to detail in order for you to enjoy.",
-                "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na AcrossTours orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar."
+                "We pride ourselves in that we make arrangements aimed at delivering successful itineraries and experiences, based on the most attainable value for money. We tailor all our packages to suit your exact needs. At Across Tour we pride ourselves on great service and attention to detail in order for you to enjoy.",
+                "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na Across Tour orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar."
               )}
             </p>
           </Reveal>
@@ -883,15 +902,9 @@ function Home() {
         <div className="container-x grid lg:grid-cols-2 gap-16">
           <Reveal>
             <div className="eyebrow mb-4">{t("Contact Us", "Contacte-nos")}</div>
-            <h2 className="text-4xl lg:text-5xl leading-tight mb-6">
+            <h2 className="text-4xl lg:text-5xl leading-tight mb-10">
               {t("Tell Us About Your Trip", "Conte-nos Sobre a Sua Viagem")}
             </h2>
-            <p className="text-ink-soft text-base leading-relaxed mb-10">
-              {t(
-                "Tell us about your trip so we can prepare the best quotation for you.",
-                "Conte-nos sobre a sua viagem para que possamos preparar o melhor orçamento para si."
-              )}
-            </p>
             <div className="space-y-6 text-sm">
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
