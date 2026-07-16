@@ -22,6 +22,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
+import { AcrossLogo } from "@/components/across-logo";
 
 // Hero Images
 import hero1 from "@/assets/Across/Hero images/hero 1.jpg";
@@ -49,9 +50,6 @@ import whyChooseUsImg from "@/assets/Across/Why choose US/why choose us.jpg";
 
 // Visa Section Image
 import visaImg from "@/assets/Across/VISA/Image.png";
-
-// Logos GIF
-import logosGif from "@/assets/Across/Logo/Logos.gif";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -530,16 +528,12 @@ function Home() {
       <section id="about" className="py-20 bg-background">
         <div className="container-x">
           <div className="grid lg:grid-cols-12 gap-4 lg:gap-x-6 items-center">
-            <Reveal className="lg:col-span-5 flex justify-start">
-              <img
-                src={logosGif}
-                alt="Across Tour"
-                className="h-48 sm:h-56 lg:h-72 w-auto animate-fade-in"
-              />
+            <Reveal className="lg:col-span-4 flex justify-center lg:justify-start">
+              <AcrossLogo className="h-40 sm:h-48 lg:h-56 w-auto text-brand-blue" />
             </Reveal>
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
-                <div className="eyebrow">{t("About Us", "Sobre Nós")}</div>
+                <div className="eyebrow mb-4">{t("About Us", "Sobre Nós")}</div>
               </Reveal>
               <Reveal delay={0.15} className="space-y-6 text-base text-ink-soft leading-relaxed">
                 <p>

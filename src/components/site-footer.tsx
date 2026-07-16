@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import footerBg from "@/assets/Across/footer/image.png";
+import { AcrossLogo } from "@/components/across-logo";
 
 const QUICK_LINKS = [
   { label: "Home", to: "/", hash: "top" },
@@ -34,7 +35,7 @@ export function SiteFooter() {
         {/* Top strip: logo + contact quick */}
         <div className="container-x pt-16 pb-10 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-4">
-            <img src="/logos/across-tour.svg" alt="Across Tour" className="h-20 w-auto brightness-0 invert" />
+            <AcrossLogo className="h-20 w-auto text-white" idle={false} hoverable={false} entrance="none" />
           </div>
 
           <div className="flex items-center gap-2">

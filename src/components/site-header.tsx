@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, User } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
+import { AcrossLogo } from "@/components/across-logo";
 
 const NAV = [
   { label: "Home", to: "/", hash: "top" },
@@ -34,10 +35,13 @@ export function SiteHeader() {
     >
       <div className="container-x flex items-center justify-between h-20 relative">
         <Link to="/" className="flex items-center group z-10">
-          <img
-            src="/logos/across-tour.svg"
-            alt="Across Tour DMC"
-            className={`h-14 w-auto transition ${scrolled ? "" : "brightness-0 invert"}`}
+          <AcrossLogo
+            className={`h-14 w-auto transition duration-300 ${
+              scrolled ? "text-brand-blue" : "text-white"
+            }`}
+            idle={false}
+            hoverable={false}
+            entrance="none"
           />
         </Link>
 
