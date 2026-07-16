@@ -50,6 +50,9 @@ import whyChooseUsImg from "@/assets/Across/Why choose US/why choose us.jpg";
 // Visa Section Image
 import visaImg from "@/assets/Across/VISA/Image.png";
 
+// Logos GIF
+import logosGif from "@/assets/Across/Logo/Logos.gif";
+
 export const Route = createFileRoute("/")({
   component: Home,
 });
@@ -526,26 +529,27 @@ function Home() {
       {/* ABOUT */}
       <section id="about" className="py-20 bg-background">
         <div className="container-x">
-          <Reveal className="text-center mb-12">
-            <div className="eyebrow">{t("About Us", "Sobre Nós")}</div>
-          </Reveal>
-
-          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-            <Reveal className="lg:col-span-4 flex justify-center lg:justify-start">
+          <div className="grid lg:grid-cols-12 gap-4 lg:gap-x-6 items-center">
+            <Reveal className="lg:col-span-5 flex justify-start">
               <img
-                src="/logos/across-tour.svg"
+                src={logosGif}
                 alt="Across Tour"
-                className="h-40 sm:h-48 lg:h-56 w-auto animate-fade-in"
+                className="h-48 sm:h-56 lg:h-72 w-auto animate-fade-in"
               />
             </Reveal>
-            <Reveal delay={0.15} className="lg:col-span-8 space-y-6 text-base text-ink-soft leading-relaxed">
-              <p>
-                <strong>Across Tour</strong> {t("is a travel and destination management company. We are specialized in both Inbound and Outbound travel solutions.", "é uma empresa de gestão de destinos e viagens. Somos especializados em soluções de viagens receptivas (Inbound) e emissivas (Outbound).")}
-              </p>
-              <p>
-                {t("Our main services outline include providing full ground handling services from accommodation bookings, car rental, chauffeur drive, airport transfers, conferencing, tours, among others, as well as flights when required for both leisure and business travel including private air charters. We are currently based in Mozambique and Angola.", "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.")}
-              </p>
-            </Reveal>
+            <div className="lg:col-span-7 space-y-6">
+              <Reveal>
+                <div className="eyebrow">{t("About Us", "Sobre Nós")}</div>
+              </Reveal>
+              <Reveal delay={0.15} className="space-y-6 text-base text-ink-soft leading-relaxed">
+                <p>
+                  <strong>Across Tour</strong> {t("is a travel and destination management company. We are specialized in both Inbound and Outbound travel solutions.", "é uma empresa de gestão de destinos e viagens. Somos especializados em soluções de viagens receptivas (Inbound) e emissivas (Outbound).")}
+                </p>
+                <p>
+                  {t("Our main services outline include providing full ground handling services from accommodation bookings, car rental, chauffeur drive, airport transfers, conferencing, tours, among others, as well as flights when required for both leisure and business travel including private air charters. We are currently based in Mozambique and Angola.", "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.")}
+                </p>
+              </Reveal>
+            </div>
           </div>
         </div>
 
