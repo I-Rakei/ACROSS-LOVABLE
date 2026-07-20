@@ -877,21 +877,21 @@ function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="relative py-20 text-white overflow-hidden">
-        {/* Background Image covering 100% — anchored to top */}
-        <div
-          className="absolute inset-0 bg-cover bg-top"
-          style={{ backgroundImage: `url(${whyChooseUsImg})` }}
-          aria-hidden="true"
+      <section className="relative w-full py-24 md:py-32 flex items-center justify-center text-white overflow-hidden bg-slate-950">
+        {/* Background Image */}
+        <img
+          src={whyChooseUsImg}
+          alt="Why Choose Us"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Solid dark overlay matching the footer */}
-        <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
+        {/* Dark overlay matching theme */}
+        <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
 
         <div className="relative container-x max-w-4xl text-center z-10">
           <Reveal>
-            <div className="eyebrow !text-white mb-4">{t("Why Choose Us", "Porquê Escolher-nos")}</div>
-            <h2 className="text-4xl lg:text-5xl mb-6 text-white">{t("Exceptional Service & Custom Solutions", "Serviço Excepcional & Soluções À Medida")}</h2>
-            <p className="text-base text-white leading-relaxed max-w-3xl mx-auto font-medium">
+            <div className="eyebrow !text-white mb-3">{t("Why Choose Us", "Porquê Escolher-nos")}</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl mb-4 text-white font-bold">{t("Exceptional Service & Custom Solutions", "Serviço Excepcional & Soluções À Medida")}</h2>
+            <p className="text-sm sm:text-base text-white/95 leading-relaxed max-w-3xl mx-auto font-medium">
               {t(
                 "We pride ourselves in that we make arrangements aimed at delivering successful itineraries and experiences, based on the most attainable value for money. We tailor all our packages to suit your exact needs. At Across Tour we pride ourselves on great service and attention to detail in order for you to enjoy.",
                 "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na Across Tour orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar."
