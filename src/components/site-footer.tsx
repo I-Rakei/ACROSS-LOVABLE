@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import footerBg from "@/assets/Across/footer/image.png";
+import footerBg from "@/assets/Across/footer/image.jpg";
 import { AcrossLogo } from "@/components/across-logo";
 
 const QUICK_LINKS = [
@@ -29,7 +29,7 @@ export function SiteFooter() {
         style={{ backgroundImage: `url(${footerBg})` }}
         aria-hidden
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/70 via-brand-blue/90 to-ink/95" aria-hidden />
+      <div className="absolute inset-0 bg-black/25" aria-hidden />
 
       <div className="relative">
         {/* Top strip: logo + contact quick */}
@@ -43,7 +43,7 @@ export function SiteFooter() {
               <a
                 key={i}
                 href="#"
-                className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-accent hover:border-accent transition"
+                className="w-10 h-10 rounded-full border-[1px] border-white/30 flex items-center justify-center hover:bg-accent hover:border-accent transition"
                 aria-label="Social"
               >
                 <Icon className="w-4 h-4" />
@@ -52,7 +52,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-white/15" />
+        <div className="border-t-[1px] border-white/15" />
 
         {/* Main columns */}
         <div className="container-x py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -60,13 +60,13 @@ export function SiteFooter() {
             <h4 className="eyebrow !text-white mb-5">Need Help?</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
-                <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center">
+                <span className="w-9 h-9 rounded-full border-[1px] border-white/30 flex-shrink-0 flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </span>
                 <span className="pt-1.5">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar · Maputo, Mozambique</span>
               </li>
               <li className="flex gap-3">
-                <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center mt-1">
+                <span className="w-9 h-9 rounded-full border-[1px] border-white/30 flex-shrink-0 flex items-center justify-center mt-1">
                   <Phone className="w-4 h-4" />
                 </span>
                 <span>
@@ -75,7 +75,7 @@ export function SiteFooter() {
                 </span>
               </li>
               <li className="flex gap-3 items-center">
-                <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center">
+                <span className="w-9 h-9 rounded-full border-[1px] border-white/30 flex-shrink-0 flex items-center justify-center">
                   <Mail className="w-4 h-4" />
                 </span>
                 <a href="mailto:reservations@acrosstour.com" className="hover:text-accent">
@@ -93,7 +93,7 @@ export function SiteFooter() {
                   <Link 
                     to={link.to} 
                     hash={link.hash} 
-                    className="text-white/80 hover:text-accent transition"
+                    className="text-white hover:text-accent transition font-medium"
                   >
                     {link.label}
                   </Link>
@@ -110,7 +110,7 @@ export function SiteFooter() {
                   <Link 
                     to={link.to} 
                     hash={link.hash} 
-                    className="text-white/80 hover:text-accent transition"
+                    className="text-white hover:text-accent transition font-medium"
                   >
                     {link.label}
                   </Link>
@@ -121,21 +121,21 @@ export function SiteFooter() {
 
           <div>
             <h4 className="eyebrow !text-white mb-5">Emergency & Certification</h4>
-            <p className="text-sm text-white/80 mb-4">
+            <p className="text-sm text-white mb-4 font-medium">
               24/7 Emergency Support Line for our travellers currently on the ground.
             </p>
             <div className="text-lg font-bold">+258 87 402 6626 (emergency)</div>
             <div className="mt-6 flex items-center gap-4">
-              <img src="/logos/iata.svg" alt="IATA Certified" className="h-16 w-auto" />
-              <div className="text-xs text-white/60 leading-relaxed">
+              <img src="/logos/iata.svg" alt="IATA Certified" className="h-16 w-auto" loading="lazy" decoding="async" />
+              <div className="text-xs text-white leading-relaxed font-medium">
                 Officially<br />IATA accredited<br />agency
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/15">
-          <div className="container-x py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
+        <div className="border-t-[1px] border-white/15">
+          <div className="container-x py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white font-medium">
             <div>© {new Date().getFullYear()} Across Tour DMC. All rights reserved.</div>
             <div className="flex gap-6">
               <a href="#" className="hover:text-accent">Privacy Policy</a>

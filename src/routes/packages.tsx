@@ -8,7 +8,7 @@ import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 
 import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
-import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.webp";
+import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
 import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.jpg";
 import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
 import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
@@ -224,6 +224,7 @@ function PackageCard({
           alt={pkg.title[lang]} 
           className="w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="p-5 flex-1 flex flex-col justify-between">
@@ -330,20 +331,20 @@ function PackagesPage() {
       <SiteHeader />
 
       {/* Mini Hero Banner */}
-      <div className="relative pt-40 pb-20 bg-ink text-white overflow-hidden">
+      <div className="relative pt-40 pb-20 bg-background text-white overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-40 scale-105"
+          className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${pkgHero})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/30 to-brand-blue/90" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="relative container-x">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-white hover:text-white/80 transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> {t("Back to Home", "Voltar ao Início")}
           </Link>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
             {t("Special Packages", "Pacotes Especiais")}
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-white/80 leading-relaxed">
+          <p className="mt-4 max-w-xl text-lg text-white leading-relaxed font-medium">
             {t("Explore our creative tour packages designed to give you unforgettable travel and cultural experiences in Mozambique and Africa.", "Explore os nossos pacotes turísticos seleccionados para lhe proporcionar experiências de viagem e culturais inesquecíveis em Moçambique e África.")}
           </p>
         </div>

@@ -30,13 +30,13 @@ import hero2 from "@/assets/Across/Hero images/hero 2.jpg";
 import hero3 from "@/assets/Across/Hero images/hero 3.jpg";
 
 // Leisure & Business Travel Solutions
-import serviceBusiness from "@/assets/Across/Leisure & Business Travel Solutions/Business Travel.png";
+import serviceBusiness from "@/assets/Across/Leisure & Business Travel Solutions/Business Travel.jpg";
 import serviceHoliday from "@/assets/Across/Leisure & Business Travel Solutions/Africa Holiday.jpg";
 import serviceTransport from "@/assets/Across/Leisure & Business Travel Solutions/Transport Logistics.jpg";
 
 // Special Packages Images
 import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
-import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.webp";
+import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
 import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.jpg";
 import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
 import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
@@ -49,7 +49,7 @@ import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-locati
 import whyChooseUsImg from "@/assets/Across/Why choose US/why choose us.jpg";
 
 // Visa Section Image
-import visaImg from "@/assets/Across/VISA/Image.png";
+import visaImg from "@/assets/Across/VISA/Image.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -314,7 +314,8 @@ function FeaturedTourCard({
           src={tour.img}
           alt={tour.title[lang]}
           loading="lazy"
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          decoding="async"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="p-6 flex-1 flex flex-col justify-between">
@@ -451,12 +452,14 @@ function Home() {
             <img
               src={slide.image}
               alt="Across Tour Background"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-ink/55 z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-brand-blue/95 via-brand-blue/30 to-transparent z-10" />
+        <div className="absolute inset-0 bg-black/25 z-10" />
 
         <div className="relative container-x pb-32 pt-40 text-white w-full z-20">
           <AnimatePresence mode="wait">
@@ -471,7 +474,7 @@ function Home() {
               <h1 className="text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight">
                 {lang === "en" ? SLIDES[currentSlide].titleEn : SLIDES[currentSlide].titlePt}
               </h1>
-              <p className="mt-8 max-w-xl text-base sm:text-lg text-white leading-relaxed">
+              <p className="mt-8 max-w-xl text-base sm:text-lg text-white leading-relaxed font-medium">
                 {lang === "en" ? SLIDES[currentSlide].descEn : SLIDES[currentSlide].descPt}
               </p>
               <div className="mt-8">
@@ -598,14 +601,15 @@ function Home() {
                       src={s.img}
                       alt={s.title[lang]}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      decoding="async"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/60 to-transparent" />
+                  <div className="absolute inset-0 bg-black/25" />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
                     <s.icon className="w-8 h-8 text-white mb-4" />
                     <h3 className="text-2xl mb-2 text-white">{s.title[lang]}</h3>
-                    <p className="text-white text-base leading-relaxed">{s.desc[lang]}</p>
+                    <p className="text-white text-base leading-relaxed font-medium">{s.desc[lang]}</p>
                   </div>
                 </article>
               </Reveal>
@@ -767,7 +771,8 @@ function Home() {
                   <img 
                     src={factsImg} 
                     alt="Mozambique location map" 
-                    loading="lazy" 
+                    loading="lazy"
+                    decoding="async" 
                     className="w-full aspect-[4/5] object-cover rounded-2xl shadow-xl"
                   />
                   {/* Floating brand accent badge */}
@@ -862,6 +867,7 @@ function Home() {
                   src={visaImg}
                   alt="Passport and travel documents"
                   loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
@@ -878,14 +884,14 @@ function Home() {
           style={{ backgroundImage: `url(${whyChooseUsImg})` }}
           aria-hidden="true"
         />
-        {/* Blue gradient overlay matching the footer */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/70 via-brand-blue/90 to-ink/95" aria-hidden="true" />
+        {/* Solid dark overlay matching the footer */}
+        <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
 
         <div className="relative container-x max-w-4xl text-center z-10">
           <Reveal>
             <div className="eyebrow !text-white mb-4">{t("Why Choose Us", "Porquê Escolher-nos")}</div>
             <h2 className="text-4xl lg:text-5xl mb-6 text-white">{t("Exceptional Service & Custom Solutions", "Serviço Excepcional & Soluções À Medida")}</h2>
-            <p className="text-base text-white/90 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base text-white leading-relaxed max-w-3xl mx-auto font-medium">
               {t(
                 "We pride ourselves in that we make arrangements aimed at delivering successful itineraries and experiences, based on the most attainable value for money. We tailor all our packages to suit your exact needs. At Across Tour we pride ourselves on great service and attention to detail in order for you to enjoy.",
                 "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na Across Tour orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar."
