@@ -5,21 +5,8 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 export default defineConfig({
-  vite: {
-    plugins: [
-      ViteImageOptimizer({
-        jpg: { quality: 80 },
-        jpeg: { quality: 80 },
-        png: { quality: 80, effort: 4 },
-        webp: { quality: 80 },
-        avif: { quality: 70 },
-        gif: { effort: 7 },
-      }),
-    ],
-  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
@@ -29,5 +16,5 @@ export default defineConfig({
     routeRules: {
       "/assets/**": { headers: { "cache-control": "public, max-age=31536000, immutable" } },
     },
-  },
+  } as any,
 });
