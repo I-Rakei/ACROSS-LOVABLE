@@ -23,6 +23,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { AcrossLogo } from "@/components/across-logo";
+import { AnimatedWhyChooseUsSvg } from "@/components/animated-why-choose-us";
+import quimbrasImg from "@/assets/Across/Why choose US/quimbras.png";
 
 // Hero Images
 import hero1 from "@/assets/Across/Hero images/hero 1.jpg";
@@ -45,8 +47,6 @@ import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day 
 // Facts Image
 import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-location-map-flag-pin.avif";
 
-// Why Choose Us Background
-import whyChooseUsImg from "@/assets/Across/Why choose US/why choose us.jpg";
 
 // Visa Section Image
 import visaImg from "@/assets/Across/VISA/Image.jpg";
@@ -880,12 +880,12 @@ function Home() {
       <section className="relative w-full py-24 md:py-32 flex items-center justify-center text-white overflow-hidden bg-slate-950">
         {/* Background Image */}
         <img
-          src={whyChooseUsImg}
+          src={quimbrasImg}
           alt="Why Choose Us"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Dark overlay matching theme */}
-        <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
 
         <div className="relative container-x max-w-4xl text-center z-10">
           <Reveal>
