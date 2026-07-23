@@ -942,7 +942,7 @@ function Home() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-secondary/35 border border-border/85 p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm">
+            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] border border-border/85 p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm">
               <div className="grid sm:grid-cols-2 gap-5">
                 <Field label={t("Full Name", "Nome Completo")} />
                 <Field label={t("Email", "E-mail")} type="email" />

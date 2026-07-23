@@ -384,7 +384,7 @@ function PackagesPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-secondary/35 border border-border/80 p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm">
+            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] border border-border/80 p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
