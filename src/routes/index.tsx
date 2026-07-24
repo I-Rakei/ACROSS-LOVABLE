@@ -1,22 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  ArrowRight,
-  Award,
-  Briefcase,
-  Car,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  Compass,
-  Mail,
-  MapPin,
-  Phone,
-  ShieldCheck,
-  Globe2,
-  CheckCircle2,
-} from "lucide-react";
+  faArrowRight,
+  faAward,
+  faBriefcase,
+  faCar,
+  faChevronLeft,
+  faChevronRight,
+  faClock,
+  faCompass,
+  faEnvelope,
+  faLocationDot,
+  faPhone,
+  faShieldHalved,
+  faGlobe,
+  faCircleCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -57,7 +58,7 @@ export const Route = createFileRoute("/")({
 
 const services = [
   {
-    icon: Briefcase,
+    icon: faBriefcase,
     title: { en: "Corporate Travel Solutions", pt: "Soluções de Viagens Corporativas" },
     desc: {
       en: "Complete corporate travel services designed to support companies, executives, and organized business groups.",
@@ -66,7 +67,7 @@ const services = [
     img: serviceBusiness,
   },
   {
-    icon: Car,
+    icon: faCar,
     title: { en: "Transport & Logistics", pt: "Transporte & Logística" },
     desc: {
       en: "Integrated ground mobility solutions, ensuring reliability, safety, and operational efficiency.",
@@ -75,7 +76,7 @@ const services = [
     img: serviceTransport,
   },
   {
-    icon: Compass,
+    icon: faCompass,
     title: { en: "Holiday Packages", pt: "Pacotes para Férias" },
     desc: {
       en: "Authentic travel experiences, developed with deep local knowledge and high flexibility.",
@@ -104,7 +105,7 @@ const tours = [
       pt: "Maputo, anteriormente conhecida como a Cidade das Acácias, é a capital e maior cidade de Moçambique. Com uma cena cultural vibrante e uma arquitectura marcante, esta experiência proporciona aos visitantes uma leitura estruturada da cidade. O almoço, composto por frango piri-piri ou marisco, será servido num dos melhores restaurantes costeiros da cidade, acompanhado pela cerveja moçambicana 2M.",
     },
     img: pkgMaputo,
-    price: { en: "$65 per person", pt: "$65 por pessoa" },
+    price: "5.720,00",
     inclusions: {
       en: ["Private air-conditioned transport", "English/Portuguese speaking guide", "All entrance fees", "Traditional lunch option"],
       pt: ["Transporte privado com ar condicionado", "Guia fluente em Inglês/Português", "Todas as taxas de entrada", "Opção de almoço tradicional"],
@@ -128,7 +129,7 @@ const tours = [
       pt: "O tour Mafalala é uma visita de 3 horas a um dos bairros mais antigos, emblemáticos e históricos da cidade de Maputo. Conduzida por guias locais, esta experiência conta a evolução de Maputo desde o período colonial, quando a cidade ainda se chamava Lourenço Marques, e contextualiza a luta pela independência de Moçambique.",
     },
     img: pkgMafalala,
-    price: { en: "$45 per person", pt: "$45 por pessoa" },
+    price: "3.200,00",
     inclusions: {
       en: ["Local certified guide", "Mafalala museum entry", "Traditional dance performance", "Bottled water"],
       pt: ["Guia local certificado", "Entrada no museu da Mafalala", "Apresentação de dança tradicional", "Água engarrafada"],
@@ -152,7 +153,7 @@ const tours = [
       pt: "Esta excursão de dia inteiro leva-o a descobrir dois dos destinos mais emblemáticos e preservados da região de Maputo, envoltos pelas águas quentes do Oceano Índico. Desfrute de snorkeling em águas cristalinas, observação de golfinhos e baleias (consoante a época), visitas a aldeias locais com artesanato e paragem na Ilha Portuguesa.",
     },
     img: pkgInhaca,
-    price: { en: "$180 per person", pt: "$180 por pessoa" },
+    price: "8.940,00",
     inclusions: {
       en: ["Boat cruise transfers", "Marine reserve permits", "Snorkeling equipment rental", "Fresh seafood lunch"],
       pt: ["Transferes de barco", "Licenças da reserva marinha", "Aluguer de equipamento de snorkeling", "Almoço de marisco fresco"],
@@ -176,7 +177,7 @@ const tours = [
       pt: "Conhecido como o parque dos Big 5, localizado a apenas 100 km da cidade de Maputo, o Parque Nacional Kruger é uma das experiências mais emblemáticas da região. O motorista fará a recolha no hotel em Maputo, seguindo pela EN1 e pela fronteira de Ressano Garcia, onde será prestado apoio em todas as formalidades fronteiriças. A aventura de dia completo dentro do parque permite observar a diversidade do ecossistema.",
     },
     img: pkgKruger,
-    price: { en: "$220 per person", pt: "$220 por pessoa" },
+    price: "12.240,00",
     inclusions: {
       en: ["Return transport from Maputo", "Professional driver/guide", "Big 5 game drive", "Packed lunch"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Safári Big 5", "Almoço embalado"],
@@ -200,7 +201,7 @@ const tours = [
       pt: "A Ponta Day Trip foi concebida para proporcionar aos hóspedes uma escapada de um dia a um dos destinos costeiros mais procurados da região sul de Moçambique. Combinando paisagens naturais, ambiente descontraído e uma forte componente de lazer, esta experiência oferece aos visitantes a oportunidade de desfrutar da beleza de Ponta do Ouro.",
     },
     img: pkgPonta,
-    price: { en: "$95 per person", pt: "$95 por pessoa" },
+    price: "9.840,00",
     inclusions: {
       en: ["Return transport from Maputo", "Professional guide", "Beach access & leisure time", "Lunch at local restaurant"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Guia profissional", "Acesso à praia e tempo livre", "Almoço em restaurante local"],
@@ -224,7 +225,7 @@ const tours = [
       pt: "Explore o melhor de eSwatini numa excursão cultural de dia inteiro com saída de Maputo ao amanhecer e regresso ao início da noite. A experiência inicia-se no Manzini Market e no Mantenga Craft & Lifestyle Centre, ideais para contacto com artesanato e joalharia Siswati, seguindo para o Mantenga Cultural Village, onde se descobre a história e tradições locais.",
     },
     img: pkgEswatini,
-    price: { en: "$145 per person", pt: "$145 por pessoa" },
+    price: "7.000,00",
     inclusions: {
       en: ["Round-trip transport from Maputo", "Professional driver/guide", "Mantenga Village entry fee", "Traditional lunch"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Entrada na Aldeia de Mantenga", "Almoço tradicional"],
@@ -292,7 +293,7 @@ interface TourType {
   location: { en: string; pt: string };
   desc: { en: string; pt: string };
   img: string;
-  price: { en: string; pt: string };
+  price: string;
   inclusions: { en: string[]; pt: string[] };
 }
 
@@ -308,7 +309,7 @@ function FeaturedTourCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm border border-border/40">
+    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm">
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={tour.img}
@@ -323,11 +324,11 @@ function FeaturedTourCard({
           {/* Meta */}
           <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
             <span className="inline-flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-accent" /> {tour.location[lang]}
+              <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5 text-accent" /> {tour.location[lang]}
             </span>
             <span>·</span>
             <span className="inline-flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-accent" /> {tour.duration[lang]}
+              <FontAwesomeIcon icon={faClock} className="w-3.5 h-3.5 text-accent" /> {tour.duration[lang]}
             </span>
           </div>
 
@@ -348,9 +349,15 @@ function FeaturedTourCard({
           </button>
 
           {/* Price */}
-          <div className="flex items-baseline gap-2 mb-4 pb-4 border-b border-border/40">
-            <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
-            <span className="text-xl font-bold text-accent">{tour.price[lang]}</span>
+          <div className="flex flex-wrap items-baseline gap-1.5 mb-4 pb-4 border-b border-border/40">
+            <span className="text-[10px] uppercase tracking-wider text-ink-soft font-bold">
+              {lang === "en" ? "From" : "Desde"}
+            </span>
+            <span className="text-lg font-bold text-accent">{tour.price}</span>
+            <span className="text-sm font-semibold text-accent">MZN</span>
+            <span className="text-xs text-ink-soft ml-0.5">
+              {lang === "en" ? "/ person" : "/ pessoa"}
+            </span>
           </div>
 
           {/* Inclusions summary list */}
@@ -369,7 +376,7 @@ function FeaturedTourCard({
                 <ul className="space-y-1.5">
                   {tour.inclusions[lang].map((inc) => (
                     <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                      <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
                       <span className="truncate">{inc}</span>
                     </li>
                   ))}
@@ -459,7 +466,7 @@ function Home() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/25 z-10" />
+        {/* Hero image overlay removed */}
 
         <div className="relative container-x pb-32 pt-40 text-white w-full z-20">
           <AnimatePresence mode="wait">
@@ -513,14 +520,14 @@ function Home() {
                 className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white transition"
                 aria-label="Previous slide"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setCurrentSlide((prev) => (prev + 1) % SLIDES.length)}
                 className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white transition"
                 aria-label="Next slide"
               >
-                <ChevronRight className="w-4 h-4" />
+                <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -555,23 +562,23 @@ function Home() {
           <div className="grid md:grid-cols-3 gap-px bg-border">
             {[
               {
-                icon: Award,
+                icon: faAward,
                 label: t("Added Value", "Valor Acrescentado"),
                 text: t("Relationship based on competitiveness, expressing to the customer the satisfaction and the most attainable value for money.", "Relação baseada na competitividade, oferecendo ao cliente a máxima satisfação e a melhor relação custo-benefício."),
               },
               {
-                icon: Globe2,
+                icon: faGlobe,
                 label: t("Mission", "Missão"),
                 text: t("To provide lifetime leisure and business travel solutions for travel into and out of Africa and Contribute to the continuous development of the Industry.", "Proporcionar soluções de viagens de lazer e negócios em África e contribuir para o desenvolvimento contínuo da indústria."),
               },
               {
-                icon: ShieldCheck,
+                icon: faShieldHalved,
                 label: t("Vision", "Visão"),
                 text: t("To be a respected Destination Management Company in Africa by providing quality service, reliability and customized solutions.", "Ser uma Empresa de Gestão de Destinos de referência em África, oferecendo serviços de qualidade, fiabilidade e soluções personalizadas."),
               },
             ].map((item, idx) => (
               <Reveal key={item.label} delay={idx * 0.1} className="bg-background p-8 flex flex-col h-full">
-                <item.icon className="w-8 h-8 text-accent mb-6" />
+                <FontAwesomeIcon icon={item.icon} className="w-8 h-8 text-accent mb-6" />
                 <h3 className="text-xl mb-3">{item.label}</h3>
                 <p className="text-base text-ink-soft leading-relaxed flex-1">{item.text}</p>
               </Reveal>
@@ -605,9 +612,9 @@ function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-black/25" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <s.icon className="w-8 h-8 text-white mb-4" />
+                    <FontAwesomeIcon icon={s.icon} className="w-8 h-8 text-white mb-4" />
                     <h3 className="text-2xl mb-2 text-white">{s.title[lang]}</h3>
                     <p className="text-white text-base leading-relaxed font-medium">{s.desc[lang]}</p>
                   </div>
@@ -632,10 +639,10 @@ function Home() {
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10">
             {/* Corporate Card */}
             <Reveal>
-              <div className="bg-card border border-border/60 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-md transition-all duration-300">
+              <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                    <FontAwesomeIcon icon={faBriefcase} className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                   </div>
                   <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">{t("Corporate", "Corporativo")}</h3>
                 </div>
@@ -662,10 +669,10 @@ function Home() {
 
             {/* Leisure Card */}
             <Reveal delay={0.15}>
-              <div className="bg-card border border-border/60 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 hover:shadow-md transition-all duration-300">
+              <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <Compass className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                    <FontAwesomeIcon icon={faCompass} className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                   </div>
                   <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">{t("Leisure", "Lazer")}</h3>
                 </div>
@@ -702,7 +709,7 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1} className="flex items-center gap-4">
               <Link to="/packages" className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all mr-2 sm:mr-4">
-                {t("View all packages", "Ver todos os pacotes")} <ArrowRight className="w-4 h-4" />
+                {t("View all packages", "Ver todos os pacotes")} <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
               </Link>
               <div className="flex gap-2">
                 <button
@@ -710,14 +717,14 @@ function Home() {
                   className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-ink hover:bg-secondary/40 transition-colors"
                   aria-label="Previous tour"
                 >
-                  <ChevronLeft className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextTour}
                   className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-ink hover:bg-secondary/40 transition-colors"
                   aria-label="Next tour"
                 >
-                  <ChevronRight className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
                 </button>
               </div>
             </Reveal>
@@ -836,7 +843,7 @@ function Home() {
       <section className="py-20 bg-background">
         <div className="container-x">
           <Reveal>
-            <div className="bg-card border border-border/60 rounded-2xl shadow-sm overflow-hidden grid md:grid-cols-2">
+            <div className="bg-card rounded-2xl shadow-sm overflow-hidden grid md:grid-cols-2">
               {/* Content */}
               <div className="p-8 lg:p-12 flex flex-col justify-center order-2 md:order-1">
                 <div className="eyebrow mb-4">
@@ -911,14 +918,14 @@ function Home() {
             </h2>
             <div className="space-y-6 text-sm">
               <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faLocationDot} className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold text-ink">{t("Address", "Endereço")}</div>
                   <div className="text-ink-soft">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar, Maputo - Mozambique</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Phone className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faPhone} className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold text-ink">{t("Phone & WhatsApp", "Telefone & WhatsApp")}</div>
                   <div className="text-ink-soft">
@@ -928,7 +935,7 @@ function Home() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Mail className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold text-ink">Email</div>
                   <div className="text-ink-soft">
@@ -942,7 +949,7 @@ function Home() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] border border-border/85 p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm">
+            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm">
               <div className="grid sm:grid-cols-2 gap-5">
                 <Field label={t("Full Name", "Nome Completo")} />
                 <Field label={t("Email", "E-mail")} type="email" />
@@ -953,7 +960,7 @@ function Home() {
                   </label>
                   <select
                     required
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   >
                     <option value="">{t("Select Destination", "Seleccione o Destino")}</option>
                     <option value="Maputo City">{t("Maputo City", "Cidade de Maputo")}</option>
@@ -987,7 +994,7 @@ function Home() {
                 </label>
                 <select
                   required
-                  className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                  className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
                   <option value="">{t("Select a reason", "Seleccione um motivo")}</option>
                   <option value="Corporate">{t("Business Travel / Corporate", "Viagens de Negócios / Corporativo")}</option>
@@ -1003,7 +1010,7 @@ function Home() {
                 </label>
                 <select
                   required
-                  className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                  className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
                   <option value="">{t("Select an option", "Seleccione uma opção")}</option>
                   <option value="Google">{t("Google Search", "Pesquisa no Google")}</option>

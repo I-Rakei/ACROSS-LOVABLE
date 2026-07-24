@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { AcrossLogo } from "@/components/across-logo";
 import footerSvg from "@/assets/Across/footer/footer.svg";
 
@@ -38,13 +40,13 @@ export function SiteFooter() {
             <ul className="space-y-4 text-sm text-white/90 font-medium">
               <li className="flex gap-3">
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center text-white">
-                  <MapPin className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faLocationDot} className="w-4 h-4" />
                 </span>
                 <span className="pt-1.5">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar · Maputo, Mozambique</span>
               </li>
               <li className="flex gap-3">
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center mt-1 text-white">
-                  <Phone className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
                 </span>
                 <span>
                   Mobile: +258 84 438 3501<br />
@@ -53,7 +55,7 @@ export function SiteFooter() {
               </li>
               <li className="flex gap-3 items-center">
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center text-white">
-                  <Mail className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
                 </span>
                 <a href="mailto:reservations@acrosstour.com" className="text-white hover:text-white/80 transition">
                   reservations@acrosstour.com
@@ -125,14 +127,14 @@ export function SiteFooter() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-2">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+            {[faFacebookF, faInstagram, faLinkedinIn].map((icon, i) => (
               <a
                 key={i}
                 href="#"
                 className="w-9 h-9 rounded-full border border-[#4a4e57]/30 flex items-center justify-center text-[#4a4e57] hover:bg-[#0080B9] hover:text-white hover:border-[#0080B9] transition-colors"
                 aria-label="Social"
               >
-                <Icon className="w-4 h-4" />
+                <FontAwesomeIcon icon={icon} className="w-4 h-4" />
               </a>
             ))}
           </div>

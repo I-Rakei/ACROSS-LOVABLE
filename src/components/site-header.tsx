@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, User } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useLanguage } from "@/components/language-provider";
 import { AcrossLogo } from "@/components/across-logo";
 
@@ -106,7 +107,7 @@ export function SiteHeader() {
                 : "text-white/90 hover:text-white"
             }`}
           >
-            <User className="w-4 h-4" />
+            <FontAwesomeIcon icon={faUser} className="w-4 h-4" />
             <span>Portal</span>
           </a>
         </div>
@@ -116,7 +117,7 @@ export function SiteHeader() {
           className={`lg:hidden p-2 z-10 ${scrolled ? "text-foreground" : "text-white"}`}
           aria-label="Toggle menu"
         >
-          {open ? <X /> : <Menu />}
+          {open ? <FontAwesomeIcon icon={faXmark} className="w-5 h-5" /> : <FontAwesomeIcon icon={faBars} className="w-5 h-5" />}
         </button>
       </div>
 
@@ -168,7 +169,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="mt-4 inline-flex justify-center items-center gap-2 text-foreground px-5 py-3 font-semibold hover:bg-muted transition"
             >
-              <User className="w-4 h-4" />
+              <FontAwesomeIcon icon={faUser} className="w-4 h-4" />
               Portal
             </a>
           </nav>

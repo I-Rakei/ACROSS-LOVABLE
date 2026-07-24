@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { MapPin, Clock, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faClock, faArrowLeft, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "motion/react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -51,10 +52,7 @@ const packages = [
       en: ["Private air-conditioned transport", "English/Portuguese speaking guide", "All entrance fees", "Central market guided walk", "Traditional lunch option"],
       pt: ["Transporte privado com ar condicionado", "Guia fluente em Inglês/Português", "Todas as taxas de entrada", "Caminhada guiada pelo mercado central", "Opção de almoço tradicional"],
     },
-    price: {
-      en: "$65 per person",
-      pt: "$65 por pessoa",
-    },
+    price: "5.720,00",
   },
   {
     title: {
@@ -78,10 +76,7 @@ const packages = [
       en: ["Local certified guide", "Mafalala museum entry", "Traditional dance performance", "Bottled water"],
       pt: ["Guia local certificado", "Entrada no museu da Mafalala", "Apresentação de dança tradicional", "Água engarrafada"],
     },
-    price: {
-      en: "$45 per person",
-      pt: "$45 por pessoa",
-    },
+    price: "3.200,00",
   },
   {
     title: {
@@ -105,10 +100,7 @@ const packages = [
       en: ["Boat cruise transfers", "Marine reserve permits", "Snorkeling equipment rental", "Fresh seafood lunch", "Mineral water & soft drinks"],
       pt: ["Transferes de barco", "Licenças da reserva marinha", "Aluguer de equipamento de snorkeling", "Almoço de marisco fresco", "Água mineral e refrigerantes"],
     },
-    price: {
-      en: "$180 per person",
-      pt: "$180 por pessoa",
-    },
+    price: "8.940,00",
   },
   {
     title: {
@@ -132,10 +124,7 @@ const packages = [
       en: ["Return transport from Maputo", "Professional driver/guide", "Big 5 game drive", "Packed lunch", "Border assistance"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Safári Big 5", "Almoço embalado", "Assistência na fronteira"],
     },
-    price: {
-      en: "$220 per person",
-      pt: "$220 por pessoa",
-    },
+    price: "12.240,00",
   },
   {
     title: {
@@ -159,10 +148,7 @@ const packages = [
       en: ["Return transport from Maputo", "Professional guide", "Beach access & leisure time", "Lunch at local restaurant", "Dolphin spotting opportunity"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Guia profissional", "Acesso à praia e tempo livre", "Almoço em restaurante local", "Oportunidade de avistamento de golfinhos"],
     },
-    price: {
-      en: "$95 per person",
-      pt: "$95 por pessoa",
-    },
+    price: "9.840,00",
   },
   {
     title: {
@@ -186,10 +172,7 @@ const packages = [
       en: ["Round-trip transport from Maputo", "Professional driver/guide", "Mantenga Village entry fee", "Traditional lunch", "Border assistance"],
       pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Entrada na Aldeia de Mantenga", "Almoço tradicional", "Assistência na fronteira"],
     },
-    price: {
-      en: "$145 per person",
-      pt: "$145 por pessoa",
-    },
+    price: "7.000,00",
   },
 ];
 
@@ -200,7 +183,7 @@ interface PackageType {
   desc: { en: string; pt: string };
   img: string;
   inclusions: { en: string[]; pt: string[] };
-  price: { en: string; pt: string };
+  price: string;
 }
 
 function PackageCard({
@@ -217,7 +200,7 @@ function PackageCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-xl overflow-hidden shadow-sm border border-border/40">
+    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-xl overflow-hidden shadow-sm">
       <div className="aspect-[4/3] overflow-hidden">
         <img 
           src={pkg.img} 
@@ -231,11 +214,11 @@ function PackageCard({
         <div>
           <div className="flex items-center gap-3 text-xs text-ink-soft mb-2.5">
             <span className="inline-flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-accent" /> {pkg.location[lang]}
+              <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5 text-accent" /> {pkg.location[lang]}
             </span>
             <span>·</span>
             <span className="inline-flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-accent" /> {pkg.duration[lang]}
+              <FontAwesomeIcon icon={faClock} className="w-3.5 h-3.5 text-accent" /> {pkg.duration[lang]}
             </span>
           </div>
           <h2 className="text-lg font-bold text-ink mb-2.5 line-clamp-1">{pkg.title[lang]}</h2>
@@ -253,9 +236,15 @@ function PackageCard({
           </button>
           
           {/* Price displayed in card body */}
-          <div className="flex items-baseline gap-2 mb-4 pb-3 border-b border-border/40">
-            <span className="text-xs uppercase tracking-wider text-ink-soft font-semibold">{t("Est. Price", "Preço Est.")}</span>
-            <span className="text-lg font-bold text-accent">{pkg.price[lang]}</span>
+          <div className="flex flex-wrap items-baseline gap-1.5 mb-4 pb-3 border-b border-border/40">
+            <span className="text-[10px] uppercase tracking-wider text-ink-soft font-bold">
+              {lang === "en" ? "From" : "Desde"}
+            </span>
+            <span className="text-lg font-bold text-accent">{pkg.price}</span>
+            <span className="text-sm font-semibold text-accent">MZN</span>
+            <span className="text-xs text-ink-soft ml-0.5">
+              {lang === "en" ? "/ person" : "/ pessoa"}
+            </span>
           </div>
 
           {/* Inclusions summary list */}
@@ -274,7 +263,7 @@ function PackageCard({
                 <ul className="space-y-1.5">
                   {pkg.inclusions[lang].map((inc) => (
                     <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                      <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
                       <span className="truncate">{inc}</span>
                     </li>
                   ))}
@@ -336,10 +325,10 @@ function PackagesPage() {
           className="absolute inset-0 bg-cover bg-center scale-105"
           style={{ backgroundImage: `url(${pkgHero})` }}
         />
-        <div className="absolute inset-0 bg-black/25" />
+        {/* Hero image overlay removed */}
         <div className="relative container-x">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-white hover:text-white/80 transition-colors mb-6">
-            <ArrowLeft className="w-4 h-4" /> {t("Back to Home", "Voltar ao Início")}
+            <FontAwesomeIcon icon={faArrowLeft} className="w-4 h-4" /> {t("Back to Home", "Voltar ao Início")}
           </Link>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
             {t("Special Packages", "Pacotes Especiais")}
@@ -384,7 +373,7 @@ function PackagesPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] border border-border/80 p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm">
+            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
@@ -426,7 +415,7 @@ function PackagesPage() {
                   <select
                     value={selectedPackage}
                     onChange={(e) => setSelectedPackage(e.target.value)}
-                    className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                    className="w-full bg-background border border-border pl-3.5 pr-10 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   >
                     <option value="">{t("Custom Package (Let us design one)", "Pacote Personalizado (Nós desenhamos)")}</option>
                     {packages.map((pkg) => (
@@ -510,7 +499,7 @@ function PackagesPage() {
                 </label>
                 <select
                   required
-                  className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
+                  className="w-full bg-background border border-border pl-3.5 pr-10 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
                   <option value="">{t("Select an option", "Seleccione uma opção")}</option>
                   <option value="Google">{t("Google Search", "Pesquisa no Google")}</option>
