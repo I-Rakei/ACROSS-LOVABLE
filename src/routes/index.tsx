@@ -25,6 +25,7 @@ import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { AcrossLogo } from "@/components/across-logo";
 import { AnimatedWhyChooseUsSvg } from "@/components/animated-why-choose-us";
+import { ImageWithSpinner } from "@/components/image-with-spinner";
 import quimbrasImg from "@/assets/Across/Why choose US/quimbras.png";
 
 // Hero Images
@@ -311,11 +312,12 @@ function FeaturedTourCard({
   return (
     <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm">
       <div className="aspect-[4/3] overflow-hidden">
-        <img
+        <ImageWithSpinner
           src={tour.img}
           alt={tour.title[lang]}
           loading="lazy"
           decoding="async"
+          containerClassName="w-full h-full"
           className="w-full h-full object-cover"
         />
       </div>
@@ -456,12 +458,13 @@ function Home() {
               idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
             }`}
           >
-            <img
+            <ImageWithSpinner
               src={slide.image}
               alt="Across Tour Background"
               loading="eager"
               decoding="async"
               fetchPriority="high"
+              containerClassName="w-full h-full"
               className="w-full h-full object-cover"
             />
           </div>
@@ -604,11 +607,12 @@ function Home() {
               <Reveal key={s.title.en} delay={i * 0.1}>
                 <article className="group relative overflow-hidden bg-ocean-deep hover-lift h-full rounded-2xl">
                   <div className="aspect-[4/5] overflow-hidden">
-                    <img
+                    <ImageWithSpinner
                       src={s.img}
                       alt={s.title[lang]}
                       loading="lazy"
                       decoding="async"
+                      containerClassName="w-full h-full"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -775,12 +779,13 @@ function Home() {
             <div className="lg:col-span-6 relative">
               <Reveal>
                 <div className="relative">
-                  <img 
+                  <ImageWithSpinner 
                     src={factsImg} 
                     alt="Mozambique location map" 
                     loading="lazy"
                     decoding="async" 
-                    className="w-full aspect-[4/5] object-cover rounded-2xl shadow-xl"
+                    containerClassName="w-full aspect-[4/5] rounded-2xl shadow-xl overflow-hidden"
+                    className="w-full h-full object-cover"
                   />
                   {/* Floating brand accent badge */}
                   <div className="absolute -bottom-6 -right-6 bg-accent text-white p-8 max-w-xs rounded-2xl shadow-xl flex flex-col justify-center min-w-[200px]">
@@ -870,12 +875,13 @@ function Home() {
 
               {/* Image */}
               <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[360px] order-1 md:order-2">
-                <img
+                <ImageWithSpinner
                   src={visaImg}
                   alt="Passport and travel documents"
                   loading="lazy"
                   decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  containerClassName="absolute inset-0 w-full h-full rounded-xl overflow-hidden"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -886,10 +892,11 @@ function Home() {
       {/* WHY CHOOSE US */}
       <section className="relative w-full py-24 md:py-32 flex items-center justify-center text-white overflow-hidden bg-slate-950">
         {/* Background Image */}
-        <img
+        <ImageWithSpinner
           src={quimbrasImg}
           alt="Why Choose Us"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          containerClassName="absolute inset-0 w-full h-full"
+          className="w-full h-full object-cover object-center"
         />
         {/* Dark overlay for contrast */}
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />

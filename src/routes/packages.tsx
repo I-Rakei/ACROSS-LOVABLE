@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
+import { ImageWithSpinner } from "@/components/image-with-spinner";
 
 import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
 import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
@@ -202,12 +203,13 @@ function PackageCard({
   return (
     <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-xl overflow-hidden shadow-sm">
       <div className="aspect-[4/3] overflow-hidden">
-        <img 
+        <ImageWithSpinner 
           src={pkg.img} 
           alt={pkg.title[lang]} 
-          className="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
+          containerClassName="w-full h-full"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="p-5 flex-1 flex flex-col justify-between">
@@ -321,9 +323,13 @@ function PackagesPage() {
 
       {/* Mini Hero Banner */}
       <div className="relative pt-40 pb-20 bg-background text-white overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${pkgHero})` }}
+        <ImageWithSpinner
+          src={pkgHero}
+          alt="Special Packages Hero"
+          loading="eager"
+          decoding="async"
+          containerClassName="absolute inset-0 scale-105"
+          className="w-full h-full object-cover"
         />
         {/* Hero image overlay removed */}
         <div className="relative container-x">

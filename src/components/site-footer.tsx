@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { AcrossLogo } from "@/components/across-logo";
+import { ImageWithSpinner } from "@/components/image-with-spinner";
 import footerSvg from "@/assets/Across/footer/footer.svg";
 
 const QUICK_LINKS = [
@@ -28,10 +29,12 @@ export function SiteFooter() {
     <footer className="w-full flex flex-col">
       {/* Main footer content with SVG background */}
       <div className="relative text-white overflow-hidden bg-white w-full pt-[20%] pb-10 md:pb-12 min-h-[480px] flex flex-col justify-center">
-        <img
+        <ImageWithSpinner
           src={footerSvg}
           alt="Footer Background"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          containerClassName="absolute inset-0 w-full h-full pointer-events-none"
+          className="w-full h-full object-cover object-center"
+          showSpinner={false}
         />
 
         <div className="relative z-10 container-x grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -110,7 +113,15 @@ export function SiteFooter() {
               <AcrossLogo className="h-12 sm:h-14 w-auto text-white shrink-0" idle={false} hoverable={false} entrance="none" />
               <div className="h-10 w-[1px] bg-white/40 shrink-0" />
               <div className="flex items-center gap-2.5 shrink-0">
-                <img src="/logos/iata.svg" alt="IATA Certified" className="h-10 sm:h-12 w-auto shrink-0" loading="lazy" decoding="async" />
+                <ImageWithSpinner 
+                  src="/logos/iata.svg" 
+                  alt="IATA Certified" 
+                  loading="lazy" 
+                  decoding="async" 
+                  containerClassName="h-10 sm:h-12 w-auto shrink-0"
+                  className="h-10 sm:h-12 w-auto shrink-0" 
+                  spinnerClassName="w-4 h-4"
+                />
                 <div className="text-[11px] leading-tight text-white/90 font-medium shrink-0">
                   Officially<br />IATA accredited<br />agency
                 </div>

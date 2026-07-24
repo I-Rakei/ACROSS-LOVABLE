@@ -15,7 +15,7 @@ export function AcrossLogo({
   entrance = "zoom",
 }: AcrossLogoProps) {
   // Idle animations variants
-  const planeVariants = idle
+  const planeVariants: any = idle
     ? {
         animate: {
           y: [0, -6, 0],
@@ -30,7 +30,7 @@ export function AcrossLogo({
       }
     : {};
 
-  const birdsVariants = idle
+  const birdsVariants: any = idle
     ? {
         animate: {
           y: [0, -3, 0],
@@ -45,7 +45,7 @@ export function AcrossLogo({
       }
     : {};
 
-  const wavesVariants = idle
+  const wavesVariants: any = idle
     ? {
         animate: {
           scaleY: [1, 1.03, 1],
@@ -59,7 +59,7 @@ export function AcrossLogo({
     : {};
 
   // Hover variants
-  const logoHoverVariants = hoverable
+  const logoHoverVariants: any = hoverable
     ? {
         hover: {
           scale: 1.03,
@@ -72,7 +72,7 @@ export function AcrossLogo({
       }
     : {};
 
-  const hoverPlaneVariants = hoverable
+  const hoverPlaneVariants: any = hoverable
     ? {
         hover: {
           x: 6,
@@ -88,7 +88,7 @@ export function AcrossLogo({
       }
     : {};
 
-  const hoverBirdsVariants = hoverable
+  const hoverBirdsVariants: any = hoverable
     ? {
         hover: {
           x: -4,
