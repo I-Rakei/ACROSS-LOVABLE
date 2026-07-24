@@ -14,7 +14,7 @@ import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.j
 import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
 import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
 import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.jpg";
-import pkgHero from "@/assets/Across/Hero images/hero 1.jpg";
+import pkgHero from "@/assets/Across/Hero images/hero 4 Packages Page.jpg";
 
 type PackageSearch = {
   package?: string;
