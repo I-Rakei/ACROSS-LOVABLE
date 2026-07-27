@@ -57,6 +57,7 @@ import visaImg from "@/assets/Across/VISA/Image.jpg";
 import modalCorporateSVG from "@/assets/Modals/Corporate Travel Solutions.svg";
 import modalTransportSVG from "@/assets/Modals/Transport & Logistics.svg";
 import modalHolidaySVG from "@/assets/Modals/Holiday Packages.svg";
+import modalHeaderSVG from "@/assets/Modals/Header Modal.svg";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -496,28 +497,28 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
           {/* Sheet panel — slides up on mobile, centered on desktop */}
           <div className="relative w-full sm:w-auto sm:min-w-[480px] sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl flex flex-col max-h-[92dvh] sm:max-h-[88vh] shadow-2xl overflow-hidden">
 
-            {/* Header with logo */}
-            <div className="relative flex-shrink-0 px-6 pt-6 pb-5 flex flex-col items-center border-b border-gray-100">
-              {/* Close button */}
+            {/* Header with SVG banner */}
+            <div className="relative flex-shrink-0 border-b border-gray-100">
+              {/* Header SVG — full width */}
+              <img src={modalHeaderSVG} alt="Across Tours" className="w-full h-auto block" />
+
+              {/* Close button floats over SVG */}
               <button
                 onClick={() => setOpenIdx(null)}
                 aria-label="Close"
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors"
+                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white flex items-center justify-center text-gray-600 transition-colors shadow-sm"
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </button>
 
-              {/* Logo */}
-              <AcrossLogo className="w-28 sm:w-36 mb-4" hoverable={false} idle={false} entrance="none" />
-
-              {/* Service title */}
-              <h2 className="text-brand-blue font-bold text-base sm:text-lg leading-tight text-center">{active.title[lang]}</h2>
+              {/* Service title below SVG */}
+              <h2 className="text-brand-blue font-bold text-base sm:text-lg leading-tight text-center px-6 pt-4 pb-4">{active.title[lang]}</h2>
             </div>
 
             {/* Scrollable body */}
-            <div className="overflow-y-auto flex-1 overscroll-contain">
+            <div className="overflow-y-auto flex-1 overscroll-contain scrollbar-hide">
               <p className="px-5 sm:px-8 pt-5 pb-3 text-gray-600 text-sm sm:text-base leading-relaxed">
                 {active.desc[lang]}
               </p>
@@ -536,10 +537,7 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
                 ))}
               </ul>
 
-              {/* Bottom SVG */}
-              {active.modalSvg && (
-                <img src={active.modalSvg} alt="" className="w-full h-auto" />
-              )}
+
             </div>
           </div>
         </div>
