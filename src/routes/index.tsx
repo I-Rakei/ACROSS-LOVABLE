@@ -53,6 +53,11 @@ import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-locati
 // Visa Section Image
 import visaImg from "@/assets/Across/VISA/Image.jpg";
 
+// Service Modal SVGs
+import modalCorporateSVG from "@/assets/Modals/Corporate Travel Solutions.svg";
+import modalTransportSVG from "@/assets/Modals/Transport & Logistics.svg";
+import modalHolidaySVG from "@/assets/Modals/Holiday Packages.svg";
+
 export const Route = createFileRoute("/")({
   component: Home,
 });
@@ -66,6 +71,14 @@ const services = [
       pt: "Serviços completos de viagens corporativas concebidos para apoiar empresas, executivos e grupos empresariais organizados.",
     },
     img: serviceBusiness,
+    modalSvg: modalCorporateSVG,
+    bullets: [
+      { title: { en: "Air Tickets", pt: "Passagens Aéreas" }, desc: { en: "Issuance of air tickets for domestic and international flights, including charter flights.", pt: "Emissão de passagens aéreas de voos nacionais e internacionais, incluindo voos charters." } },
+      { title: { en: "Corporate Accommodation", pt: "Alojamento Corporativo" }, desc: { en: "3 to 5-star hotel reservations, with half board or full board options, aligned with corporate standards.", pt: "Reservas hoteleiras entre 3 e 5 estrelas, com opções de meia pensão ou pensão completa, alinhadas com padrões corporativos." } },
+      { title: { en: "Visa Assistance", pt: "Assistência em Vistos" }, desc: { en: "Assistance in visa acquisition processes, including document review and submission guidance.", pt: "Assistência em processos de aquisição de visto, incluindo revisão documental e orientação de submissão." } },
+      { title: { en: "Travel Insurance", pt: "Seguro de Viagem" }, desc: { en: "Solutions tailored to the destination, duration, and purpose of the trip.", pt: "Soluções ajustadas ao destino, duração e objectivo da deslocação." } },
+      { title: { en: "Conference Logistics (MICE)", pt: "Logística de Conferências (MICE)" }, desc: { en: "Comprehensive planning and coordination of meetings, incentives, conferences, and corporate events.", pt: "Planeamento e coordenação integral de reuniões, incentivos, conferências e eventos corporativos." } },
+    ],
   },
   {
     icon: faCar,
@@ -75,6 +88,16 @@ const services = [
       pt: "Soluções integradas de mobilidade terrestre, garantindo fiabilidade, segurança e eficiência operacional.",
     },
     img: serviceTransport,
+    modalSvg: modalTransportSVG,
+    bullets: [
+      { title: { en: "Transfers (Airport & City)", pt: "Transferes (Aeroportos & Cidade)" }, desc: { en: "Point-to-point transfers between airports, hotels, and urban locations.", pt: "Tranferes ponto-a-ponto entre aeroportos, hotéis e localizações urbanas." } },
+      { title: { en: "Car Rental (Self-Drive)", pt: "Aluguer de Viaturas (Self-Drive)" }, desc: { en: "Diversified fleet for independent mobility.", pt: "Frota diversificada para mobilidade independente." } },
+      { title: { en: "Chauffeur Drive Services", pt: "Serviços de Chauffeur Drive" }, desc: { en: "Professional driver solutions for executives, VIPs, and delegations.", pt: "Soluções com motorista profissional para executivos, VIPs e delegações." } },
+      { title: { en: "Employee Transport", pt: "Transporte de Colaboradores" }, desc: { en: "Structured services for corporate teams and business operations.", pt: "Serviços estruturados para equipas corporativas e operações empresariais." } },
+      { title: { en: "Meet & Greet Services", pt: "Serviços de Meet & Greet" }, desc: { en: "Reception and assistance at airports, borders, ports, and crew operations.", pt: "Recepção e assistência em aeroportos, fronteiras, portos e operações de tripulação." } },
+      { title: { en: "Executive Group Support", pt: "Apoio à Grupos Executivos" }, desc: { en: "Dedicated operational coordination and local assistance for delegations and business groups.", pt: "Coordenação operacional dedicada e assistência local a delegações e grupos empresariais." } },
+      { title: { en: "Private Event Logistics", pt: "Logística para Eventos Privados" }, desc: { en: "Complete logistical coordination for private and high-profile events.", pt: "Coordenação logística completa para eventos privados e de elevado perfil." } },
+    ],
   },
   {
     icon: faCompass,
@@ -84,6 +107,13 @@ const services = [
       pt: "Experiências de viagem autênticas, desenvolvidas com profundo conhecimento local e elevada flexibilidade.",
     },
     img: serviceHoliday,
+    modalSvg: modalHolidaySVG,
+    bullets: [
+      { title: { en: "Customized Travel Programs", pt: "Programas de Viagens Personalizados" }, desc: { en: "Fully customized solutions according to client preferences and expectations.", pt: "Soluções totalmente personalizadas de acordo com preferências e expectativas do cliente." } },
+      { title: { en: "Guided Tours in Mozambique", pt: "Tours Guiados em Moçambique" }, desc: { en: "Half-day and full-day excursions operated locally by experienced guides.", pt: "Excursões de meio dia e dia completo operadas localmente por guias experientes." } },
+      { title: { en: "Activities & Experiences", pt: "Actividades & Experiências" }, desc: { en: "Careful selection of cultural, leisure, and adventure activities.", pt: "Selecção criteriosa de actividades culturais, de lazer e aventura." } },
+      { title: { en: "Group Packages", pt: "Pacotes para Grupos" }, desc: { en: "Integrated solutions for organized groups and travelers with specific interests.", pt: "Soluções integradas para grupos organizados e viajantes de interesses específicos." } },
+    ],
   },
 ];
 
@@ -401,6 +431,123 @@ function FeaturedTourCard({
   );
 }
 
+function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const active = openIdx !== null ? services[openIdx] : null;
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [active]);
+
+  return (
+    <>
+      <div className="grid md:grid-cols-3 gap-6">
+        {services.map((s, i) => (
+          <Reveal key={s.title.en} delay={i * 0.1}>
+            <button
+              type="button"
+              onClick={() => setOpenIdx(i)}
+              className="w-full text-left group relative overflow-hidden bg-ocean-deep hover-lift rounded-2xl cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent min-h-[420px] sm:min-h-[480px]"
+            >
+              {/* Fill image */}
+              <ImageWithSpinner
+                src={s.img}
+                alt={s.title[lang]}
+                loading="lazy"
+                decoding="async"
+                containerClassName="absolute inset-0"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                <FontAwesomeIcon icon={s.icon} className="w-7 h-7 sm:w-8 sm:h-8 text-white mb-3 sm:mb-4" />
+                <h3 className="text-xl sm:text-2xl mb-1.5 sm:mb-2 text-white font-semibold">{s.title[lang]}</h3>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed font-medium">{s.desc[lang]}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 group-hover:gap-3 text-white/70 group-hover:text-white text-xs font-semibold uppercase tracking-widest transition-all duration-300">
+                  {lang === "en" ? "View Details" : "Ver Detalhes"} &#8594;
+                </span>
+              </div>
+            </button>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Modal Overlay */}
+      {active && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={active.title[lang]}
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+          onClick={(e) => { if (e.target === e.currentTarget) setOpenIdx(null); }}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setOpenIdx(null)}
+          />
+
+          {/* Sheet panel — slides up on mobile, centered on desktop */}
+          <div className="relative w-full sm:w-auto sm:min-w-[480px] sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl flex flex-col max-h-[92dvh] sm:max-h-[88vh] shadow-2xl overflow-hidden">
+
+            {/* Header with logo */}
+            <div className="relative flex-shrink-0 px-6 pt-6 pb-5 flex flex-col items-center border-b border-gray-100">
+              {/* Close button */}
+              <button
+                onClick={() => setOpenIdx(null)}
+                aria-label="Close"
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-colors"
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              {/* Logo */}
+              <AcrossLogo className="w-28 sm:w-36 mb-4" hoverable={false} idle={false} entrance="none" />
+
+              {/* Service title */}
+              <h2 className="text-brand-blue font-bold text-base sm:text-lg leading-tight text-center">{active.title[lang]}</h2>
+            </div>
+
+            {/* Scrollable body */}
+            <div className="overflow-y-auto flex-1 overscroll-contain">
+              <p className="px-5 sm:px-8 pt-5 pb-3 text-gray-600 text-sm sm:text-base leading-relaxed">
+                {active.desc[lang]}
+              </p>
+
+              <ul className="px-5 sm:px-8 pb-5 space-y-4">
+                {active.bullets.map((b, idx) => (
+                  <li key={idx} className="flex gap-3">
+                    <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-[#0066a1]/10 flex items-center justify-center">
+                      <span className="text-[#0066a1] text-[11px] font-black leading-none">&#x2022;</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm sm:text-base leading-snug">{b.title[lang]}</p>
+                      <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mt-0.5">{b.desc[lang]}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Bottom SVG */}
+              {active.modalSvg && (
+                <img src={active.modalSvg} alt="" className="w-full h-auto" />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [tourIndex, setTourIndex] = useState(0);
@@ -602,30 +749,7 @@ function Home() {
             </Reveal>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <Reveal key={s.title.en} delay={i * 0.1}>
-                <article className="group relative overflow-hidden bg-ocean-deep hover-lift h-full rounded-2xl">
-                  <div className="aspect-[4/5] overflow-hidden">
-                    <ImageWithSpinner
-                      src={s.img}
-                      alt={s.title[lang]}
-                      loading="lazy"
-                      decoding="async"
-                      containerClassName="w-full h-full"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <FontAwesomeIcon icon={s.icon} className="w-8 h-8 text-white mb-4" />
-                    <h3 className="text-2xl mb-2 text-white">{s.title[lang]}</h3>
-                    <p className="text-white text-base leading-relaxed font-medium">{s.desc[lang]}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <ServiceGrid lang={lang} />
         </div>
       </section>
 
