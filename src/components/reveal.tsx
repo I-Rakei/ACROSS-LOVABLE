@@ -1,19 +1,27 @@
 import { motion, useInView, type Variants } from "motion/react";
 import { useRef, useState, useEffect, type ReactNode } from "react";
 
-const variants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.2, 0.7, 0.2, 1] } },
+const variantsByType: Record<"blur" | "slide", Variants> = {
+  blur: {
+    hidden: { opacity: 0, filter: "blur(10px)" },
+    show: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.2, 0.7, 0.2, 1] } },
+  },
+  slide: {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.2, 0.7, 0.2, 1] } },
+  },
 };
 
 export function Reveal({
   children,
   delay = 0,
   className,
+  variant = "blur",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  variant?: "blur" | "slide";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   // `once: true` means the hook returns true as soon as the element enters the
@@ -31,7 +39,7 @@ export function Reveal({
     <motion.div
       ref={ref}
       className={className}
-      variants={variants}
+      variants={variantsByType[variant]}
       initial="hidden"
       animate={hasSeen ? "show" : "hidden"}
       transition={{ delay }}

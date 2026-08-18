@@ -27,6 +27,24 @@ export const Route = createFileRoute("/packages")({
       package: (search.package as string) || undefined,
     };
   },
+  head: () => ({
+    meta: [
+      { title: "Travel Packages — Across Tour DMC" },
+      {
+        name: "description",
+        content:
+          "Explore our creative tour packages designed to give you unforgettable travel and cultural experiences in Mozambique and Africa.",
+      },
+      { property: "og:title", content: "Travel Packages — Across Tour DMC" },
+      {
+        property: "og:description",
+        content:
+          "Explore our creative tour packages designed to give you unforgettable travel and cultural experiences in Mozambique and Africa.",
+      },
+      { property: "og:url", content: "https://acrosstour.com/packages" },
+    ],
+    links: [{ rel: "canonical", href: "https://acrosstour.com/packages" }],
+  }),
   component: PackagesPage,
 });
 

@@ -49,6 +49,8 @@ import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day 
 // Facts Image
 import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-location-map-flag-pin.avif";
 
+import { SpecialPackagesCarousel } from "@/components/special-packages-carousel";
+
 
 // Visa Section Image
 import visaImg from "@/assets/Across/VISA/Image.jpg";
@@ -60,6 +62,9 @@ import modalHolidaySVG from "@/assets/Modals/Holiday Packages.svg";
 import modalHeaderSVG from "@/assets/Modals/Header Modal.svg";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [{ rel: "canonical", href: "https://acrosstour.com/" }],
+  }),
   component: Home,
 });
 
@@ -756,7 +761,7 @@ function Home() {
           <Reveal>
             <div className="eyebrow mb-2 sm:mb-3 text-xs sm:text-sm">{t("Our Products & Services", "Os Nossos Produtos & Serviços")}</div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-5 sm:mb-8 text-ink tracking-tight">
-              {t("Comprehensive Ground Handling", "Gestão Global em Terra")}
+              {t("Complete Travel & Logistics Support", "Apoio Completo em Viagens e Logística")}
             </h2>
           </Reveal>
 
@@ -822,6 +827,35 @@ function Home() {
         </div>
       </section>
 
+      {/* SPECIAL PACKAGES */}
+      <section id="special-packages" className="py-20 bg-background">
+        <div className="container-x">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+            <Reveal variant="slide">
+              <div className="eyebrow mb-4">{t("Special Packages", "Pacotes Especiais")}</div>
+              <h2 className="text-4xl lg:text-5xl max-w-2xl">
+                {t("Curated escapes beyond the everyday", "Escapadinhas seleccionadas para momentos especiais")}
+              </h2>
+            </Reveal>
+            <Reveal variant="slide" delay={0.1} className="flex flex-col items-start lg:items-end gap-3">
+              <p className="max-w-md text-base text-ink-soft leading-relaxed lg:text-right">
+                {t(
+                  "Limited-time honeymoon, anniversary and beach retreat offers, ready to be tailored to your dates.",
+                  "Ofertas por tempo limitado para lua-de-mel, aniversários e retiros de praia, prontas a ser adaptadas às suas datas."
+                )}
+              </p>
+              <Link to="/special-packages" className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all">
+                {t("View all special packages", "Ver todos os pacotes especiais")} <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+              </Link>
+            </Reveal>
+          </div>
+
+          <Reveal variant="slide" delay={0.15}>
+            <SpecialPackagesCarousel lang={lang} t={t} />
+          </Reveal>
+        </div>
+      </section>
+
       {/* FEATURED TOURS */}
       <section id="activities" className="py-20 bg-background">
         <div className="container-x">
@@ -857,13 +891,13 @@ function Home() {
 
           {/* Sliding Carousel Track Container */}
           <div className="overflow-hidden w-full relative">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out -mx-3"
               style={{ transform: `translateX(-${tourIndex * (100 / visibleCards)}%)` }}
             >
               {tours.map((tour) => (
-                <div 
-                  key={tour.title.en} 
+                <div
+                  key={tour.title.en}
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
                 >
                   <FeaturedTourCard

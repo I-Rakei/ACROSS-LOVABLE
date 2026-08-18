@@ -14,6 +14,33 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../components/language-provider";
 import { GlobalLoader } from "../components/global-loader";
 
+const SITE_URL = "https://acrosstour.com";
+const LOGO_URL = `${SITE_URL}/logos/across-tour-logo.png`;
+
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "Across Tour DMC",
+  alternateName: "Across Tour Moz",
+  url: SITE_URL,
+  logo: LOGO_URL,
+  image: LOGO_URL,
+  description:
+    "Across Tour is a full-service Destination Management Company delivering corporate travel, transport, and holiday packages across Mozambique, Africa and beyond.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar",
+    addressLocality: "Maputo",
+    addressCountry: "MZ",
+  },
+  telephone: "+258844383501",
+  email: "reservations@acrosstour.com",
+  areaServed: {
+    "@type": "Country",
+    name: "Mozambique",
+  },
+};
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -86,6 +113,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Across Tour is a full-service Destination Management Company delivering corporate travel, transport, and holiday packages across Mozambique, Africa and beyond.",
       },
       { name: "author", content: "Across Tour DMC" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:site_name", content: "Across Tour DMC" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:title", content: "Across Tour DMC — Exceptional Travel Experiences" },
       {
         property: "og:description",
@@ -93,16 +124,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Integrated travel and logistics solutions across Mozambique, Africa, and worldwide.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: LOGO_URL },
+      { property: "og:image:width", content: "2000" },
+      { property: "og:image:height", content: "2000" },
+      { property: "og:image:alt", content: "Across Tour DMC logo" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Across Tour DMC — Exceptional Travel Experiences" },
+      {
+        name: "twitter:description",
+        content: "Integrated travel and logistics solutions across Mozambique, Africa, and worldwide.",
+      },
+      { name: "twitter:image", content: LOGO_URL },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/logos/across-tour-white.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/logos/across-tour-logo.png", type: "image/png", sizes: "512x512" },
+      { rel: "apple-touch-icon", href: "/logos/across-tour-logo.png" },
+      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ORGANIZATION_JSON_LD),
       },
     ],
   }),

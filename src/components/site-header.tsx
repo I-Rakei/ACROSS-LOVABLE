@@ -1,17 +1,32 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faUser, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useLanguage } from "@/components/language-provider";
 import { AcrossLogo } from "@/components/across-logo";
 
-const NAV = [
-  { label: "Home", to: "/", hash: "top" },
-  { label: "About Us", to: "/", hash: "about" },
-  { label: "Products & Services", to: "/", hash: "services" },
-  { label: "Activities", to: "/", hash: "activities" },
-  { label: "Special Packages", to: "/packages" },
-  { label: "Contact Us", to: "/", hash: "contact" },
+type NavLink = {
+  label: { en: string; pt: string };
+  to: string;
+  hash?: string;
+};
+
+type NavItem = NavLink & { children?: NavLink[] };
+
+const NAV: NavItem[] = [
+  { label: { en: "Home", pt: "Início" }, to: "/", hash: "top" },
+  { label: { en: "About Us", pt: "Sobre Nós" }, to: "/", hash: "about" },
+  { label: { en: "Products & Services", pt: "Produtos & Serviços" }, to: "/", hash: "services" },
+  { label: { en: "Activities", pt: "Actividades" }, to: "/", hash: "activities" },
+  {
+    label: { en: "Packages", pt: "Pacotes" },
+    to: "/packages",
+    children: [
+      { label: { en: "Travel", pt: "Viagens" }, to: "/packages" },
+      { label: { en: "Special Packages", pt: "Pacotes Especiais" }, to: "/special-packages" },
+    ],
+  },
+  { label: { en: "Contact Us", pt: "Contacte-nos" }, to: "/", hash: "contact" },
 ];
 
 export function SiteHeader() {
@@ -47,23 +62,47 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
-          {NAV.map((n) => (
-            <Link
-              key={n.label}
-              to={n.to}
-              hash={n.hash}
-              className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition ${
-                scrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
-              }`}
-            >
-              {n.label === "Home" ? (lang === "en" ? "Home" : "Início") :
-               n.label === "About Us" ? (lang === "en" ? "About Us" : "Sobre Nós") :
-               n.label === "Products & Services" ? (lang === "en" ? "Products & Services" : "Produtos & Serviços") :
-               n.label === "Activities" ? (lang === "en" ? "Activities" : "Actividades") :
-               n.label === "Special Packages" ? (lang === "en" ? "Special Packages" : "Pacotes Especiais") :
-               n.label === "Contact Us" ? (lang === "en" ? "Contact Us" : "Contacte-nos") : n.label}
-            </Link>
-          ))}
+          {NAV.map((n) =>
+            n.children ? (
+              <div key={n.label.en} className="relative group">
+                <Link
+                  to={n.to}
+                  hash={n.hash}
+                  className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition inline-flex items-center gap-1.5 ${
+                    scrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+                  }`}
+                >
+                  {n.label[lang]}
+                  <FontAwesomeIcon icon={faChevronDown} className="w-2.5 h-2.5" />
+                </Link>
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+                  <div className="bg-background border border-border rounded-lg shadow-lg py-2 min-w-45">
+                    {n.children.map((c) => (
+                      <Link
+                        key={c.label.en}
+                        to={c.to}
+                        hash={c.hash}
+                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-accent transition whitespace-nowrap"
+                      >
+                        {c.label[lang]}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={n.label.en}
+                to={n.to}
+                hash={n.hash}
+                className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition ${
+                  scrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+                }`}
+              >
+                {n.label[lang]}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="hidden lg:flex items-center gap-4 z-10">
@@ -124,22 +163,36 @@ export function SiteHeader() {
       {open && (
         <div className="lg:hidden bg-background border-t border-border">
           <nav className="container-x py-4 flex flex-col">
-            {NAV.map((n) => (
-              <Link
-                key={n.label}
-                to={n.to}
-                hash={n.hash}
-                onClick={() => setOpen(false)}
-                className="py-3 text-foreground font-medium border-b border-border"
-              >
-                {n.label === "Home" ? (lang === "en" ? "Home" : "Início") :
-                 n.label === "About Us" ? (lang === "en" ? "About Us" : "Sobre Nós") :
-                 n.label === "Products & Services" ? (lang === "en" ? "Products & Services" : "Produtos & Serviços") :
-                 n.label === "Activities" ? (lang === "en" ? "Activities" : "Actividades") :
-                 n.label === "Special Packages" ? (lang === "en" ? "Special Packages" : "Pacotes Especiais") :
-                 n.label === "Contact Us" ? (lang === "en" ? "Contact Us" : "Contacte-nos") : n.label}
-              </Link>
-            ))}
+            {NAV.map((n) =>
+              n.children ? (
+                <div key={n.label.en} className="border-b border-border">
+                  <span className="block py-3 text-foreground font-medium">{n.label[lang]}</span>
+                  <div className="flex flex-col pb-2 pl-4">
+                    {n.children.map((c) => (
+                      <Link
+                        key={c.label.en}
+                        to={c.to}
+                        hash={c.hash}
+                        onClick={() => setOpen(false)}
+                        className="py-2.5 text-ink-soft font-medium"
+                      >
+                        {c.label[lang]}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={n.label.en}
+                  to={n.to}
+                  hash={n.hash}
+                  onClick={() => setOpen(false)}
+                  className="py-3 text-foreground font-medium border-b border-border"
+                >
+                  {n.label[lang]}
+                </Link>
+              )
+            )}
             
             {/* Mobile language switch */}
             <div className="flex items-center gap-3 py-4 border-b border-border">

@@ -1,0 +1,10 @@
+# https://acrosstour.com/robots.txt
+# Across Tour DMC — Leisure & Corporate Travel in Mozambique
+
+User-agent: *
+Allow: /
+
+# Keep CSS/JS crawlable so Google can render the page correctly
+Disallow:
+
+Sitemap: https://acrosstour.com/sitemap.xml

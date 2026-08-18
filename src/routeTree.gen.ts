@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SpecialPackagesIndexRouteImport } from './routes/special-packages.index'
+import { Route as SpecialPackagesSlugRouteImport } from './routes/special-packages.$slug'
 
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
@@ -22,31 +24,55 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SpecialPackagesIndexRoute = SpecialPackagesIndexRouteImport.update({
+  id: '/special-packages/',
+  path: '/special-packages/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpecialPackagesSlugRoute = SpecialPackagesSlugRouteImport.update({
+  id: '/special-packages/$slug',
+  path: '/special-packages/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/packages': typeof PackagesRoute
+  '/special-packages/$slug': typeof SpecialPackagesSlugRoute
+  '/special-packages/': typeof SpecialPackagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/packages': typeof PackagesRoute
+  '/special-packages/$slug': typeof SpecialPackagesSlugRoute
+  '/special-packages': typeof SpecialPackagesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/packages': typeof PackagesRoute
+  '/special-packages/$slug': typeof SpecialPackagesSlugRoute
+  '/special-packages/': typeof SpecialPackagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/packages'
+  fullPaths:
+    '/' | '/packages' | '/special-packages/$slug' | '/special-packages/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/packages'
-  id: '__root__' | '/' | '/packages'
+  to: '/' | '/packages' | '/special-packages/$slug' | '/special-packages'
+  id:
+    | '__root__'
+    | '/'
+    | '/packages'
+    | '/special-packages/$slug'
+    | '/special-packages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PackagesRoute: typeof PackagesRoute
+  SpecialPackagesSlugRoute: typeof SpecialPackagesSlugRoute
+  SpecialPackagesIndexRoute: typeof SpecialPackagesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +91,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/special-packages/': {
+      id: '/special-packages/'
+      path: '/special-packages'
+      fullPath: '/special-packages/'
+      preLoaderRoute: typeof SpecialPackagesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/special-packages/$slug': {
+      id: '/special-packages/$slug'
+      path: '/special-packages/$slug'
+      fullPath: '/special-packages/$slug'
+      preLoaderRoute: typeof SpecialPackagesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PackagesRoute: PackagesRoute,
+  SpecialPackagesSlugRoute: SpecialPackagesSlugRoute,
+  SpecialPackagesIndexRoute: SpecialPackagesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

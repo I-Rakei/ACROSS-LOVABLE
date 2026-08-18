@@ -11,7 +11,7 @@ const QUICK_LINKS = [
   { label: "About Us", to: "/", hash: "about" },
   { label: "Products & Services", to: "/", hash: "services" },
   { label: "Activities", to: "/", hash: "activities" },
-  { label: "Special Packages", to: "/packages" },
+  { label: "Special Packages", to: "/special-packages" },
   { label: "Contact Us", to: "/", hash: "contact" },
 ];
 
