@@ -99,21 +99,38 @@ function SpecialPackageProfile() {
             {pkg.title[lang]}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-white leading-relaxed font-medium">{pkg.tagline[lang]}</p>
-
-          <div className="flex gap-2 mt-8">
-            {heroSlides.map((slide, i) => (
-              <button
-                key={slide + i}
-                onClick={() => setSlideIdx(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === slideIdx ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/70"
-                }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
+
+      {/* Gallery thumbnails — click to preview in the hero above */}
+      <section className="py-10 bg-background">
+        <div className="container-x">
+          <Reveal variant="slide">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+              {heroSlides.map((slide, i) => (
+                <button
+                  key={slide + i}
+                  onClick={() => setSlideIdx(i)}
+                  className={`aspect-[4/3] rounded-xl overflow-hidden transition-all duration-300 ${
+                    i === slideIdx ? "ring-2 ring-accent ring-offset-2 ring-offset-background" : "opacity-70 hover:opacity-100"
+                  }`}
+                  aria-label={`${t("View photo", "Ver foto")} ${i + 1}`}
+                  aria-current={i === slideIdx}
+                >
+                  <ImageWithSpinner
+                    src={slide}
+                    alt={`${pkg.title[lang]} ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    containerClassName="w-full h-full"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Content */}
       <section className="py-10 bg-background">
