@@ -1,6 +1,17 @@
 // Special Packages — sourced from Across Tour quotations Q104785 (Anantara Bazaruto) and
 // Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, priced for 2 pax sharing.
 
+import anantaraHero from "@/assets/Special/Anatara/9.jpg";
+import anantara12 from "@/assets/Special/Anatara/12.avif";
+import anantara13 from "@/assets/Special/Anatara/13.jpg";
+import anantara14 from "@/assets/Special/Anatara/14.jpg";
+import anantara3 from "@/assets/Special/Anatara/3.webp";
+
+import sentidosHero from "@/assets/Special/Sentidos/9.jpg";
+import sentidos6 from "@/assets/Special/Sentidos/6.jpg";
+import sentidos8 from "@/assets/Special/Sentidos/8.jpg";
+import sentidos10 from "@/assets/Special/Sentidos/10.jpg";
+
 export interface SpecialPackageDay {
   day: { en: string; pt: string };
   title: { en: string; pt: string };
@@ -36,11 +47,6 @@ export interface SpecialPackageType {
   important: { en: string; pt: string };
 }
 
-// Placeholders until final photography is supplied — swap `heroImg`/`gallery` for real assets.
-// Sourced from Picsum Photos (picsum.photos), a stable placeholder-image CDN. Each seed pins a
-// specific photo deterministically so it doesn't change between page loads.
-const placeholderPhoto = (seed: string) => `https://picsum.photos/seed/${seed}/1200/800`;
-
 export const specialPackages: SpecialPackageType[] = [
   {
     slug: "beach-villa-romantic-escape",
@@ -61,13 +67,8 @@ export const specialPackages: SpecialPackageType[] = [
     pricePerPerson: "99.296,50",
     priceTotal: "198.593,00",
     currency: "MZN",
-    heroImg: placeholderPhoto("beach-villa-hero"),
-    gallery: [
-      placeholderPhoto("villa-exterior"),
-      placeholderPhoto("villa-interior"),
-      placeholderPhoto("dhow-sunset"),
-      placeholderPhoto("spa-treatment"),
-    ],
+    heroImg: anantaraHero,
+    gallery: [anantara12, anantara13, anantara14, anantara3],
     description: {
       en: "Four days and three nights on Bazaruto Island, staying in a private Double Beach Villa on a full-board basis at Anantara Bazaruto Island Resort. The package bundles return domestic flights and boat/road transfers with a full calendar of romantic touches — a sunset dhow cruise, an in-villa spa treatment, and sparkling wine on arrival — designed for honeymoons, anniversaries, and special-occasion escapes.",
       pt: "Quatro dias e três noites na Ilha do Bazaruto, numa Beach Villa Dupla privada em regime de pensão completa no Anantara Bazaruto Island Resort. O pacote inclui voos domésticos de ida e volta e transfers de barco/estrada, com um calendário de momentos românticos — passeio de dhow ao pôr do sol, tratamento de spa na villa e espumante à chegada — pensado para luas de mel, aniversários e ocasiões especiais.",
@@ -179,13 +180,8 @@ export const specialPackages: SpecialPackageType[] = [
     pricePerPerson: "51.656,00",
     priceTotal: "103.312,00",
     currency: "MZN",
-    heroImg: placeholderPhoto("sentidos-hero"),
-    gallery: [
-      placeholderPhoto("sentidos-villa"),
-      placeholderPhoto("beachfront-view"),
-      placeholderPhoto("airport-transfer"),
-      placeholderPhoto("pool-grounds"),
-    ],
+    heroImg: sentidosHero,
+    gallery: [sentidos6, sentidos8, sentidos10],
     description: {
       en: "A straightforward four-day, three-night escape to Sentidos Beach Retreat in Inhambane — return flights and airport transfers bundled with a Double Standard Villa on a bed & breakfast basis. A simple, all-in beach break with no separate logistics to arrange.",
       pt: "Uma escapada simples de quatro dias e três noites ao Sentidos Beach Retreat, em Inhambane — voos de ida e volta e transfers de aeroporto incluídos, com Villa Standard Dupla em regime de pequeno-almoço. Uma pausa de praia completa, sem logística separada a organizar.",
