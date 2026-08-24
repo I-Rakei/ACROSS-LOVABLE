@@ -11,6 +11,26 @@ import { SpecialPackageCard } from "@/components/special-package-card";
 import { specialPackages } from "@/data/special-packages";
 import pkgHero from "@/assets/Across/Hero images/hero 4 Packages Page.jpg";
 
+const BREADCRUMB_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://acrosstour.com/" },
+    { "@type": "ListItem", position: 2, name: "Special Packages", item: "https://acrosstour.com/special-packages" },
+  ],
+};
+
+const ITEM_LIST_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: specialPackages.map((pkg, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `https://acrosstour.com/special-packages/${pkg.slug}`,
+    name: pkg.title.en,
+  })),
+};
+
 export const Route = createFileRoute("/special-packages/")({
   head: () => ({
     meta: [
@@ -29,6 +49,10 @@ export const Route = createFileRoute("/special-packages/")({
       { property: "og:url", content: "https://acrosstour.com/special-packages" },
     ],
     links: [{ rel: "canonical", href: "https://acrosstour.com/special-packages" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(BREADCRUMB_JSON_LD) },
+      { type: "application/ld+json", children: JSON.stringify(ITEM_LIST_JSON_LD) },
+    ],
   }),
   component: SpecialPackagesIndexPage,
 });

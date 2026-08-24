@@ -2,10 +2,10 @@
 // Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, priced for 2 pax sharing.
 
 import anantaraHero from "@/assets/Special/Anatara/9.jpg";
-import anantara12 from "@/assets/Special/Anatara/12.avif";
+import anantara12 from "@/assets/Special/Anatara/12.jpg";
 import anantara13 from "@/assets/Special/Anatara/13.jpg";
 import anantara14 from "@/assets/Special/Anatara/14.jpg";
-import anantara3 from "@/assets/Special/Anatara/3.webp";
+import anantara3 from "@/assets/Special/Anatara/3.jpg";
 
 import sentidosHero from "@/assets/Special/Sentidos/9.jpg";
 import sentidos6 from "@/assets/Special/Sentidos/6.jpg";

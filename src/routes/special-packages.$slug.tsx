@@ -28,6 +28,52 @@ export const Route = createFileRoute("/special-packages/$slug")({
     if (!loaderData) return {};
     const title = `${loaderData.title.en} — Across Tour DMC`;
     const canonicalUrl = `https://acrosstour.com/special-packages/${params.slug}`;
+
+    const tripJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      name: loaderData.title.en,
+      description: loaderData.description.en,
+      image: [loaderData.heroImg, ...loaderData.gallery],
+      touristType: "Couples",
+      provider: {
+        "@type": "TravelAgency",
+        name: "Across Tour DMC",
+        url: "https://acrosstour.com",
+      },
+      itinerary: {
+        "@type": "ItemList",
+        itemListElement: loaderData.itinerary.map((day, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: day.title.en,
+        })),
+      },
+      offers: {
+        "@type": "Offer",
+        url: canonicalUrl,
+        priceCurrency: loaderData.currency,
+        price: loaderData.pricePerPerson.replace(/\./g, "").replace(",", "."),
+        availability: "https://schema.org/InStock",
+        validFrom: "2026-08-07",
+      },
+    };
+
+    const breadcrumbJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://acrosstour.com/" },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Special Packages",
+          item: "https://acrosstour.com/special-packages",
+        },
+        { "@type": "ListItem", position: 3, name: loaderData.title.en, item: canonicalUrl },
+      ],
+    };
+
     return {
       meta: [
         { title },
@@ -38,6 +84,10 @@ export const Route = createFileRoute("/special-packages/$slug")({
         { property: "og:url", content: canonicalUrl },
       ],
       links: [{ rel: "canonical", href: canonicalUrl }],
+      scripts: [
+        { type: "application/ld+json", children: JSON.stringify(tripJsonLd) },
+        { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd) },
+      ],
     };
   },
   component: SpecialPackageProfile,

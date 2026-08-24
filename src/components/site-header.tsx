@@ -18,14 +18,7 @@ const NAV: NavItem[] = [
   { label: { en: "About Us", pt: "Sobre Nós" }, to: "/", hash: "about" },
   { label: { en: "Products & Services", pt: "Produtos & Serviços" }, to: "/", hash: "services" },
   { label: { en: "Activities", pt: "Actividades" }, to: "/", hash: "activities" },
-  {
-    label: { en: "Packages", pt: "Pacotes" },
-    to: "/packages",
-    children: [
-      { label: { en: "Travel", pt: "Viagens" }, to: "/packages" },
-      { label: { en: "Special Packages", pt: "Pacotes Especiais" }, to: "/special-packages" },
-    ],
-  },
+  { label: { en: "Special Packages", pt: "Pacotes Especiais" }, to: "/special-packages" },
   { label: { en: "Contact Us", pt: "Contacte-nos" }, to: "/", hash: "contact" },
 ];
 
