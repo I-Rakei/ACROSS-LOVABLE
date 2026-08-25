@@ -297,7 +297,7 @@ export const specialPackages: SpecialPackageType[] = [
       { label: { en: "Flights (JNB–APL–JNB)", pt: "Voos (JNB–APL–JNB)" }, perPerson: "25.800,00", total: "51.600,00" },
       { label: { en: "Transfers", pt: "Transfers" }, perPerson: "6.400,00", total: "12.800,00" },
       { label: { en: "Day tours & excursions", pt: "Excursões e passeios" }, perPerson: "1.990,00", total: "3.980,00" },
-      { label: { en: "Accommodation (4 nights, Bed & Breakfast)", pt: "Alojamento (4 noites, Pequeno-Almoço)" }, perPerson: "4.750,00", total: "9.500,00" },
+      { label: { en: "Accommodation (4 nights, B&B)", pt: "Alojamento (4 noites, Pequeno-Almoço)" }, perPerson: "4.750,00", total: "9.500,00" },
     ],
     itinerary: [
       {
