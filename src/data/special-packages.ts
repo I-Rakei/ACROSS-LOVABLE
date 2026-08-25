@@ -1,5 +1,6 @@
-// Special Packages — sourced from Across Tour quotations Q104785 (Anantara Bazaruto) and
-// Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, priced for 2 pax sharing.
+// Special Packages — sourced from Across Tour quotations Q104785 (Anantara Bazaruto),
+// Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, and Q104846 (Nampula & Ilha de
+// Moçambique), dated 2026/08/21. All priced for 2 pax sharing.
 
 import anantaraHero from "@/assets/Special/Anatara/9.jpg";
 import anantara12 from "@/assets/Special/Anatara/12.jpg";
@@ -11,6 +12,13 @@ import sentidosHero from "@/assets/Special/Sentidos/9.jpg";
 import sentidos6 from "@/assets/Special/Sentidos/6.jpg";
 import sentidos8 from "@/assets/Special/Sentidos/8.jpg";
 import sentidos10 from "@/assets/Special/Sentidos/10.jpg";
+
+import nampulaIlhaHero from "@/assets/Special/NampulaIlha/17.jpg";
+import nampulaIlha1 from "@/assets/Special/NampulaIlha/1.jpg";
+import nampulaIlha4 from "@/assets/Special/NampulaIlha/4.jpg";
+import nampulaIlha5 from "@/assets/Special/NampulaIlha/5.jpg";
+import nampulaIlha18 from "@/assets/Special/NampulaIlha/18.jpg";
+const nampulaIlhaGallery = [nampulaIlha1, nampulaIlha4, nampulaIlha5, nampulaIlha18];
 
 export interface SpecialPackageDay {
   day: { en: string; pt: string };
@@ -258,6 +266,126 @@ export const specialPackages: SpecialPackageType[] = [
     important: {
       en: "Flights are subject to seat availability and may change without prior notice.",
       pt: "Os voos estão sujeitos a disponibilidade de lugares e podem sofrer alterações sem aviso prévio.",
+    },
+  },
+  {
+    slug: "nampula-ilha-de-mocambique-heritage-escape",
+    title: {
+      en: "Nampula & Ilha de Moçambique Heritage Escape",
+      pt: "Escapadinha Histórica a Nampula e Ilha de Moçambique",
+    },
+    tagline: {
+      en: "Colonial architecture, guided city tours and a sunset dhow cruise across Nampula and the UNESCO World Heritage Ilha de Moçambique.",
+      pt: "Arquitectura colonial, visitas guiadas e um passeio de dhow ao pôr do sol entre Nampula e a Ilha de Moçambique, Património Mundial da UNESCO.",
+    },
+    badge: { en: "Heritage · 5 Days / 4 Nights", pt: "Património · 5 Dias / 4 Noites" },
+    property: { en: "Grand Plaza Nampula Hotel & Hotel Omuhipiti", pt: "Grand Plaza Nampula Hotel & Hotel Omuhipiti" },
+    location: { en: "Nampula & Ilha de Moçambique, Mozambique", pt: "Nampula e Ilha de Moçambique, Moçambique" },
+    duration: { en: "5 Days / 4 Nights", pt: "5 Dias / 4 Noites" },
+    validity: { en: "1 September – 18 December 2026", pt: "1 de Setembro – 18 de Dezembro de 2026" },
+    mealPlan: { en: "Bed & Breakfast", pt: "Pequeno-Almoço Incluído" },
+    pricePerPerson: "38.940,00",
+    priceTotal: "77.880,00",
+    currency: "ZAR",
+    heroImg: nampulaIlhaHero,
+    gallery: nampulaIlhaGallery,
+    description: {
+      en: "Five days and four nights through northern Mozambique, combining return flights and transfers with a guided Nampula city tour, a walking tour of the UNESCO-listed Ilha de Moçambique, and a sunset dhow cruise. Bed & breakfast throughout, staying at the Grand Plaza Nampula Hotel and Hotel Omuhipiti.",
+      pt: "Cinco dias e quatro noites pelo norte de Moçambique, combinando voos e transfers de ida e volta com uma visita guiada à cidade de Nampula, um passeio a pé pela Ilha de Moçambique (Património Mundial da UNESCO) e um passeio de dhow ao pôr do sol. Regime de pequeno-almoço durante toda a estadia, com alojamento no Grand Plaza Nampula Hotel e no Hotel Omuhipiti.",
+    },
+    priceBreakdown: [
+      { label: { en: "Flights (JNB–APL–JNB)", pt: "Voos (JNB–APL–JNB)" }, perPerson: "25.800,00", total: "51.600,00" },
+      { label: { en: "Transfers", pt: "Transfers" }, perPerson: "6.400,00", total: "12.800,00" },
+      { label: { en: "Day tours & excursions", pt: "Excursões e passeios" }, perPerson: "1.990,00", total: "3.980,00" },
+      { label: { en: "Accommodation (4 nights, Bed & Breakfast)", pt: "Alojamento (4 noites, Pequeno-Almoço)" }, perPerson: "4.750,00", total: "9.500,00" },
+    ],
+    itinerary: [
+      {
+        day: { en: "Day 1 · Tue 01 Sep 2026", pt: "Dia 1 · Ter 01 Set 2026" },
+        title: { en: "Arrival & Nampula City Tour", pt: "Chegada e Visita à Cidade de Nampula" },
+        details: {
+          en: [
+            "Flight JNB–APL–JNB (subject to availability)",
+            "Road transfer: Nampula Airport – Grand Plaza Nampula Hotel",
+            "3-hour Nampula city tour: Rex, Serra Mesa hike, the Cathedral, National Ethnographic Museum, railway station, a traditional Capulana shop and Macua Waresta Central Market",
+            "Check-in: Grand Plaza Nampula Hotel, Standard Double room, Bed & Breakfast",
+          ],
+          pt: [
+            "Voo JNB–APL–JNB (sujeito a disponibilidade)",
+            "Transfer rodoviário: Aeroporto de Nampula – Grand Plaza Nampula Hotel",
+            "Visita de 3 horas à cidade de Nampula: Rex, subida à Serra Mesa, Catedral, Museu Etnográfico Nacional, estação ferroviária, uma loja tradicional de capulanas e o Mercado Central Macua Waresta",
+            "Check-in: Grand Plaza Nampula Hotel, Quarto Duplo Standard, Pequeno-Almoço",
+          ],
+        },
+      },
+      {
+        day: { en: "Day 2 · Wed 02 Sep 2026", pt: "Dia 2 · Qua 02 Set 2026" },
+        title: { en: "Transfer to Ilha de Moçambique", pt: "Transfer para a Ilha de Moçambique" },
+        details: {
+          en: [
+            "Road transfer: Grand Plaza Hotel – Hotel Omuhipiti",
+            "Walking city tour of Ilha de Moçambique: Nossa Senhora do Baluarte, São Sebastião Fortress, Palácio de São Paulo, Vasco da Gama's house, the Hindu Temple, central market, Memorial Garden and the Hospital",
+            "Check-in: Hotel Omuhipiti, Standard Double room, Bed & Breakfast",
+          ],
+          pt: [
+            "Transfer rodoviário: Grand Plaza Hotel – Hotel Omuhipiti",
+            "Visita a pé à Ilha de Moçambique: Nossa Senhora do Baluarte, Fortaleza de São Sebastião, Palácio de São Paulo, Casa de Vasco da Gama, Templo Hindu, mercado central, Jardim Memorial e o Hospital",
+            "Check-in: Hotel Omuhipiti, Quarto Duplo Standard, Pequeno-Almoço",
+          ],
+        },
+      },
+      {
+        day: { en: "Day 3 · Thu 03 Sep 2026", pt: "Dia 3 · Qui 03 Set 2026" },
+        title: { en: "At Leisure", pt: "Dia Livre" },
+        details: {
+          en: ["Bed & breakfast at Hotel Omuhipiti", "Sunset dhow cruise with snacks & beverages, near the Fortress or Mangal da Cabeceira Pequena"],
+          pt: ["Pequeno-almoço no Hotel Omuhipiti", "Passeio de dhow ao pôr do sol com snacks e bebidas, junto à Fortaleza ou ao Mangal da Cabeceira Pequena"],
+        },
+      },
+      {
+        day: { en: "Day 4 · Fri 04 Sep 2026", pt: "Dia 4 · Sex 04 Set 2026" },
+        title: { en: "At Leisure", pt: "Dia Livre" },
+        details: {
+          en: ["Bed & breakfast at Hotel Omuhipiti"],
+          pt: ["Pequeno-almoço no Hotel Omuhipiti"],
+        },
+      },
+      {
+        day: { en: "Day 5 · Sat 05 Sep 2026", pt: "Dia 5 · Sáb 05 Set 2026" },
+        title: { en: "Departure", pt: "Partida" },
+        details: {
+          en: ["Road transfer: Hotel Omuhipiti – Nampula Airport", "Return flight APL–JNB"],
+          pt: ["Transfer rodoviário: Hotel Omuhipiti – Aeroporto de Nampula", "Voo de regresso APL–JNB"],
+        },
+      },
+    ],
+    inclusions: {
+      en: [
+        "Return flights JNB–APL–JNB",
+        "Return road transfers (Nampula Airport ⇄ Grand Plaza Hotel ⇄ Hotel Omuhipiti ⇄ Nampula Airport)",
+        "1 night at Grand Plaza Nampula Hotel, Standard Double room, Bed & Breakfast",
+        "3 nights at Hotel Omuhipiti, Standard Double room, Bed & Breakfast",
+        "3-hour guided Nampula city tour",
+        "Guided walking tour of Ilha de Moçambique",
+        "Sunset dhow cruise with snacks & beverages",
+      ],
+      pt: [
+        "Voos de ida e volta JNB–APL–JNB",
+        "Transfers rodoviários de ida e volta (Aeroporto de Nampula ⇄ Grand Plaza Hotel ⇄ Hotel Omuhipiti ⇄ Aeroporto de Nampula)",
+        "1 noite no Grand Plaza Nampula Hotel, Quarto Duplo Standard, Pequeno-Almoço",
+        "3 noites no Hotel Omuhipiti, Quarto Duplo Standard, Pequeno-Almoço",
+        "Visita guiada de 3 horas à cidade de Nampula",
+        "Visita guiada a pé pela Ilha de Moçambique",
+        "Passeio de dhow ao pôr do sol com snacks e bebidas",
+      ],
+    },
+    exclusions: {
+      en: ["Items of a personal nature", "Anything not mentioned above", "Excursions not listed"],
+      pt: ["Itens de natureza pessoal", "Tudo o que não esteja mencionado acima", "Passeios não listados"],
+    },
+    important: {
+      en: "Flights are subject to availability on the date of travel and may change without prior notice. Valid for new bookings only, 1 September – 18 December 2026.",
+      pt: "Os voos estão sujeitos a disponibilidade na data da viagem e podem sofrer alterações sem aviso prévio. Válido apenas para novas reservas, de 1 de Setembro a 18 de Dezembro de 2026.",
     },
   },
 ];
