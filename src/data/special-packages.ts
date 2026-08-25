@@ -2,15 +2,16 @@
 // Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, and Q104846 (Nampula & Ilha de
 // Moçambique), dated 2026/08/21. All priced for 2 pax sharing.
 
-import anantaraHero from "@/assets/Special/Anatara/9.jpg";
+import anantaraHero from "@/assets/Special/Anatara/3.jpg";
 import anantara12 from "@/assets/Special/Anatara/12.jpg";
 import anantara13 from "@/assets/Special/Anatara/13.jpg";
 import anantara14 from "@/assets/Special/Anatara/14.jpg";
-import anantara3 from "@/assets/Special/Anatara/3.jpg";
+import anantara9 from "@/assets/Special/Anatara/9.jpg";
 
-import sentidosHero from "@/assets/Special/Sentidos/9.jpg";
+import sentidosHero from "@/assets/Special/Sentidos/5.jpg";
 import sentidos6 from "@/assets/Special/Sentidos/6.jpg";
 import sentidos8 from "@/assets/Special/Sentidos/8.jpg";
+import sentidos9 from "@/assets/Special/Sentidos/9.jpg";
 import sentidos10 from "@/assets/Special/Sentidos/10.jpg";
 
 import nampulaIlhaHero from "@/assets/Special/NampulaIlha/17.jpg";
@@ -76,7 +77,7 @@ export const specialPackages: SpecialPackageType[] = [
     priceTotal: "198.593,00",
     currency: "MZN",
     heroImg: anantaraHero,
-    gallery: [anantara12, anantara13, anantara14, anantara3],
+    gallery: [anantara12, anantara13, anantara14, anantara9],
     description: {
       en: "Four days and three nights on Bazaruto Island, staying in a private Double Beach Villa on a full-board basis at Anantara Bazaruto Island Resort. The package bundles return domestic flights and boat/road transfers with a full calendar of romantic touches — a sunset dhow cruise, an in-villa spa treatment, and sparkling wine on arrival — designed for honeymoons, anniversaries, and special-occasion escapes.",
       pt: "Quatro dias e três noites na Ilha do Bazaruto, numa Beach Villa Dupla privada em regime de pensão completa no Anantara Bazaruto Island Resort. O pacote inclui voos domésticos de ida e volta e transfers de barco/estrada, com um calendário de momentos românticos — passeio de dhow ao pôr do sol, tratamento de spa na villa e espumante à chegada — pensado para luas de mel, aniversários e ocasiões especiais.",
@@ -189,7 +190,7 @@ export const specialPackages: SpecialPackageType[] = [
     priceTotal: "103.312,00",
     currency: "MZN",
     heroImg: sentidosHero,
-    gallery: [sentidos6, sentidos8, sentidos10],
+    gallery: [sentidos6, sentidos8, sentidos9, sentidos10],
     description: {
       en: "A straightforward four-day, three-night escape to Sentidos Beach Retreat in Inhambane — return flights and airport transfers bundled with a Double Standard Villa on a bed & breakfast basis. A simple, all-in beach break with no separate logistics to arrange.",
       pt: "Uma escapada simples de quatro dias e três noites ao Sentidos Beach Retreat, em Inhambane — voos de ida e volta e transfers de aeroporto incluídos, com Villa Standard Dupla em regime de pequeno-almoço. Uma pausa de praia completa, sem logística separada a organizar.",
