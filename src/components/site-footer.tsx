@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { AcrossLogo } from "@/components/across-logo";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
 import footerSvg from "@/assets/Across/footer/footer.svg";
@@ -138,12 +138,18 @@ export function SiteFooter() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-2">
-            {[faFacebookF, faInstagram, faLinkedinIn].map((icon, i) => (
+            {[
+              { icon: faFacebookF, href: "https://www.facebook.com/ACROSS.TOUR.DMC/", label: "Facebook" },
+              { icon: faInstagram, href: "https://www.instagram.com/acrosstours.mz/", label: "Instagram" },
+              { icon: faPhone, href: "tel:+258844383501", label: "Call us" },
+            ].map(({ icon, href, label }) => (
               <a
-                key={i}
-                href="#"
+                key={label}
+                href={href}
+                target={href.startsWith("tel:") ? undefined : "_blank"}
+                rel={href.startsWith("tel:") ? undefined : "noopener noreferrer"}
                 className="w-9 h-9 rounded-full border border-[#4a4e57]/30 flex items-center justify-center text-[#4a4e57] hover:bg-[#0080B9] hover:text-white hover:border-[#0080B9] transition-colors"
-                aria-label="Social"
+                aria-label={label}
               >
                 <FontAwesomeIcon icon={icon} className="w-4 h-4" />
               </a>

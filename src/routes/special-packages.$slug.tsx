@@ -254,7 +254,7 @@ function SpecialPackageProfile() {
                   </div>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-6 pb-6 border-b border-border/60">
                   <div className="text-[10px] uppercase tracking-wider text-ink-soft font-bold mb-1">
                     {t("From, per person sharing", "Desde, por pessoa em partilha")}
                   </div>
@@ -263,19 +263,8 @@ function SpecialPackageProfile() {
                     <span className="text-base font-semibold text-accent">{pkg.currency}</span>
                   </div>
                   <div className="text-xs text-ink-soft mt-1">
-                    {t("Total for 2", "Total para 2")}: {pkg.priceTotal} {pkg.currency}
+                    {pkg.duration[lang]} · {t("Flights subject to availability", "Voos sujeitos a disponibilidade")}
                   </div>
-                </div>
-
-                <div className="space-y-2 mb-6 pb-6 border-b border-border/60">
-                  {pkg.priceBreakdown.map((line) => (
-                    <div key={line.label.en} className="flex items-center justify-between text-xs text-ink-soft">
-                      <span>{line.label[lang]}</span>
-                      <span className="font-semibold text-ink">
-                        {line.total} {pkg.currency}
-                      </span>
-                    </div>
-                  ))}
                 </div>
 
                 <Link
