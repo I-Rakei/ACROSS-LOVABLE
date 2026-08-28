@@ -453,8 +453,8 @@ function PackagesPage() {
           alt="Special Packages Hero"
           loading="eager"
           decoding="async"
-          containerClassName="absolute inset-0 scale-105"
-          className="w-full h-full object-cover"
+          containerClassName="absolute inset-0"
+          className="w-full h-full object-cover object-bottom"
         />
         {/* Hero image overlay removed */}
         <div className="relative container-x">
