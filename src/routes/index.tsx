@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -17,7 +17,9 @@ import {
   faShieldHalved,
   faGlobe,
   faCircleCheck,
+  faCircleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -752,7 +754,26 @@ function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [tourIndex, setTourIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
+  const [contactStatus, setContactStatus] = useState<InquiryStatus>("idle");
   const { t, lang } = useLanguage();
+
+  const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setContactStatus("submitting");
+
+    const ok = await submitToWeb3Forms(form, {
+      subject: "New Contact Form Inquiry — AcrossTours DMC",
+      from_name: "AcrossTours DMC — Contact Us",
+    });
+
+    if (ok) {
+      setContactStatus("success");
+      form.reset();
+    } else {
+      setContactStatus("error");
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -1422,18 +1443,26 @@ function Home() {
 
           <Reveal delay={0.15}>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleContactSubmit}
               className="bg-[#f4f4f4] p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm"
             >
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
               <div className="grid sm:grid-cols-2 gap-5">
-                <Field label={t("Full Name", "Nome Completo")} />
-                <Field label={t("Email", "E-mail")} type="email" />
-                <Field label={t("Phone", "Telemóvel")} />
+                <Field label={t("Full Name", "Nome Completo")} name="name" required />
+                <Field label={t("Email", "E-mail")} name="email" type="email" required />
+                <Field label={t("Phone", "Telemóvel")} name="phone" required />
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                     {t("Destination", "Destino")}
                   </label>
                   <select
+                    name="destination"
                     required
                     className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   >
@@ -1458,20 +1487,39 @@ function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <Field label={t("Adults", "Adultos")} type="number" small />
-                <Field label={t("0–2 years", "0-2 anos")} type="number" small />
-                <Field label={t("2–11 years", "2-11 anos")} type="number" small />
-                <Field label={t("11+ years", "11+ anos")} type="number" small />
+                <Field label={t("Adults", "Adultos")} name="adults" type="number" small />
+                <Field label={t("0–2 years", "0-2 anos")} name="children_0_2" type="number" small />
+                <Field
+                  label={t("2–11 years", "2-11 anos")}
+                  name="children_2_11"
+                  type="number"
+                  small
+                />
+                <Field
+                  label={t("11+ years", "11+ anos")}
+                  name="children_11_plus"
+                  type="number"
+                  small
+                />
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
-                <Field label={t("Departure Date", "Data de Partida")} type="date" />
-                <Field label={t("Return Date", "Data de Regresso")} type="date" />
+                <Field
+                  label={t("Departure Date", "Data de Partida")}
+                  name="departure_date"
+                  type="date"
+                />
+                <Field
+                  label={t("Return Date", "Data de Regresso")}
+                  name="return_date"
+                  type="date"
+                />
               </div>
               <div>
                 <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                   {t("Reason for Contact", "Motivo do Contacto")}
                 </label>
                 <select
+                  name="reason"
                   required
                   className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
@@ -1496,6 +1544,7 @@ function Home() {
                   {t("How did you hear about us?", "Como ouviu falar de nós?")}
                 </label>
                 <select
+                  name="heard_about_us"
                   required
                   className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
@@ -1515,9 +1564,24 @@ function Home() {
               </div>
               <div>
                 <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
+                  {t("Dietary Requirements", "Requisitos Alimentares")}
+                </label>
+                <textarea
+                  name="dietary_requirements"
+                  rows={3}
+                  className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
+                  placeholder={t(
+                    "Let us know about any food restrictions, allergies or special meal requests...",
+                    "Indique-nos quaisquer restrições alimentares, alergias ou pedidos especiais de alimentação...",
+                  )}
+                />
+              </div>
+              <div>
+                <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                   {t("Trip Details", "Detalhes da Viagem")}
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
                   placeholder={t(
@@ -1528,10 +1592,32 @@ function Home() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-accent text-white py-4 font-bold text-base tracking-widest hover:opacity-90 transition rounded-lg"
+                disabled={contactStatus === "submitting"}
+                className="w-full bg-accent disabled:opacity-60 text-white py-4 font-bold text-base tracking-widest hover:opacity-90 transition rounded-lg"
               >
-                {t("SEND MESSAGE", "ENVIAR MENSAGEM")}
+                {contactStatus === "submitting"
+                  ? t("Sending…", "A enviar…")
+                  : t("SEND MESSAGE", "ENVIAR MENSAGEM")}
               </button>
+
+              {contactStatus === "success" && (
+                <p className="flex items-center gap-2 text-sm font-semibold text-green-700">
+                  <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4" />
+                  {t(
+                    "Thank you — your message has been sent. We'll be in touch shortly.",
+                    "Obrigado — a sua mensagem foi enviada. Entraremos em contacto em breve.",
+                  )}
+                </p>
+              )}
+              {contactStatus === "error" && (
+                <p className="flex items-center gap-2 text-sm font-semibold text-red-700">
+                  <FontAwesomeIcon icon={faCircleExclamation} className="w-4 h-4" />
+                  {t(
+                    "Something went wrong sending your message. Please try again or contact us directly.",
+                    "Ocorreu um erro ao enviar a sua mensagem. Tente novamente ou contacte-nos directamente.",
+                  )}
+                </p>
+              )}
             </form>
           </Reveal>
         </div>
@@ -1545,12 +1631,16 @@ function Home() {
 
 function Field({
   label,
+  name,
   type = "text",
   small = false,
+  required = false,
 }: {
   label: string;
+  name: string;
   type?: string;
   small?: boolean;
+  required?: boolean;
 }) {
   return (
     <div>
@@ -1559,6 +1649,8 @@ function Field({
       </label>
       <input
         type={type}
+        name={name}
+        required={required}
         className={`w-full bg-background border border-border px-4 ${
           small ? "py-2.5 text-sm" : "py-3 text-sm"
         } text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg`}

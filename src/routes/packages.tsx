@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
   faClock,
   faArrowLeft,
   faCircleCheck,
+  faCircleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "motion/react";
 import { SiteHeader } from "@/components/site-header";
@@ -13,6 +14,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
+import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
 
 import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
 import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
@@ -392,7 +394,27 @@ function PackageCard({
 function PackagesPage() {
   const { package: packageParam } = Route.useSearch();
   const [selectedPackage, setSelectedPackage] = useState("");
+  const [status, setStatus] = useState<InquiryStatus>("idle");
   const { t, lang } = useLanguage();
+
+  const handleInquirySubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("submitting");
+
+    const ok = await submitToWeb3Forms(form, {
+      subject: `New Package Inquiry — ${selectedPackage || "Custom Package"}`,
+      from_name: "AcrossTours DMC — Packages",
+    });
+
+    if (ok) {
+      setStatus("success");
+      form.reset();
+      setSelectedPackage("");
+    } else {
+      setStatus("error");
+    }
+  };
 
   const handleSelectPackage = (pkgTitle: string) => {
     setSelectedPackage(pkgTitle);
@@ -495,9 +517,16 @@ function PackagesPage() {
 
           <Reveal delay={0.1}>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleInquirySubmit}
               className="bg-[#f4f4f4] p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm"
             >
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
@@ -505,6 +534,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                     placeholder={t("Your name", "O seu nome")}
@@ -516,6 +546,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                     placeholder="your.email@example.com"
@@ -527,6 +558,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="text"
+                    name="phone"
                     required
                     className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                     placeholder="+258..."
@@ -537,6 +569,7 @@ function PackagesPage() {
                     {t("Selected Package", "Pacote Seleccionado")}
                   </label>
                   <select
+                    name="package"
                     value={selectedPackage}
                     onChange={(e) => setSelectedPackage(e.target.value)}
                     className="w-full bg-background border border-border pl-3.5 pr-10 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
@@ -563,6 +596,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="number"
+                    name="adults"
                     defaultValue={1}
                     min={1}
                     className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
@@ -574,6 +608,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="number"
+                    name="children_0_2"
                     defaultValue={0}
                     min={0}
                     className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
@@ -585,6 +620,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="number"
+                    name="children_2_11"
                     defaultValue={0}
                     min={0}
                     className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
@@ -596,6 +632,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="number"
+                    name="children_11_plus"
                     defaultValue={0}
                     min={0}
                     className="w-full bg-background border border-border px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
@@ -610,6 +647,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="date"
+                    name="departure_date"
                     className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
@@ -619,6 +657,7 @@ function PackagesPage() {
                   </label>
                   <input
                     type="date"
+                    name="return_date"
                     className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                   />
                 </div>
@@ -629,6 +668,7 @@ function PackagesPage() {
                   {t("How did you hear about us?", "Como ouviu falar de nós?")}
                 </label>
                 <select
+                  name="heard_about_us"
                   required
                   className="w-full bg-background border border-border pl-3.5 pr-10 py-2 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
@@ -649,24 +689,62 @@ function PackagesPage() {
 
               <div>
                 <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
+                  {t("Dietary Requirements", "Requisitos Alimentares")}
+                </label>
+                <textarea
+                  name="dietary_requirements"
+                  rows={3}
+                  className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
+                  placeholder={t(
+                    "Let us know about any food restrictions, allergies or special meal requests...",
+                    "Indique-nos quaisquer restrições alimentares, alergias ou pedidos especiais de alimentação...",
+                  )}
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs tracking-[0.18em] font-bold uppercase text-ink-soft mb-2">
                   {t("Additional Request Details", "Detalhes Adicionais do Pedido")}
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   className="w-full bg-background border border-border px-3.5 py-2 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
                   placeholder={t(
-                    "Specify any dietary requirements, physical limitations, or custom itinerary desires...",
-                    "Especifique quaisquer requisitos dietéticos, limitações físicas ou desejos de itinerário...",
+                    "Specify any physical limitations or custom itinerary desires...",
+                    "Especifique quaisquer limitações físicas ou desejos de itinerário...",
                   )}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-accent text-white py-2.5 font-bold text-sm tracking-wider hover:opacity-90 transition rounded-lg"
+                disabled={status === "submitting"}
+                className="w-full bg-accent disabled:opacity-60 text-white py-2.5 font-bold text-sm tracking-wider hover:opacity-90 transition rounded-lg"
               >
-                {t("SUBMIT INQUIRY", "SUBMETER INFORMAÇÃO")}
+                {status === "submitting"
+                  ? t("Sending…", "A enviar…")
+                  : t("SUBMIT INQUIRY", "SUBMETER INFORMAÇÃO")}
               </button>
+
+              {status === "success" && (
+                <p className="flex items-center gap-2 text-sm font-semibold text-green-700">
+                  <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4" />
+                  {t(
+                    "Thank you — your inquiry has been sent. We'll be in touch shortly.",
+                    "Obrigado — o seu pedido foi enviado. Entraremos em contacto em breve.",
+                  )}
+                </p>
+              )}
+              {status === "error" && (
+                <p className="flex items-center gap-2 text-sm font-semibold text-red-700">
+                  <FontAwesomeIcon icon={faCircleExclamation} className="w-4 h-4" />
+                  {t(
+                    "Something went wrong sending your inquiry. Please try again or contact us directly.",
+                    "Ocorreu um erro ao enviar o seu pedido. Tente novamente ou contacte-nos directamente.",
+                  )}
+                </p>
+              )}
             </form>
           </Reveal>
         </div>

@@ -16,6 +16,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
+import { PackageInquiryForm } from "@/components/package-inquiry-form";
 import { getSpecialPackageBySlug } from "@/data/special-packages";
 
 export const Route = createFileRoute("/special-packages/$slug")({
@@ -288,16 +289,40 @@ function SpecialPackageProfile() {
                   </div>
                 </div>
 
-                <Link
-                  to="/"
-                  hash="contact"
+                <a
+                  href="#inquire"
                   className="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3.5 rounded-lg text-sm tracking-wider uppercase transition-colors text-center block"
                 >
                   {t("Inquire Now", "Pedir Informações")}
-                </Link>
+                </a>
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Package-specific inquiry form */}
+      <section id="inquire" className="py-10 bg-background">
+        <div className="container-x max-w-3xl">
+          <Reveal variant="slide">
+            <div className="mb-8">
+              <div className="eyebrow mb-4">
+                {t("Bookings & Inquiries", "Reservas & Informações")}
+              </div>
+              <h2 className="text-3xl font-semibold mb-3">
+                {t("Inquire About This Package", "Pedir Informações Sobre Este Pacote")}
+              </h2>
+              <p className="text-base text-ink-soft leading-relaxed">
+                {t(
+                  `Tell us your dates and details and we'll get back to you about the ${pkg.title.en}.`,
+                  `Indique-nos as datas e detalhes e entraremos em contacto sobre o ${pkg.title.pt}.`,
+                )}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal variant="slide" delay={0.1}>
+            <PackageInquiryForm packageName={pkg.title.en} />
+          </Reveal>
         </div>
       </section>
 

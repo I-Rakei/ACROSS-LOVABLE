@@ -1,15 +1,19 @@
 import { motion, useInView, type Variants } from "motion/react";
 import { useRef, useState, useEffect, type ReactNode } from "react";
 
+// Every Reveal uses the same blur-in animation regardless of the `variant` prop —
+// it's kept only so existing call sites (`variant="slide"`) don't need touching.
+const blurVariant: Variants = {
+  hidden: { opacity: 0, filter: "blur(10px)" },
+  show: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.65, ease: [0.2, 0.7, 0.2, 1] },
+  },
+};
 const variantsByType: Record<"blur" | "slide", Variants> = {
-  blur: {
-    hidden: { opacity: 0, filter: "blur(10px)" },
-    show: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.2, 0.7, 0.2, 1] } },
-  },
-  slide: {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.2, 0.7, 0.2, 1] } },
-  },
+  blur: blurVariant,
+  slide: blurVariant,
 };
 
 export function Reveal({
