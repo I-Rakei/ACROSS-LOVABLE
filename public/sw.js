@@ -1,4 +1,4 @@
-// Across Tour DMC — Service Worker for Fast Asset & Image Caching
+// AcrossTours DMC — Service Worker for Fast Asset & Image Caching
 const CACHE_NAME = "across-tour-v1";
 const STATIC_ASSETS_CACHE = "across-tour-assets-v1";
 
@@ -10,15 +10,18 @@ self.addEventListener("install", (event) => {
 // Activate Event: Clean up old caches and claim clients immediately
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((name) => {
-          if (name !== CACHE_NAME && name !== STATIC_ASSETS_CACHE) {
-            return caches.delete(name);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((name) => {
+            if (name !== CACHE_NAME && name !== STATIC_ASSETS_CACHE) {
+              return caches.delete(name);
+            }
+          }),
+        );
+      })
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -48,17 +51,19 @@ self.addEventListener("fetch", (event) => {
             return cachedResponse;
           }
           // Fetch from network, store in cache for next time
-          return fetch(request).then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              cache.put(request, networkResponse.clone());
-            }
-            return networkResponse;
-          }).catch(() => {
-            // Silently fall back if network is offline
-            return cachedResponse;
-          });
+          return fetch(request)
+            .then((networkResponse) => {
+              if (networkResponse && networkResponse.status === 200) {
+                cache.put(request, networkResponse.clone());
+              }
+              return networkResponse;
+            })
+            .catch(() => {
+              // Silently fall back if network is offline
+              return cachedResponse;
+            });
         });
-      })
+      }),
     );
     return;
   }
@@ -67,15 +72,17 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") {
     event.respondWith(
       caches.open(CACHE_NAME).then((cache) => {
-        return fetch(request).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            cache.put(request, networkResponse.clone());
-          }
-          return networkResponse;
-        }).catch(() => {
-          return cache.match(request);
-        });
-      })
+        return fetch(request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          })
+          .catch(() => {
+            return cache.match(request);
+          });
+      }),
     );
     return;
   }

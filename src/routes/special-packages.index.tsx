@@ -16,7 +16,12 @@ const BREADCRUMB_JSON_LD = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://acrosstour.com/" },
-    { "@type": "ListItem", position: 2, name: "Special Packages", item: "https://acrosstour.com/special-packages" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Special Packages",
+      item: "https://acrosstour.com/special-packages",
+    },
   ],
 };
 
@@ -34,13 +39,13 @@ const ITEM_LIST_JSON_LD = {
 export const Route = createFileRoute("/special-packages/")({
   head: () => ({
     meta: [
-      { title: "Special Packages — Across Tour DMC" },
+      { title: "Special Packages — AcrossTours DMC" },
       {
         name: "description",
         content:
           "Curated honeymoon, anniversary and beach retreat escapes, ready to be tailored to your dates.",
       },
-      { property: "og:title", content: "Special Packages — Across Tour DMC" },
+      { property: "og:title", content: "Special Packages — AcrossTours DMC" },
       {
         property: "og:description",
         content:
@@ -75,8 +80,12 @@ function SpecialPackagesIndexPage() {
           className="w-full h-full object-cover"
         />
         <div className="relative container-x">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-white hover:text-white/80 transition-colors mb-6">
-            <FontAwesomeIcon icon={faArrowLeft} className="w-4 h-4" /> {t("Back to Home", "Voltar ao Início")}
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm text-white hover:text-white/80 transition-colors mb-6"
+          >
+            <FontAwesomeIcon icon={faArrowLeft} className="w-4 h-4" />{" "}
+            {t("Back to Home", "Voltar ao Início")}
           </Link>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
             {t("Special Packages", "Pacotes Especiais")}
@@ -84,7 +93,7 @@ function SpecialPackagesIndexPage() {
           <p className="mt-4 max-w-xl text-lg text-white leading-relaxed font-medium">
             {t(
               "Curated honeymoon, anniversary and beach retreat escapes, ready to be tailored to your dates.",
-              "Escapadinhas seleccionadas para lua-de-mel, aniversários e retiros de praia, prontas a ser adaptadas às suas datas."
+              "Escapadinhas seleccionadas para lua-de-mel, aniversários e retiros de praia, prontas a ser adaptadas às suas datas.",
             )}
           </p>
         </div>

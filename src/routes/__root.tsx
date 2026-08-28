@@ -20,13 +20,13 @@ const LOGO_URL = `${SITE_URL}/logos/across-tour-logo.png`;
 const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  name: "Across Tour DMC",
-  alternateName: "Across Tour Moz",
+  name: "AcrossTours DMC",
+  alternateName: "AcrossTours Moz",
   url: SITE_URL,
   logo: LOGO_URL,
   image: LOGO_URL,
   description:
-    "Across Tour is a full-service Destination Management Company delivering corporate travel, transport, and holiday packages across Mozambique, Africa and beyond.",
+    "AcrossTours is a full-service Destination Management Company delivering corporate travel, transport, and holiday packages across Mozambique, Africa and beyond.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar",
@@ -106,18 +106,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Across Tour DMC — Leisure & Corporate Travel in Mozambique" },
+      { title: "AcrossTours DMC — Leisure & Corporate Travel in Mozambique" },
       {
         name: "description",
         content:
-          "Across Tour is a full-service Destination Management Company delivering corporate travel, transport, and holiday packages across Mozambique, Africa and beyond.",
+          "AcrossTours is a full-service Destination Management Company delivering corporate travel, transport, and holiday packages across Mozambique, Africa and beyond.",
       },
-      { name: "author", content: "Across Tour DMC" },
+      { name: "author", content: "AcrossTours DMC" },
       { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "Across Tour DMC" },
+      { property: "og:site_name", content: "AcrossTours DMC" },
       { property: "og:locale", content: "en_US" },
       { property: "og:url", content: `${SITE_URL}/` },
-      { property: "og:title", content: "Across Tour DMC — Exceptional Travel Experiences" },
+      { property: "og:title", content: "AcrossTours DMC — Exceptional Travel Experiences" },
       {
         property: "og:description",
         content:
@@ -127,12 +127,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image", content: LOGO_URL },
       { property: "og:image:width", content: "2000" },
       { property: "og:image:height", content: "2000" },
-      { property: "og:image:alt", content: "Across Tour DMC logo" },
+      { property: "og:image:alt", content: "AcrossTours DMC logo" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Across Tour DMC — Exceptional Travel Experiences" },
+      { name: "twitter:title", content: "AcrossTours DMC — Exceptional Travel Experiences" },
       {
         name: "twitter:description",
-        content: "Integrated travel and logistics solutions across Mozambique, Africa, and worldwide.",
+        content:
+          "Integrated travel and logistics solutions across Mozambique, Africa, and worldwide.",
       },
       { name: "twitter:image", content: LOGO_URL },
     ],

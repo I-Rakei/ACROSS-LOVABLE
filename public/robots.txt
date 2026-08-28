@@ -1,5 +1,5 @@
 # https://acrosstour.com/robots.txt
-# Across Tour DMC — Leisure & Corporate Travel in Mozambique
+# AcrossTours DMC — Leisure & Corporate Travel in Mozambique
 
 User-agent: *
 Allow: /

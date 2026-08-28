@@ -26,7 +26,7 @@ export const Route = createFileRoute("/special-packages/$slug")({
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) return {};
-    const title = `${loaderData.title.en} — Across Tour DMC`;
+    const title = `${loaderData.title.en} — AcrossTours DMC`;
     const canonicalUrl = `https://acrosstour.com/special-packages/${params.slug}`;
 
     const tripJsonLd = {
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/special-packages/$slug")({
       touristType: "Couples",
       provider: {
         "@type": "TravelAgency",
-        name: "Across Tour DMC",
+        name: "AcrossTours DMC",
         url: "https://acrosstour.com",
       },
       itinerary: {
@@ -148,7 +148,9 @@ function SpecialPackageProfile() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight max-w-3xl">
             {pkg.title[lang]}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white leading-relaxed font-medium">{pkg.tagline[lang]}</p>
+          <p className="mt-4 max-w-2xl text-lg text-white leading-relaxed font-medium">
+            {pkg.tagline[lang]}
+          </p>
         </div>
       </div>
 
@@ -162,7 +164,9 @@ function SpecialPackageProfile() {
                   key={slide + i}
                   onClick={() => setSlideIdx(i)}
                   className={`aspect-[4/3] rounded-xl overflow-hidden transition-all duration-300 ${
-                    i === slideIdx ? "ring-2 ring-accent ring-offset-2 ring-offset-background" : "opacity-70 hover:opacity-100"
+                    i === slideIdx
+                      ? "ring-2 ring-accent ring-offset-2 ring-offset-background"
+                      : "opacity-70 hover:opacity-100"
                   }`}
                   aria-label={`${t("View photo", "Ver foto")} ${i + 1}`}
                   aria-current={i === slideIdx}
@@ -198,7 +202,10 @@ function SpecialPackageProfile() {
                   <ul className="space-y-2">
                     {pkg.inclusions[lang].map((inc) => (
                       <li key={inc} className="flex items-start gap-2 text-sm text-ink-soft">
-                        <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                        <FontAwesomeIcon
+                          icon={faCircleCheck}
+                          className="w-4 h-4 text-accent mt-0.5 flex-shrink-0"
+                        />
                         <span>{inc}</span>
                       </li>
                     ))}
@@ -209,7 +216,10 @@ function SpecialPackageProfile() {
                   <ul className="space-y-2">
                     {pkg.exclusions[lang].map((exc) => (
                       <li key={exc} className="flex items-start gap-2 text-sm text-ink-soft">
-                        <FontAwesomeIcon icon={faCircleXmark} className="w-4 h-4 text-ink-soft/60 mt-0.5 flex-shrink-0" />
+                        <FontAwesomeIcon
+                          icon={faCircleXmark}
+                          className="w-4 h-4 text-ink-soft/60 mt-0.5 flex-shrink-0"
+                        />
                         <span>{exc}</span>
                       </li>
                     ))}
@@ -221,7 +231,8 @@ function SpecialPackageProfile() {
             <Reveal variant="slide" delay={0.2}>
               <div className="bg-secondary/20 border border-border/60 rounded-xl p-5">
                 <p className="text-xs text-ink-soft leading-relaxed">
-                  <strong className="text-ink">{t("Important:", "Importante:")}</strong> {pkg.important[lang]}
+                  <strong className="text-ink">{t("Important:", "Importante:")}</strong>{" "}
+                  {pkg.important[lang]}
                 </p>
               </div>
             </Reveal>
@@ -233,14 +244,20 @@ function SpecialPackageProfile() {
               <div className="bg-card border border-border/60 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-28">
                 <div className="space-y-4 mb-6 pb-6 border-b border-border/60">
                   <div className="flex items-start gap-3">
-                    <FontAwesomeIcon icon={faHotel} className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon
+                      icon={faHotel}
+                      className="w-4 h-4 text-accent mt-1 flex-shrink-0"
+                    />
                     <div>
                       <div className="text-sm font-bold text-ink">{pkg.property[lang]}</div>
                       <div className="text-xs text-ink-soft">{pkg.location[lang]}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <FontAwesomeIcon icon={faCalendarDays} className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon
+                      icon={faCalendarDays}
+                      className="w-4 h-4 text-accent mt-1 flex-shrink-0"
+                    />
                     <div>
                       <div className="text-sm font-bold text-ink">{pkg.duration[lang]}</div>
                       <div className="text-xs text-ink-soft">
@@ -249,7 +266,10 @@ function SpecialPackageProfile() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <FontAwesomeIcon icon={faUtensils} className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                    <FontAwesomeIcon
+                      icon={faUtensils}
+                      className="w-4 h-4 text-accent mt-1 flex-shrink-0"
+                    />
                     <div className="text-sm font-bold text-ink">{pkg.mealPlan[lang]}</div>
                   </div>
                 </div>
@@ -263,7 +283,8 @@ function SpecialPackageProfile() {
                     <span className="text-base font-semibold text-accent">{pkg.currency}</span>
                   </div>
                   <div className="text-xs text-ink-soft mt-1">
-                    {pkg.duration[lang]} · {t("Flights subject to availability", "Voos sujeitos a disponibilidade")}
+                    {pkg.duration[lang]} ·{" "}
+                    {t("Flights subject to availability", "Voos sujeitos a disponibilidade")}
                   </div>
                 </div>
 

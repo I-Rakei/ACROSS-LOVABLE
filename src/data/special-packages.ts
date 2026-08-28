@@ -1,4 +1,4 @@
-// Special Packages — sourced from Across Tour quotations Q104785 (Anantara Bazaruto),
+// Special Packages — sourced from AcrossTours quotations Q104785 (Anantara Bazaruto),
 // Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, and Q104846 (Nampula & Ilha de
 // Moçambique), dated 2026/08/21. All priced for 2 pax sharing.
 
@@ -67,11 +67,20 @@ export const specialPackages: SpecialPackageType[] = [
       en: "Celebrate your honeymoon, wedding anniversary, or a romantic getaway in a private Beach Villa at Anantara Bazaruto Island Resort.",
       pt: "Celebre a sua lua de mel, aniversário de casamento ou uma escapadinha romântica numa Beach Villa privada no Anantara Bazaruto Island Resort.",
     },
-    badge: { en: "Valid 1 Sep – 20 Dec · 4 Days / 3 Nights", pt: "Válido 1 Set – 20 Dez · 4 Dias / 3 Noites" },
+    badge: {
+      en: "Valid 1 Sep – 20 Dec · 4 Days / 3 Nights",
+      pt: "Válido 1 Set – 20 Dez · 4 Dias / 3 Noites",
+    },
     property: { en: "Anantara Bazaruto Island Resort", pt: "Anantara Bazaruto Island Resort" },
-    location: { en: "Ilha do Bazaruto, Inhambane, Mozambique", pt: "Ilha do Bazaruto, Inhambane, Moçambique" },
+    location: {
+      en: "Ilha do Bazaruto, Inhambane, Mozambique",
+      pt: "Ilha do Bazaruto, Inhambane, Moçambique",
+    },
     duration: { en: "4 Days / 3 Nights", pt: "4 Dias / 3 Noites" },
-    validity: { en: "1 September – 20 December 2026", pt: "1 de Setembro – 20 de Dezembro de 2026" },
+    validity: {
+      en: "1 September – 20 December 2026",
+      pt: "1 de Setembro – 20 de Dezembro de 2026",
+    },
     mealPlan: { en: "Full Board", pt: "Pensão Completa" },
     pricePerPerson: "99.296,50",
     priceTotal: "198.593,00",
@@ -83,9 +92,24 @@ export const specialPackages: SpecialPackageType[] = [
       pt: "Quatro dias e três noites na Ilha do Bazaruto, numa Beach Villa Dupla privada em regime de pensão completa no Anantara Bazaruto Island Resort. O pacote inclui voos domésticos de ida e volta e transfers de barco/estrada, com um calendário de momentos românticos — passeio de dhow ao pôr do sol, tratamento de spa na villa e espumante à chegada — pensado para luas de mel, aniversários e ocasiões especiais.",
     },
     priceBreakdown: [
-      { label: { en: "Flights (MPM–VNX–MPM)", pt: "Voos (MPM–VNX–MPM)" }, perPerson: "36.800,00", total: "73.600,00" },
-      { label: { en: "Transfers (airport ⇄ lodge)", pt: "Transfers (aeroporto ⇄ lodge)" }, perPerson: "7.425,50", total: "14.851,00" },
-      { label: { en: "Accommodation (3 nights, Full Board)", pt: "Alojamento (3 noites, Pensão Completa)" }, perPerson: "55.071,00", total: "110.142,00" },
+      {
+        label: { en: "Flights (MPM–VNX–MPM)", pt: "Voos (MPM–VNX–MPM)" },
+        perPerson: "36.800,00",
+        total: "73.600,00",
+      },
+      {
+        label: { en: "Transfers (airport ⇄ lodge)", pt: "Transfers (aeroporto ⇄ lodge)" },
+        perPerson: "7.425,50",
+        total: "14.851,00",
+      },
+      {
+        label: {
+          en: "Accommodation (3 nights, Full Board)",
+          pt: "Alojamento (3 noites, Pensão Completa)",
+        },
+        perPerson: "55.071,00",
+        total: "110.142,00",
+      },
     ],
     itinerary: [
       {
@@ -110,8 +134,14 @@ export const specialPackages: SpecialPackageType[] = [
         day: { en: "Day 2 · Wed 02 Sep 2026", pt: "Dia 2 · Qua 02 Set 2026" },
         title: { en: "At Leisure", pt: "Dia Livre" },
         details: {
-          en: ["Full board at Anantara Bazaruto Lodge", "Sunset dhow cruise & non-motorized water activities"],
-          pt: ["Pensão completa no Anantara Bazaruto Lodge", "Passeio de dhow ao pôr do sol e actividades aquáticas não motorizadas"],
+          en: [
+            "Full board at Anantara Bazaruto Lodge",
+            "Sunset dhow cruise & non-motorized water activities",
+          ],
+          pt: [
+            "Pensão completa no Anantara Bazaruto Lodge",
+            "Passeio de dhow ao pôr do sol e actividades aquáticas não motorizadas",
+          ],
         },
       },
       {
@@ -119,7 +149,10 @@ export const specialPackages: SpecialPackageType[] = [
         title: { en: "At Leisure", pt: "Dia Livre" },
         details: {
           en: ["Full board at Anantara Bazaruto Lodge", "60-minute spa treatment per person"],
-          pt: ["Pensão completa no Anantara Bazaruto Lodge", "Tratamento de spa de 60 minutos por pessoa"],
+          pt: [
+            "Pensão completa no Anantara Bazaruto Lodge",
+            "Tratamento de spa de 60 minutos por pessoa",
+          ],
         },
       },
       {
@@ -163,7 +196,11 @@ export const specialPackages: SpecialPackageType[] = [
     },
     exclusions: {
       en: ["Items of a personal nature", "Anything not mentioned above", "Excursions not listed"],
-      pt: ["Itens de natureza pessoal", "Tudo o que não esteja mencionado acima", "Passeios não listados"],
+      pt: [
+        "Itens de natureza pessoal",
+        "Tudo o que não esteja mencionado acima",
+        "Passeios não listados",
+      ],
     },
     important: {
       en: "Flights are subject to availability on the date of travel and may change without prior notice. Valid for new bookings only, 1 September – 20 December 2026.",
@@ -180,7 +217,10 @@ export const specialPackages: SpecialPackageType[] = [
       en: "Flights, transfers and a beachfront stay at Sentidos Beach Retreat, bundled into one easy package.",
       pt: "Voos, transfers e alojamento à beira-mar no Sentidos Beach Retreat, tudo num único pacote.",
     },
-    badge: { en: "Valid 1 Sep – 1 Nov · 4 Days / 3 Nights", pt: "Válido 1 Set – 1 Nov · 4 Dias / 3 Noites" },
+    badge: {
+      en: "Valid 1 Sep – 1 Nov · 4 Days / 3 Nights",
+      pt: "Válido 1 Set – 1 Nov · 4 Dias / 3 Noites",
+    },
     property: { en: "Sentidos Beach Retreat", pt: "Sentidos Beach Retreat" },
     location: { en: "Inhambane, Mozambique", pt: "Inhambane, Moçambique" },
     duration: { en: "4 Days / 3 Nights", pt: "4 Dias / 3 Noites" },
@@ -196,9 +236,21 @@ export const specialPackages: SpecialPackageType[] = [
       pt: "Uma escapada simples de quatro dias e três noites ao Sentidos Beach Retreat, em Inhambane — voos de ida e volta e transfers de aeroporto incluídos, com Villa Standard Dupla em regime de pequeno-almoço. Uma pausa de praia completa, sem logística separada a organizar.",
     },
     priceBreakdown: [
-      { label: { en: "Flights (MPM–INH–MPM)", pt: "Voos (MPM–INH–MPM)" }, perPerson: "32.901,00", total: "65.802,00" },
-      { label: { en: "Transfers (airport ⇄ retreat)", pt: "Transfers (aeroporto ⇄ retreat)" }, perPerson: "1.430,00", total: "2.860,00" },
-      { label: { en: "Accommodation (3 nights, B&B)", pt: "Alojamento (3 noites, Pequeno-Almoço)" }, perPerson: "17.325,00", total: "34.650,00" },
+      {
+        label: { en: "Flights (MPM–INH–MPM)", pt: "Voos (MPM–INH–MPM)" },
+        perPerson: "32.901,00",
+        total: "65.802,00",
+      },
+      {
+        label: { en: "Transfers (airport ⇄ retreat)", pt: "Transfers (aeroporto ⇄ retreat)" },
+        perPerson: "1.430,00",
+        total: "2.860,00",
+      },
+      {
+        label: { en: "Accommodation (3 nights, B&B)", pt: "Alojamento (3 noites, Pequeno-Almoço)" },
+        perPerson: "17.325,00",
+        total: "34.650,00",
+      },
     ],
     itinerary: [
       {
@@ -279,11 +331,23 @@ export const specialPackages: SpecialPackageType[] = [
       en: "Colonial architecture, guided city tours and a sunset dhow cruise across Nampula and the UNESCO World Heritage Ilha de Moçambique.",
       pt: "Arquitectura colonial, visitas guiadas e um passeio de dhow ao pôr do sol entre Nampula e a Ilha de Moçambique, Património Mundial da UNESCO.",
     },
-    badge: { en: "Valid 1 Sep – 18 Dec · 5 Days / 4 Nights", pt: "Válido 1 Set – 18 Dez · 5 Dias / 4 Noites" },
-    property: { en: "Grand Plaza Nampula Hotel & Hotel Omuhipiti", pt: "Grand Plaza Nampula Hotel & Hotel Omuhipiti" },
-    location: { en: "Nampula & Ilha de Moçambique, Mozambique", pt: "Nampula e Ilha de Moçambique, Moçambique" },
+    badge: {
+      en: "Valid 1 Sep – 18 Dec · 5 Days / 4 Nights",
+      pt: "Válido 1 Set – 18 Dez · 5 Dias / 4 Noites",
+    },
+    property: {
+      en: "Grand Plaza Nampula Hotel & Hotel Omuhipiti",
+      pt: "Grand Plaza Nampula Hotel & Hotel Omuhipiti",
+    },
+    location: {
+      en: "Nampula & Ilha de Moçambique, Mozambique",
+      pt: "Nampula e Ilha de Moçambique, Moçambique",
+    },
     duration: { en: "5 Days / 4 Nights", pt: "5 Dias / 4 Noites" },
-    validity: { en: "1 September – 18 December 2026", pt: "1 de Setembro – 18 de Dezembro de 2026" },
+    validity: {
+      en: "1 September – 18 December 2026",
+      pt: "1 de Setembro – 18 de Dezembro de 2026",
+    },
     mealPlan: { en: "Bed & Breakfast", pt: "Pequeno-Almoço Incluído" },
     pricePerPerson: "38.940,00",
     priceTotal: "77.880,00",
@@ -295,10 +359,22 @@ export const specialPackages: SpecialPackageType[] = [
       pt: "Cinco dias e quatro noites pelo norte de Moçambique, combinando voos e transfers de ida e volta com uma visita guiada à cidade de Nampula, um passeio a pé pela Ilha de Moçambique (Património Mundial da UNESCO) e um passeio de dhow ao pôr do sol. Regime de pequeno-almoço durante toda a estadia, com alojamento no Grand Plaza Nampula Hotel e no Hotel Omuhipiti.",
     },
     priceBreakdown: [
-      { label: { en: "Flights (JNB–APL–JNB)", pt: "Voos (JNB–APL–JNB)" }, perPerson: "25.800,00", total: "51.600,00" },
+      {
+        label: { en: "Flights (JNB–APL–JNB)", pt: "Voos (JNB–APL–JNB)" },
+        perPerson: "25.800,00",
+        total: "51.600,00",
+      },
       { label: { en: "Transfers", pt: "Transfers" }, perPerson: "6.400,00", total: "12.800,00" },
-      { label: { en: "Day tours & excursions", pt: "Excursões e passeios" }, perPerson: "1.990,00", total: "3.980,00" },
-      { label: { en: "Accommodation (4 nights, B&B)", pt: "Alojamento (4 noites, Pequeno-Almoço)" }, perPerson: "4.750,00", total: "9.500,00" },
+      {
+        label: { en: "Day tours & excursions", pt: "Excursões e passeios" },
+        perPerson: "1.990,00",
+        total: "3.980,00",
+      },
+      {
+        label: { en: "Accommodation (4 nights, B&B)", pt: "Alojamento (4 noites, Pequeno-Almoço)" },
+        perPerson: "4.750,00",
+        total: "9.500,00",
+      },
     ],
     itinerary: [
       {
@@ -339,8 +415,14 @@ export const specialPackages: SpecialPackageType[] = [
         day: { en: "Day 3 · Thu 03 Sep 2026", pt: "Dia 3 · Qui 03 Set 2026" },
         title: { en: "At Leisure", pt: "Dia Livre" },
         details: {
-          en: ["Bed & breakfast at Hotel Omuhipiti", "Sunset dhow cruise with snacks & beverages, near the Fortress or Mangal da Cabeceira Pequena"],
-          pt: ["Pequeno-almoço no Hotel Omuhipiti", "Passeio de dhow ao pôr do sol com snacks e bebidas, junto à Fortaleza ou ao Mangal da Cabeceira Pequena"],
+          en: [
+            "Bed & breakfast at Hotel Omuhipiti",
+            "Sunset dhow cruise with snacks & beverages, near the Fortress or Mangal da Cabeceira Pequena",
+          ],
+          pt: [
+            "Pequeno-almoço no Hotel Omuhipiti",
+            "Passeio de dhow ao pôr do sol com snacks e bebidas, junto à Fortaleza ou ao Mangal da Cabeceira Pequena",
+          ],
         },
       },
       {
@@ -356,7 +438,10 @@ export const specialPackages: SpecialPackageType[] = [
         title: { en: "Departure", pt: "Partida" },
         details: {
           en: ["Road transfer: Hotel Omuhipiti – Nampula Airport", "Return flight APL–JNB"],
-          pt: ["Transfer rodoviário: Hotel Omuhipiti – Aeroporto de Nampula", "Voo de regresso APL–JNB"],
+          pt: [
+            "Transfer rodoviário: Hotel Omuhipiti – Aeroporto de Nampula",
+            "Voo de regresso APL–JNB",
+          ],
         },
       },
     ],
@@ -382,7 +467,11 @@ export const specialPackages: SpecialPackageType[] = [
     },
     exclusions: {
       en: ["Items of a personal nature", "Anything not mentioned above", "Excursions not listed"],
-      pt: ["Itens de natureza pessoal", "Tudo o que não esteja mencionado acima", "Passeios não listados"],
+      pt: [
+        "Itens de natureza pessoal",
+        "Tudo o que não esteja mencionado acima",
+        "Passeios não listados",
+      ],
     },
     important: {
       en: "Flights are subject to availability on the date of travel and may change without prior notice. Valid for new bookings only, 1 September – 18 December 2026.",

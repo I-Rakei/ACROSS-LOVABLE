@@ -45,14 +45,17 @@ export function SiteFooter() {
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center text-white">
                   <FontAwesomeIcon icon={faLocationDot} className="w-4 h-4" />
                 </span>
-                <span className="pt-1.5">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar · Maputo, Mozambique</span>
+                <span className="pt-1.5">
+                  Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar · Maputo, Mozambique
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center mt-1 text-white">
                   <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
                 </span>
                 <span>
-                  Mobile: +258 84 438 3501<br />
+                  Mobile: +258 84 438 3501
+                  <br />
                   Emergency: +258 87 402 6626
                 </span>
               </li>
@@ -60,7 +63,10 @@ export function SiteFooter() {
                 <span className="w-9 h-9 rounded-full border border-white/30 flex-shrink-0 flex items-center justify-center text-white">
                   <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
                 </span>
-                <a href="mailto:reservations@acrosstour.com" className="text-white hover:text-white/80 transition">
+                <a
+                  href="mailto:reservations@acrosstour.com"
+                  className="text-white hover:text-white/80 transition"
+                >
                   reservations@acrosstour.com
                 </a>
               </li>
@@ -72,9 +78,9 @@ export function SiteFooter() {
             <ul className="space-y-3 text-sm">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
-                  <Link 
-                    to={link.to} 
-                    hash={link.hash} 
+                  <Link
+                    to={link.to}
+                    hash={link.hash}
                     className="text-white hover:text-white/80 transition font-medium"
                   >
                     {link.label}
@@ -89,9 +95,9 @@ export function SiteFooter() {
             <ul className="space-y-3 text-sm">
               {SERVICES_LINKS.map((link) => (
                 <li key={link.label}>
-                  <Link 
-                    to={link.to} 
-                    hash={link.hash} 
+                  <Link
+                    to={link.to}
+                    hash={link.hash}
                     className="text-white hover:text-white/80 transition font-medium"
                   >
                     {link.label}
@@ -107,23 +113,32 @@ export function SiteFooter() {
               24/7 Emergency Support Line for our travellers currently on the ground.
             </p>
             <div className="text-sm font-medium text-white mb-6">+258 87 402 6626 (emergency)</div>
-            
-            {/* Logos side-by-side: Across Tour Logo next to IATA Logo */}
+
+            {/* Logos side-by-side: AcrossTours Logo next to IATA Logo */}
             <div className="flex items-center gap-3 sm:gap-4 flex-nowrap pt-2">
-              <AcrossLogo className="h-12 sm:h-14 w-auto text-white shrink-0" idle={false} hoverable={false} entrance="none" />
+              <AcrossLogo
+                className="h-12 sm:h-14 w-auto text-white shrink-0"
+                idle={false}
+                hoverable={false}
+                entrance="none"
+              />
               <div className="h-10 w-[1px] bg-white/40 shrink-0" />
               <div className="flex items-center gap-2.5 shrink-0">
-                <ImageWithSpinner 
-                  src="/logos/iata.svg" 
-                  alt="IATA Certified" 
-                  loading="lazy" 
-                  decoding="async" 
+                <ImageWithSpinner
+                  src="/logos/iata.svg"
+                  alt="IATA Certified"
+                  loading="lazy"
+                  decoding="async"
                   containerClassName="h-10 sm:h-12 w-auto shrink-0"
-                  className="h-10 sm:h-12 w-auto shrink-0" 
+                  className="h-10 sm:h-12 w-auto shrink-0"
                   spinnerClassName="w-4 h-4"
                 />
                 <div className="text-[11px] leading-tight text-white/90 font-medium shrink-0">
-                  Officially<br />IATA accredited<br />agency
+                  Officially
+                  <br />
+                  IATA accredited
+                  <br />
+                  agency
                 </div>
               </div>
             </div>
@@ -134,13 +149,21 @@ export function SiteFooter() {
       {/* Bottom bar separated from image background */}
       <div className="w-full bg-white border-t border-[#4a4e57]/20 text-[#4a4e57]">
         <div className="container-x py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium">
-          <div>© {new Date().getFullYear()} Across Tour DMC. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} AcrossTours DMC. All rights reserved.</div>
 
           {/* Social Icons */}
           <div className="flex items-center gap-2">
             {[
-              { icon: faFacebookF, href: "https://www.facebook.com/ACROSS.TOUR.DMC/", label: "Facebook" },
-              { icon: faInstagram, href: "https://www.instagram.com/acrosstours.mz/", label: "Instagram" },
+              {
+                icon: faFacebookF,
+                href: "https://www.facebook.com/ACROSS.TOUR.DMC/",
+                label: "Facebook",
+              },
+              {
+                icon: faInstagram,
+                href: "https://www.instagram.com/acrosstours.mz/",
+                label: "Instagram",
+              },
               { icon: faPhone, href: "tel:+258844383501", label: "Call us" },
             ].map(({ icon, href, label }) => (
               <a
@@ -157,9 +180,15 @@ export function SiteFooter() {
           </div>
 
           <div className="flex gap-6">
-            <a href="#" className="hover:text-[#0080B9] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#0080B9] transition-colors">Terms & Conditions</a>
-            <a href="#" className="hover:text-[#0080B9] transition-colors">Cookies</a>
+            <a href="#" className="hover:text-[#0080B9] transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-[#0080B9] transition-colors">
+              Terms & Conditions
+            </a>
+            <a href="#" className="hover:text-[#0080B9] transition-colors">
+              Cookies
+            </a>
           </div>
         </div>
       </div>

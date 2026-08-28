@@ -51,7 +51,6 @@ import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-locati
 
 import { SpecialPackagesCarousel } from "@/components/special-packages-carousel";
 
-
 // Visa Section Image
 import visaImg from "@/assets/Across/VISA/Image.jpg";
 
@@ -79,11 +78,41 @@ const services = [
     img: serviceBusiness,
     modalSvg: modalCorporateSVG,
     bullets: [
-      { title: { en: "Air Ticketing (Commercial & Charter Flights)", pt: "Passagens Aéreas" }, desc: { en: "Domestic and international flight management, including private air charters.", pt: "Emissão de passagens aéreas de voos nacionais e internacionais, incluindo voos charters." } },
-      { title: { en: "Accommodation Booking", pt: "Alojamento Corporativo" }, desc: { en: "Hotel bookings ranging from 3 to 5 stars, with half-board or full-board options, fully aligned with corporate travel standards, including private charters.", pt: "Reservas hoteleiras entre 3 e 5 estrelas, com opções de meia pensão ou pensão completa, alinhadas com padrões corporativos." } },
-      { title: { en: "Visa Assistance", pt: "Assistência em Vistos" }, desc: { en: "Professional visa support with individual document review and submission guidance.", pt: "Assistência em processos de aquisição de visto, incluindo revisão documental e orientação de submissão." } },
-      { title: { en: "Travel Insurance", pt: "Seguro de Viagem" }, desc: { en: "Travel insurance solutions adapted to destination, duration and purpose of travel.", pt: "Soluções ajustadas ao destino, duração e objectivo da deslocação." } },
-      { title: { en: "Conference Logistic (MICE)", pt: "Logística de Conferências (MICE)" }, desc: { en: "End-to-end planning and coordination of meetings, incentives, conferences and corporate events.", pt: "Planeamento e coordenação integral de reuniões, incentivos, conferências e eventos corporativos." } },
+      {
+        title: { en: "Air Ticketing (Commercial & Charter Flights)", pt: "Passagens Aéreas" },
+        desc: {
+          en: "Domestic and international flight management, including private air charters.",
+          pt: "Emissão de passagens aéreas de voos nacionais e internacionais, incluindo voos charters.",
+        },
+      },
+      {
+        title: { en: "Accommodation Booking", pt: "Alojamento Corporativo" },
+        desc: {
+          en: "Hotel bookings ranging from 3 to 5 stars, with half-board or full-board options, fully aligned with corporate travel standards, including private charters.",
+          pt: "Reservas hoteleiras entre 3 e 5 estrelas, com opções de meia pensão ou pensão completa, alinhadas com padrões corporativos.",
+        },
+      },
+      {
+        title: { en: "Visa Assistance", pt: "Assistência em Vistos" },
+        desc: {
+          en: "Professional visa support with individual document review and submission guidance.",
+          pt: "Assistência em processos de aquisição de visto, incluindo revisão documental e orientação de submissão.",
+        },
+      },
+      {
+        title: { en: "Travel Insurance", pt: "Seguro de Viagem" },
+        desc: {
+          en: "Travel insurance solutions adapted to destination, duration and purpose of travel.",
+          pt: "Soluções ajustadas ao destino, duração e objectivo da deslocação.",
+        },
+      },
+      {
+        title: { en: "Conference Logistic (MICE)", pt: "Logística de Conferências (MICE)" },
+        desc: {
+          en: "End-to-end planning and coordination of meetings, incentives, conferences and corporate events.",
+          pt: "Planeamento e coordenação integral de reuniões, incentivos, conferências e eventos corporativos.",
+        },
+      },
     ],
   },
   {
@@ -96,13 +125,58 @@ const services = [
     img: serviceTransport,
     modalSvg: modalTransportSVG,
     bullets: [
-      { title: { en: "Airport & City Transfers", pt: "Transferes (Aeroportos & Cidade)" }, desc: { en: "Point-to-point transfers between airports, hotels and city locations.", pt: "Tranferes ponto-a-ponto entre aeroportos, hotéis e localizações urbanas." } },
-      { title: { en: "Vehicle Rental (Self-Drive)", pt: "Aluguer de Viaturas (Self-Drive)" }, desc: { en: "Wide range of vehicles available for independent mobility.", pt: "Frota diversificada para mobilidade independente." } },
-      { title: { en: "Chauffeur Drive Services", pt: "Serviços de Chauffeur Drive" }, desc: { en: "Professional chauffeur-driven solutions for executives, VIPs and delegations.", pt: "Soluções com motorista profissional para executivos, VIPs e delegações." } },
-      { title: { en: "Staff Transportation", pt: "Transporte de Colaboradores" }, desc: { en: "Structured transportation services for corporate teams and operational staff.", pt: "Serviços estruturados para equipas corporativas e operações empresariais." } },
-      { title: { en: "Meet & Greet Services (Airport, Border, Quay, Crew)", pt: "Serviços de Meet & Greet" }, desc: { en: "Reception and assistance services at all entry and transit points.", pt: "Recepção e assistência em aeroportos, fronteiras, portos e operações de tripulação." } },
-      { title: { en: "Executive Group Support", pt: "Apoio à Grupos Executivos" }, desc: { en: "Dedicated on-ground coordination and operational assistance for executive and corporate groups.", pt: "Coordenação operacional dedicada e assistência local a delegações e grupos empresariais." } },
-      { title: { en: "Private Events Logistics", pt: "Logística para Eventos Privados" }, desc: { en: "Complete logistical coordination for private functions and high-profile events.", pt: "Coordenação logística completa para eventos privados e de elevado perfil." } },
+      {
+        title: { en: "Airport & City Transfers", pt: "Transferes (Aeroportos & Cidade)" },
+        desc: {
+          en: "Point-to-point transfers between airports, hotels and city locations.",
+          pt: "Tranferes ponto-a-ponto entre aeroportos, hotéis e localizações urbanas.",
+        },
+      },
+      {
+        title: { en: "Vehicle Rental (Self-Drive)", pt: "Aluguer de Viaturas (Self-Drive)" },
+        desc: {
+          en: "Wide range of vehicles available for independent mobility.",
+          pt: "Frota diversificada para mobilidade independente.",
+        },
+      },
+      {
+        title: { en: "Chauffeur Drive Services", pt: "Serviços de Chauffeur Drive" },
+        desc: {
+          en: "Professional chauffeur-driven solutions for executives, VIPs and delegations.",
+          pt: "Soluções com motorista profissional para executivos, VIPs e delegações.",
+        },
+      },
+      {
+        title: { en: "Staff Transportation", pt: "Transporte de Colaboradores" },
+        desc: {
+          en: "Structured transportation services for corporate teams and operational staff.",
+          pt: "Serviços estruturados para equipas corporativas e operações empresariais.",
+        },
+      },
+      {
+        title: {
+          en: "Meet & Greet Services (Airport, Border, Quay, Crew)",
+          pt: "Serviços de Meet & Greet",
+        },
+        desc: {
+          en: "Reception and assistance services at all entry and transit points.",
+          pt: "Recepção e assistência em aeroportos, fronteiras, portos e operações de tripulação.",
+        },
+      },
+      {
+        title: { en: "Executive Group Support", pt: "Apoio à Grupos Executivos" },
+        desc: {
+          en: "Dedicated on-ground coordination and operational assistance for executive and corporate groups.",
+          pt: "Coordenação operacional dedicada e assistência local a delegações e grupos empresariais.",
+        },
+      },
+      {
+        title: { en: "Private Events Logistics", pt: "Logística para Eventos Privados" },
+        desc: {
+          en: "Complete logistical coordination for private functions and high-profile events.",
+          pt: "Coordenação logística completa para eventos privados e de elevado perfil.",
+        },
+      },
     ],
   },
   {
@@ -115,9 +189,30 @@ const services = [
     img: serviceHoliday,
     modalSvg: modalHolidaySVG,
     bullets: [
-      { title: { en: "Tailor-Made Travel Packages", pt: "Programas de Viagens Personalizados" }, desc: { en: "Fully customised travel programmes adapted to client preferences and expectations.", pt: "Soluções totalmente personalizadas de acordo com preferências e expectativas do cliente." } },
-      { title: { en: "Guided Tours within Mozambique and Southern Africa Region", pt: "Tours Guiados em Moçambique" }, desc: { en: "Proprietary half-day and full-day tours operated locally with experienced guides.", pt: "Excursões de meio dia e dia completo operadas localmente por guias experientes." } },
-      { title: { en: "Cultural Tours and Experience", pt: "Actividades & Experiências" }, desc: { en: "Integrated leisure solutions for organised groups of special interest travellers.", pt: "Selecção criteriosa de actividades culturais, de lazer e aventura." } },
+      {
+        title: { en: "Tailor-Made Travel Packages", pt: "Programas de Viagens Personalizados" },
+        desc: {
+          en: "Fully customised travel programmes adapted to client preferences and expectations.",
+          pt: "Soluções totalmente personalizadas de acordo com preferências e expectativas do cliente.",
+        },
+      },
+      {
+        title: {
+          en: "Guided Tours within Mozambique and Southern Africa Region",
+          pt: "Tours Guiados em Moçambique",
+        },
+        desc: {
+          en: "Proprietary half-day and full-day tours operated locally with experienced guides.",
+          pt: "Excursões de meio dia e dia completo operadas localmente por guias experientes.",
+        },
+      },
+      {
+        title: { en: "Cultural Tours and Experience", pt: "Actividades & Experiências" },
+        desc: {
+          en: "Integrated leisure solutions for organised groups of special interest travellers.",
+          pt: "Selecção criteriosa de actividades culturais, de lazer e aventura.",
+        },
+      },
     ],
   },
 ];
@@ -143,8 +238,18 @@ const tours = [
     img: pkgMaputo,
     price: "5.720,00",
     inclusions: {
-      en: ["Private air-conditioned transport", "English/Portuguese speaking guide", "All entrance fees", "Traditional lunch option"],
-      pt: ["Transporte privado com ar condicionado", "Guia fluente em Inglês/Português", "Todas as taxas de entrada", "Opção de almoço tradicional"],
+      en: [
+        "Private air-conditioned transport",
+        "English/Portuguese speaking guide",
+        "All entrance fees",
+        "Traditional lunch option",
+      ],
+      pt: [
+        "Transporte privado com ar condicionado",
+        "Guia fluente em Inglês/Português",
+        "Todas as taxas de entrada",
+        "Opção de almoço tradicional",
+      ],
     },
   },
   {
@@ -167,8 +272,18 @@ const tours = [
     img: pkgMafalala,
     price: "3.200,00",
     inclusions: {
-      en: ["Local certified guide", "Mafalala museum entry", "Traditional dance performance", "Bottled water"],
-      pt: ["Guia local certificado", "Entrada no museu da Mafalala", "Apresentação de dança tradicional", "Água engarrafada"],
+      en: [
+        "Local certified guide",
+        "Mafalala museum entry",
+        "Traditional dance performance",
+        "Bottled water",
+      ],
+      pt: [
+        "Guia local certificado",
+        "Entrada no museu da Mafalala",
+        "Apresentação de dança tradicional",
+        "Água engarrafada",
+      ],
     },
   },
   {
@@ -191,8 +306,18 @@ const tours = [
     img: pkgInhaca,
     price: "8.940,00",
     inclusions: {
-      en: ["Boat cruise transfers", "Marine reserve permits", "Snorkeling equipment rental", "Fresh seafood lunch"],
-      pt: ["Transferes de barco", "Licenças da reserva marinha", "Aluguer de equipamento de snorkeling", "Almoço de marisco fresco"],
+      en: [
+        "Boat cruise transfers",
+        "Marine reserve permits",
+        "Snorkeling equipment rental",
+        "Fresh seafood lunch",
+      ],
+      pt: [
+        "Transferes de barco",
+        "Licenças da reserva marinha",
+        "Aluguer de equipamento de snorkeling",
+        "Almoço de marisco fresco",
+      ],
     },
   },
   {
@@ -215,8 +340,18 @@ const tours = [
     img: pkgKruger,
     price: "12.240,00",
     inclusions: {
-      en: ["Return transport from Maputo", "Professional driver/guide", "Big 5 game drive", "Packed lunch"],
-      pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Safári Big 5", "Almoço embalado"],
+      en: [
+        "Return transport from Maputo",
+        "Professional driver/guide",
+        "Big 5 game drive",
+        "Packed lunch",
+      ],
+      pt: [
+        "Transporte de ida e volta a partir de Maputo",
+        "Motorista/guia profissional",
+        "Safári Big 5",
+        "Almoço embalado",
+      ],
     },
   },
   {
@@ -239,8 +374,18 @@ const tours = [
     img: pkgPonta,
     price: "9.840,00",
     inclusions: {
-      en: ["Return transport from Maputo", "Professional guide", "Beach access & leisure time", "Lunch at local restaurant"],
-      pt: ["Transporte de ida e volta a partir de Maputo", "Guia profissional", "Acesso à praia e tempo livre", "Almoço em restaurante local"],
+      en: [
+        "Return transport from Maputo",
+        "Professional guide",
+        "Beach access & leisure time",
+        "Lunch at local restaurant",
+      ],
+      pt: [
+        "Transporte de ida e volta a partir de Maputo",
+        "Guia profissional",
+        "Acesso à praia e tempo livre",
+        "Almoço em restaurante local",
+      ],
     },
   },
   {
@@ -263,8 +408,18 @@ const tours = [
     img: pkgEswatini,
     price: "7.000,00",
     inclusions: {
-      en: ["Round-trip transport from Maputo", "Professional driver/guide", "Mantenga Village entry fee", "Traditional lunch"],
-      pt: ["Transporte de ida e volta a partir de Maputo", "Motorista/guia profissional", "Entrada na Aldeia de Mantenga", "Almoço tradicional"],
+      en: [
+        "Round-trip transport from Maputo",
+        "Professional driver/guide",
+        "Mantenga Village entry fee",
+        "Traditional lunch",
+      ],
+      pt: [
+        "Transporte de ida e volta a partir de Maputo",
+        "Motorista/guia profissional",
+        "Entrada na Aldeia de Mantenga",
+        "Almoço tradicional",
+      ],
     },
   },
 ];
@@ -274,52 +429,64 @@ const SLIDES = [
     image: hero1,
     titleEn: (
       <>
-        Business and Leisure<br />
+        Business and Leisure
+        <br />
         Travel Solutions
       </>
     ),
     titlePt: (
       <>
-        Soluções de Viagem<br />
+        Soluções de Viagem
+        <br />
         de Negócios e Lazer
       </>
     ),
-    descEn: "Design, management, and execution of integrated travel and logistics solutions in Mozambique, Africa, and worldwide.",
-    descPt: "Desenho, gestão e execução de soluções integradas de viagens e logística em Moçambique, África e em todo o mundo.",
+    descEn:
+      "Design, management, and execution of integrated travel and logistics solutions in Mozambique, Africa, and worldwide.",
+    descPt:
+      "Desenho, gestão e execução de soluções integradas de viagens e logística em Moçambique, África e em todo o mundo.",
   },
   {
     image: hero2,
     titleEn: (
       <>
-        Explore Authentic<br />
+        Explore Authentic
+        <br />
         African Destinations
       </>
     ),
     titlePt: (
       <>
-        Explore Destinos<br />
+        Explore Destinos
+        <br />
         Africanos Autênticos
       </>
     ),
-    descEn: "Experience tailor-made packages, guided cultural tours, and beautiful African landscapes with expert local guides.",
-    descPt: "Experimente pacotes personalizados, visitas culturais guiadas e belas paisagens africanas com guias locais experientes.",
+    descEn:
+      "Experience tailor-made packages, guided cultural tours, and beautiful African landscapes with expert local guides.",
+    descPt:
+      "Experimente pacotes personalizados, visitas culturais guiadas e belas paisagens africanas com guias locais experientes.",
   },
   {
     image: hero3,
     titleEn: (
       <>
-        Tailor-Made<br />
+        Tailor-Made
+        <br />
         Holiday Packages
       </>
     ),
     titlePt: (
       <>
-        Pacotes de Férias<br />
+        Pacotes de Férias
+        <br />
         Personalizados
       </>
     ),
-    descEn: "From pristine beaches to safari adventures, we design unique lifetime experiences suited to your exact desires.",
-    descPt: "Desde praias imaculadas a aventuras de safari, desenhamos experiências únicas de vida adaptadas aos seus desejos exatos.",
+    descEn:
+      "From pristine beaches to safari adventures, we design unique lifetime experiences suited to your exact desires.",
+    descPt:
+      "Desde praias imaculadas a aventuras de safari, desenhamos experiências únicas de vida adaptadas aos seus desejos exatos.",
   },
 ];
 
@@ -345,7 +512,10 @@ function FeaturedTourCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <motion.article layout="position" className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm">
+    <motion.article
+      layout="position"
+      className="bg-card hover-lift h-full flex flex-col rounded-2xl overflow-hidden shadow-sm"
+    >
       <div className="aspect-[4/3] overflow-hidden">
         <ImageWithSpinner
           src={tour.img}
@@ -361,11 +531,13 @@ function FeaturedTourCard({
           {/* Meta */}
           <div className="flex items-center gap-3 text-xs text-ink-soft mb-3">
             <span className="inline-flex items-center gap-1">
-              <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5 text-accent" /> {tour.location[lang]}
+              <FontAwesomeIcon icon={faLocationDot} className="w-3.5 h-3.5 text-accent" />{" "}
+              {tour.location[lang]}
             </span>
             <span>·</span>
             <span className="inline-flex items-center gap-1">
-              <FontAwesomeIcon icon={faClock} className="w-3.5 h-3.5 text-accent" /> {tour.duration[lang]}
+              <FontAwesomeIcon icon={faClock} className="w-3.5 h-3.5 text-accent" />{" "}
+              {tour.duration[lang]}
             </span>
           </div>
 
@@ -374,7 +546,9 @@ function FeaturedTourCard({
 
           {/* Description — 5-line clamp + Read more toggle in place */}
           <motion.div layout="size" transition={{ duration: 0.3 }} className="overflow-hidden">
-            <p className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}>
+            <p
+              className={`text-sm text-ink-soft leading-relaxed mb-1 ${isExpanded ? "" : "line-clamp-5"}`}
+            >
               {tour.desc[lang]}
             </p>
           </motion.div>
@@ -413,7 +587,10 @@ function FeaturedTourCard({
                 <ul className="space-y-1.5">
                   {tour.inclusions[lang].map((inc) => (
                     <li key={inc} className="flex items-start gap-2 text-xs text-ink-soft">
-                      <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                      <FontAwesomeIcon
+                        icon={faCircleCheck}
+                        className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0"
+                      />
                       <span className="truncate">{inc}</span>
                     </li>
                   ))}
@@ -447,7 +624,9 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [active]);
 
   return (
@@ -471,9 +650,16 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
-                <FontAwesomeIcon icon={s.icon} className="w-7 h-7 sm:w-8 sm:h-8 text-white mb-3 sm:mb-4" />
-                <h3 className="text-xl sm:text-2xl mb-1.5 sm:mb-2 text-white font-semibold">{s.title[lang]}</h3>
-                <p className="text-white/90 text-sm sm:text-base leading-relaxed font-medium">{s.desc[lang]}</p>
+                <FontAwesomeIcon
+                  icon={s.icon}
+                  className="w-7 h-7 sm:w-8 sm:h-8 text-white mb-3 sm:mb-4"
+                />
+                <h3 className="text-xl sm:text-2xl mb-1.5 sm:mb-2 text-white font-semibold">
+                  {s.title[lang]}
+                </h3>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed font-medium">
+                  {s.desc[lang]}
+                </p>
                 <span className="mt-4 inline-flex items-center gap-1.5 group-hover:gap-3 text-white/70 group-hover:text-white text-xs font-semibold uppercase tracking-widest transition-all duration-300">
                   {lang === "en" ? "View Details" : "Ver Detalhes"} &#8594;
                 </span>
@@ -490,7 +676,9 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
           aria-modal="true"
           aria-label={active.title[lang]}
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
-          onClick={(e) => { if (e.target === e.currentTarget) setOpenIdx(null); }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setOpenIdx(null);
+          }}
         >
           {/* Backdrop */}
           <div
@@ -500,11 +688,10 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
 
           {/* Sheet panel — slides up on mobile, centered on desktop */}
           <div className="relative w-full sm:w-auto sm:min-w-[480px] sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl flex flex-col max-h-[92dvh] sm:max-h-[88vh] shadow-2xl overflow-hidden">
-
             {/* Header with SVG banner */}
             <div className="relative flex-shrink-0 border-b border-gray-100">
               {/* Header SVG — full width */}
-              <img src={modalHeaderSVG} alt="Across Tours" className="w-full h-auto block" />
+              <img src={modalHeaderSVG} alt="AcrossTourss" className="w-full h-auto block" />
 
               {/* Close button floats over SVG */}
               <button
@@ -513,12 +700,19 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
                 className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white flex items-center justify-center text-gray-600 transition-colors shadow-sm"
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path
+                    d="M1 1l10 10M11 1L1 11"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </button>
 
               {/* Service title below SVG */}
-              <h2 className="text-brand-blue font-bold text-base sm:text-lg leading-tight text-center px-6 pt-4 pb-4">{active.title[lang]}</h2>
+              <h2 className="text-brand-blue font-bold text-base sm:text-lg leading-tight text-center px-6 pt-4 pb-4">
+                {active.title[lang]}
+              </h2>
             </div>
 
             {/* Scrollable body */}
@@ -531,17 +725,21 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
                 {active.bullets.map((b, idx) => (
                   <li key={idx} className="flex gap-3">
                     <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-[#0066a1]/10 flex items-center justify-center">
-                      <span className="text-[#0066a1] text-[11px] font-black leading-none">&#x2022;</span>
+                      <span className="text-[#0066a1] text-[11px] font-black leading-none">
+                        &#x2022;
+                      </span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-sm sm:text-base leading-snug">{b.title[lang]}</p>
-                      <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mt-0.5">{b.desc[lang]}</p>
+                      <p className="font-bold text-gray-900 text-sm sm:text-base leading-snug">
+                        {b.title[lang]}
+                      </p>
+                      <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mt-0.5">
+                        {b.desc[lang]}
+                      </p>
                     </div>
                   </li>
                 ))}
               </ul>
-
-
             </div>
           </div>
         </div>
@@ -604,12 +802,14 @@ function Home() {
           <div
             key={idx}
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
+              idx === currentSlide
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-105 pointer-events-none"
             }`}
           >
             <ImageWithSpinner
               src={slide.image}
-              alt="Across Tour Background"
+              alt="AcrossTours Background"
               loading="eager"
               decoding="async"
               fetchPriority="high"
@@ -668,7 +868,9 @@ function Home() {
             {/* Arrows */}
             <div className="flex gap-2">
               <button
-                onClick={() => setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length)}
+                onClick={() =>
+                  setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length)
+                }
                 className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white transition"
                 aria-label="Previous slide"
               >
@@ -699,10 +901,17 @@ function Home() {
               </Reveal>
               <Reveal delay={0.15} className="space-y-6 text-base text-ink-soft leading-relaxed">
                 <p>
-                  <strong>Across Tour</strong> {t("is a travel and destination management company. We are specialized in both Inbound and Outbound travel solutions.", "é uma empresa de gestão de destinos e viagens. Somos especializados em soluções de viagens receptivas (Inbound) e emissivas (Outbound).")}
+                  <strong>AcrossTours</strong>{" "}
+                  {t(
+                    "is a travel and destination management company. We are specialized in both Inbound and Outbound travel solutions.",
+                    "é uma empresa de gestão de destinos e viagens. Somos especializados em soluções de viagens receptivas (Inbound) e emissivas (Outbound).",
+                  )}
                 </p>
                 <p>
-                  {t("Our main services outline include providing full ground handling services from accommodation bookings, car rental, chauffeur drive, airport transfers, conferencing, tours, among others, as well as flights when required for both leisure and business travel including private air charters. We are currently based in Mozambique and Angola.", "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.")}
+                  {t(
+                    "Our main services outline include providing full ground handling services from accommodation bookings, car rental, chauffeur drive, airport transfers, conferencing, tours, among others, as well as flights when required for both leisure and business travel including private air charters. We are currently based in Mozambique and Angola.",
+                    "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.",
+                  )}
                 </p>
               </Reveal>
             </div>
@@ -716,20 +925,33 @@ function Home() {
               {
                 icon: faAward,
                 label: t("Added Value", "Valor Acrescentado"),
-                text: t("Relationship based on competitiveness, expressing to the customer the satisfaction and the most attainable value for money.", "Relação baseada na competitividade, oferecendo ao cliente a máxima satisfação e a melhor relação custo-benefício."),
+                text: t(
+                  "Relationship based on competitiveness, expressing to the customer the satisfaction and the most attainable value for money.",
+                  "Relação baseada na competitividade, oferecendo ao cliente a máxima satisfação e a melhor relação custo-benefício.",
+                ),
               },
               {
                 icon: faGlobe,
                 label: t("Mission", "Missão"),
-                text: t("To provide lifetime leisure and business travel solutions for travel into and out of Africa and Contribute to the continuous development of the Industry.", "Proporcionar soluções de viagens de lazer e negócios em África e contribuir para o desenvolvimento contínuo da indústria."),
+                text: t(
+                  "To provide lifetime leisure and business travel solutions for travel into and out of Africa and Contribute to the continuous development of the Industry.",
+                  "Proporcionar soluções de viagens de lazer e negócios em África e contribuir para o desenvolvimento contínuo da indústria.",
+                ),
               },
               {
                 icon: faShieldHalved,
                 label: t("Vision", "Visão"),
-                text: t("To be a respected Destination Management Company in Africa by providing quality service, reliability and customized solutions.", "Ser uma Empresa de Gestão de Destinos de referência em África, oferecendo serviços de qualidade, fiabilidade e soluções personalizadas."),
+                text: t(
+                  "To be a respected Destination Management Company in Africa by providing quality service, reliability and customized solutions.",
+                  "Ser uma Empresa de Gestão de Destinos de referência em África, oferecendo serviços de qualidade, fiabilidade e soluções personalizadas.",
+                ),
               },
             ].map((item, idx) => (
-              <Reveal key={item.label} delay={idx * 0.1} className="bg-background p-8 flex flex-col h-full">
+              <Reveal
+                key={item.label}
+                delay={idx * 0.1}
+                className="bg-background p-8 flex flex-col h-full"
+              >
                 <FontAwesomeIcon icon={item.icon} className="w-8 h-8 text-accent mb-6" />
                 <h3 className="text-xl mb-3">{item.label}</h3>
                 <p className="text-base text-ink-soft leading-relaxed flex-1">{item.text}</p>
@@ -746,7 +968,10 @@ function Home() {
             <Reveal>
               <div className="eyebrow mb-4">{t("Products & Services", "Produtos & Serviços")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
-                {t("Our services are delivered through 3 business units", "Os nossos serviços dividem-se em 3 unidades de negócios")}
+                {t(
+                  "Our services are delivered through 3 business units",
+                  "Os nossos serviços dividem-se em 3 unidades de negócios",
+                )}
               </h2>
             </Reveal>
           </div>
@@ -759,7 +984,9 @@ function Home() {
       <section id="services-details" className="py-8 sm:py-12 bg-background overflow-hidden">
         <div className="container-x">
           <Reveal>
-            <div className="eyebrow mb-2 sm:mb-3 text-xs sm:text-sm">{t("Our Products & Services", "Os Nossos Produtos & Serviços")}</div>
+            <div className="eyebrow mb-2 sm:mb-3 text-xs sm:text-sm">
+              {t("Our Products & Services", "Os Nossos Produtos & Serviços")}
+            </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-5 sm:mb-8 text-ink tracking-tight">
               {t("Complete Travel & Logistics Support", "Apoio Completo em Viagens e Logística")}
             </h2>
@@ -772,21 +999,47 @@ function Home() {
               <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <FontAwesomeIcon icon={faBriefcase} className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                    <FontAwesomeIcon
+                      icon={faBriefcase}
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-accent"
+                    />
                   </div>
-                  <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">{t("Corporate", "Corporativo")}</h3>
+                  <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">
+                    {t("Corporate", "Corporativo")}
+                  </h3>
                 </div>
                 <div className="h-px bg-border/60 w-full mb-3 sm:mb-4" />
                 <ul className="space-y-2 sm:space-y-3">
                   {[
-                    t("We customise accommodation solutions for your corporate travellers;", "Personalizamos soluções de alojamento para os seus viajantes corporativos;"),
-                    t("We are specialists at managing group travel bookings;", "Somos especialistas na gestão de reservas de viagens de grupo;"),
-                    t("We provide countrywide vehicle rental from reliable outlets;", "Oferecemos aluguer de viaturas a nível nacional através de fornecedores fiáveis;"),
-                    t("Enjoy our cost-effective transfers point to point;", "Desfrute dos nossos transfers de ponto a ponto com boa relação custo-benefício;"),
-                    t("We provide countrywide chauffeur drive from reliable outlets;", "Oferecemos serviço de motorista a nível nacional através de fornecedores fiáveis;"),
-                    t("Across Tour organises small business dinners to large conferences;", "A Across Tour organiza desde pequenos jantares de negócios a grandes conferências;")
+                    t(
+                      "We customise accommodation solutions for your corporate travellers;",
+                      "Personalizamos soluções de alojamento para os seus viajantes corporativos;",
+                    ),
+                    t(
+                      "We are specialists at managing group travel bookings;",
+                      "Somos especialistas na gestão de reservas de viagens de grupo;",
+                    ),
+                    t(
+                      "We provide countrywide vehicle rental from reliable outlets;",
+                      "Oferecemos aluguer de viaturas a nível nacional através de fornecedores fiáveis;",
+                    ),
+                    t(
+                      "Enjoy our cost-effective transfers point to point;",
+                      "Desfrute dos nossos transfers de ponto a ponto com boa relação custo-benefício;",
+                    ),
+                    t(
+                      "We provide countrywide chauffeur drive from reliable outlets;",
+                      "Oferecemos serviço de motorista a nível nacional através de fornecedores fiáveis;",
+                    ),
+                    t(
+                      "AcrossTours organises small business dinners to large conferences;",
+                      "A AcrossTours organiza desde pequenos jantares de negócios a grandes conferências;",
+                    ),
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm">
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm"
+                    >
                       <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-accent" />
                       </div>
@@ -802,18 +1055,32 @@ function Home() {
               <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <FontAwesomeIcon icon={faCompass} className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                    <FontAwesomeIcon
+                      icon={faCompass}
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-accent"
+                    />
                   </div>
-                  <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">{t("Leisure", "Lazer")}</h3>
+                  <h3 className="text-base sm:text-xl font-bold text-ink tracking-tight">
+                    {t("Leisure", "Lazer")}
+                  </h3>
                 </div>
                 <div className="h-px bg-border/60 w-full mb-3 sm:mb-4" />
                 <ul className="space-y-2 sm:space-y-3">
                   {[
-                    t("Enjoy the best guided tours in Mozambique;", "Desfrute das melhores visitas guiadas em Moçambique;"),
+                    t(
+                      "Enjoy the best guided tours in Mozambique;",
+                      "Desfrute das melhores visitas guiadas em Moçambique;",
+                    ),
                     t("Book your flights with us;", "Reserve os seus voos connosco;"),
-                    t("Our tailor made packages will provide you a unique lifetime experience.", "Os nossos pacotes personalizados proporcionar-lhe-ão uma experiência única para a vida.")
+                    t(
+                      "Our tailor made packages will provide you a unique lifetime experience.",
+                      "Os nossos pacotes personalizados proporcionar-lhe-ão uma experiência única para a vida.",
+                    ),
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm">
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-ink-soft text-xs sm:text-sm"
+                    >
                       <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-accent" />
                       </div>
@@ -834,18 +1101,29 @@ function Home() {
             <Reveal variant="slide">
               <div className="eyebrow mb-4">{t("Special Packages", "Pacotes Especiais")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
-                {t("Curated escapes beyond the everyday", "Escapadinhas seleccionadas para momentos especiais")}
+                {t(
+                  "Curated escapes beyond the everyday",
+                  "Escapadinhas seleccionadas para momentos especiais",
+                )}
               </h2>
             </Reveal>
-            <Reveal variant="slide" delay={0.1} className="flex flex-col items-start lg:items-end gap-3">
+            <Reveal
+              variant="slide"
+              delay={0.1}
+              className="flex flex-col items-start lg:items-end gap-3"
+            >
               <p className="max-w-md text-base text-ink-soft leading-relaxed lg:text-right">
                 {t(
                   "Limited-time honeymoon, anniversary and beach retreat offers, ready to be tailored to your dates.",
-                  "Ofertas por tempo limitado para lua-de-mel, aniversários e retiros de praia, prontas a ser adaptadas às suas datas."
+                  "Ofertas por tempo limitado para lua-de-mel, aniversários e retiros de praia, prontas a ser adaptadas às suas datas.",
                 )}
               </p>
-              <Link to="/special-packages" className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all">
-                {t("View all special packages", "Ver todos os pacotes especiais")} <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+              <Link
+                to="/special-packages"
+                className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all"
+              >
+                {t("View all special packages", "Ver todos os pacotes especiais")}{" "}
+                <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
               </Link>
             </Reveal>
           </div>
@@ -863,12 +1141,19 @@ function Home() {
             <Reveal>
               <div className="eyebrow mb-4">{t("Activities", "Actividades")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
-                {t("Handpicked experiences across Mozambique", "Experiências seleccionadas em Moçambique")}
+                {t(
+                  "Handpicked experiences across Mozambique",
+                  "Experiências seleccionadas em Moçambique",
+                )}
               </h2>
             </Reveal>
             <Reveal delay={0.1} className="flex items-center gap-4">
-              <Link to="/packages" className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all mr-2 sm:mr-4">
-                {t("View all packages", "Ver todos os pacotes")} <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+              <Link
+                to="/packages"
+                className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all mr-2 sm:mr-4"
+              >
+                {t("View all packages", "Ver todos os pacotes")}{" "}
+                <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
               </Link>
               <div className="flex gap-2">
                 <button
@@ -896,15 +1181,8 @@ function Home() {
               style={{ transform: `translateX(-${tourIndex * (100 / visibleCards)}%)` }}
             >
               {tours.map((tour) => (
-                <div
-                  key={tour.title.en}
-                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
-                >
-                  <FeaturedTourCard
-                    tour={tour}
-                    lang={lang}
-                    t={t}
-                  />
+                <div key={tour.title.en} className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                  <FeaturedTourCard tour={tour} lang={lang} t={t} />
                 </div>
               ))}
             </div>
@@ -934,11 +1212,11 @@ function Home() {
             <div className="lg:col-span-6 relative">
               <Reveal>
                 <div className="relative">
-                  <ImageWithSpinner 
-                    src={factsImg} 
-                    alt="Mozambique location map" 
+                  <ImageWithSpinner
+                    src={factsImg}
+                    alt="Mozambique location map"
                     loading="lazy"
-                    decoding="async" 
+                    decoding="async"
                     containerClassName="w-full aspect-[4/5] rounded-2xl shadow-xl overflow-hidden"
                     className="w-full h-full object-cover"
                   />
@@ -946,7 +1224,9 @@ function Home() {
                   <div className="absolute -bottom-6 -right-6 bg-accent text-white p-8 max-w-xs rounded-2xl shadow-xl flex flex-col justify-center min-w-[200px]">
                     <div className="text-5xl font-black leading-none tracking-tight">200K</div>
                     <div className="mt-3 text-xs font-bold tracking-widest uppercase leading-snug">
-                      {t("People Discovering", "Pessoas a Descobrir")}<br />Mozambique
+                      {t("People Discovering", "Pessoas a Descobrir")}
+                      <br />
+                      Mozambique
                     </div>
                   </div>
                 </div>
@@ -962,26 +1242,32 @@ function Home() {
                 <p className="text-base text-ink-soft leading-relaxed mb-8">
                   {t(
                     "Mozambique is divided into three regions, namely South, Centre and North, with a number of 11 provinces. It has an area of about 800 thousand km², 3 thousand km of coastline and a population of about 30 million inhabitants, of which 23 local languages are spoken, and Portuguese is the official language. The country has a tropical climate and a mild winter, with the rainy season running from November to February.",
-                    "Moçambique está dividido em três regiões (Sul, Centro e Norte), num total de 11 províncias. Possui uma área de cerca de 800 mil km², 3 mil km de costa e uma população de cerca de 30 milhões de habitantes, onde se falam 23 línguas locais, sendo o Português a língua oficial. O país tem um clima tropical com um inverno ameno e época de chuvas de Novembro a Fevereiro."
+                    "Moçambique está dividido em três regiões (Sul, Centro e Norte), num total de 11 províncias. Possui uma área de cerca de 800 mil km², 3 mil km de costa e uma população de cerca de 30 milhões de habitantes, onde se falam 23 línguas locais, sendo o Português a língua oficial. O país tem um clima tropical com um inverno ameno e época de chuvas de Novembro a Fevereiro.",
                   )}
                 </p>
-                
+
                 {/* Facts Table-like Grid */}
                 <div className="grid grid-cols-2 border-t border-border/60">
                   {[
                     { label: t("AREA", "ÁREA"), value: "≈ 800,000 km²" },
                     { label: t("COASTLINE", "LINHA DE COSTA"), value: "3,000+ km" },
-                    { label: t("POPULATION", "POPULAÇÃO"), value: t("≈ 33 million", "≈ 33 milhões") },
-                    { label: t("OFFICIAL LANGUAGE", "LÍNGUA OFICIAL"), value: t("Portuguese", "Português") },
+                    {
+                      label: t("POPULATION", "POPULAÇÃO"),
+                      value: t("≈ 33 million", "≈ 33 milhões"),
+                    },
+                    {
+                      label: t("OFFICIAL LANGUAGE", "LÍNGUA OFICIAL"),
+                      value: t("Portuguese", "Português"),
+                    },
                     { label: t("LOCAL LANGUAGES", "LÍNGUAS LOCAIS"), value: "23" },
-                    { label: t("CURRENCY", "MOEDA"), value: t("Metical (MZN)", "Metical (MZN)") }
+                    { label: t("CURRENCY", "MOEDA"), value: t("Metical (MZN)", "Metical (MZN)") },
                   ].map((item, idx) => {
                     const isLeft = idx % 2 === 0;
                     const isLastRow = idx >= 4;
                     return (
-                      <div 
-                        key={item.label} 
-                        className={`py-5 ${isLeft ? 'pr-8 border-r border-border/60' : 'pl-8'} ${!isLastRow ? 'border-b border-border/60' : ''}`}
+                      <div
+                        key={item.label}
+                        className={`py-5 ${isLeft ? "pr-8 border-r border-border/60" : "pl-8"} ${!isLastRow ? "border-b border-border/60" : ""}`}
                       >
                         <span className="text-[10px] sm:text-xs font-bold tracking-widest text-ink-soft block mb-1">
                           {item.label}
@@ -1014,8 +1300,8 @@ function Home() {
                 </h2>
                 <p className="text-base text-ink-soft leading-relaxed mb-6">
                   {t(
-                    "At Across Tour, we believe that seamless travel starts with proper preparation. Keeping your passport and travel documentation current is essential to ensuring a smooth and stress-free journey. As your trusted DMC, we provide expert guidance on visa requirements, entry regulations, and essential travel documentation, allowing you to focus on the experience ahead while we help you navigate the details with confidence.",
-                    "Na Across Tour, acreditamos que uma viagem tranquila começa com uma preparação adequada. Manter o seu passaporte e documentação de viagem actualizados é essencial para garantir uma viagem sem problemas. Como seu DMC de confiança, fornecemos orientação especializada sobre requisitos de visto, regulamentos de entrada e documentação de viagem essencial."
+                    "At AcrossTours, we believe that seamless travel starts with proper preparation. Keeping your passport and travel documentation current is essential to ensuring a smooth and stress-free journey. As your trusted DMC, we provide expert guidance on visa requirements, entry regulations, and essential travel documentation, allowing you to focus on the experience ahead while we help you navigate the details with confidence.",
+                    "Na AcrossTours, acreditamos que uma viagem tranquila começa com uma preparação adequada. Manter o seu passaporte e documentação de viagem actualizados é essencial para garantir uma viagem sem problemas. Como seu DMC de confiança, fornecemos orientação especializada sobre requisitos de visto, regulamentos de entrada e documentação de viagem essencial.",
                   )}
                 </p>
                 <a
@@ -1058,12 +1344,19 @@ function Home() {
 
         <div className="relative container-x max-w-4xl text-center z-10">
           <Reveal>
-            <div className="eyebrow !text-white mb-3">{t("Why Choose Us", "Porquê Escolher-nos")}</div>
-            <h2 className="text-3xl sm:text-4xl lg:text-4xl mb-4 text-white font-bold">{t("Exceptional Service & Custom Solutions", "Serviço Excepcional & Soluções À Medida")}</h2>
+            <div className="eyebrow !text-white mb-3">
+              {t("Why Choose Us", "Porquê Escolher-nos")}
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl mb-4 text-white font-bold">
+              {t(
+                "Exceptional Service & Custom Solutions",
+                "Serviço Excepcional & Soluções À Medida",
+              )}
+            </h2>
             <p className="text-sm sm:text-base text-white/95 leading-relaxed max-w-3xl mx-auto font-medium">
               {t(
-                "We pride ourselves in that we make arrangements aimed at delivering successful itineraries and experiences, based on the most attainable value for money. We tailor all our packages to suit your exact needs. At Across Tour we pride ourselves on great service and attention to detail in order for you to enjoy.",
-                "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na Across Tour orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar."
+                "We pride ourselves in that we make arrangements aimed at delivering successful itineraries and experiences, based on the most attainable value for money. We tailor all our packages to suit your exact needs. At AcrossTours we pride ourselves on great service and attention to detail in order for you to enjoy.",
+                "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na AcrossTours orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar.",
               )}
             </p>
           </Reveal>
@@ -1080,28 +1373,45 @@ function Home() {
             </h2>
             <div className="space-y-6 text-sm">
               <div className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faLocationDot} className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="w-5 h-5 text-accent mt-1 flex-shrink-0"
+                />
                 <div>
                   <div className="font-semibold text-ink">{t("Address", "Endereço")}</div>
-                  <div className="text-ink-soft">Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar, Maputo - Mozambique</div>
+                  <div className="text-ink-soft">
+                    Bairro da Sommerschield, Rua de Tchamba, N°204, 1° Andar, Maputo - Mozambique
+                  </div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faPhone} className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="w-5 h-5 text-accent mt-1 flex-shrink-0"
+                />
                 <div>
-                  <div className="font-semibold text-ink">{t("Phone & WhatsApp", "Telefone & WhatsApp")}</div>
+                  <div className="font-semibold text-ink">
+                    {t("Phone & WhatsApp", "Telefone & WhatsApp")}
+                  </div>
                   <div className="text-ink-soft">
-                    {t("Mobile", "Telemóvel")}: +258 84 438 3501<br />
+                    {t("Mobile", "Telemóvel")}: +258 84 438 3501
+                    <br />
                     {t("Emergency", "Emergência")}: +258 87 402 6626
                   </div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="w-5 h-5 text-accent mt-1 flex-shrink-0"
+                />
                 <div>
                   <div className="font-semibold text-ink">Email</div>
                   <div className="text-ink-soft">
-                    <a href="mailto:reservations@acrosstour.com" className="hover:text-accent transition">
+                    <a
+                      href="mailto:reservations@acrosstour.com"
+                      className="hover:text-accent transition"
+                    >
                       reservations@acrosstour.com
                     </a>
                   </div>
@@ -1111,7 +1421,10 @@ function Home() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-[#f4f4f4] p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="bg-[#f4f4f4] p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm"
+            >
               <div className="grid sm:grid-cols-2 gap-5">
                 <Field label={t("Full Name", "Nome Completo")} />
                 <Field label={t("Email", "E-mail")} type="email" />
@@ -1126,7 +1439,9 @@ function Home() {
                   >
                     <option value="">{t("Select Destination", "Seleccione o Destino")}</option>
                     <option value="Maputo City">{t("Maputo City", "Cidade de Maputo")}</option>
-                    <option value="Maputo Province">{t("Maputo Province", "Província de Maputo")}</option>
+                    <option value="Maputo Province">
+                      {t("Maputo Province", "Província de Maputo")}
+                    </option>
                     <option value="Gaza">Gaza</option>
                     <option value="Inhambane">Inhambane</option>
                     <option value="Sofala">Sofala</option>
@@ -1136,7 +1451,9 @@ function Home() {
                     <option value="Nampula">Nampula</option>
                     <option value="Niassa">Niassa</option>
                     <option value="Cabo Delgado">Cabo Delgado</option>
-                    <option value="Other / International">{t("Other / International", "Outro / Internacional")}</option>
+                    <option value="Other / International">
+                      {t("Other / International", "Outro / Internacional")}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -1159,10 +1476,18 @@ function Home() {
                   className="w-full bg-background border border-border pl-4 pr-10 py-3 text-sm text-foreground focus:border-accent focus:outline-none transition rounded-lg"
                 >
                   <option value="">{t("Select a reason", "Seleccione um motivo")}</option>
-                  <option value="Corporate">{t("Business Travel / Corporate", "Viagens de Negócios / Corporativo")}</option>
-                  <option value="Leisure">{t("Holiday Package / Leisure", "Pacote de Férias / Lazer")}</option>
-                  <option value="Transport">{t("Transport & Logistics", "Transporte & Logística")}</option>
-                  <option value="Rental/Tour">{t("Car Rental & Guided Tours", "Aluguer de Carros & Visitas Guiadas")}</option>
+                  <option value="Corporate">
+                    {t("Business Travel / Corporate", "Viagens de Negócios / Corporativo")}
+                  </option>
+                  <option value="Leisure">
+                    {t("Holiday Package / Leisure", "Pacote de Férias / Lazer")}
+                  </option>
+                  <option value="Transport">
+                    {t("Transport & Logistics", "Transporte & Logística")}
+                  </option>
+                  <option value="Rental/Tour">
+                    {t("Car Rental & Guided Tours", "Aluguer de Carros & Visitas Guiadas")}
+                  </option>
                   <option value="General">{t("General Inquiry", "Informações Gerais")}</option>
                 </select>
               </div>
@@ -1176,8 +1501,15 @@ function Home() {
                 >
                   <option value="">{t("Select an option", "Seleccione uma opção")}</option>
                   <option value="Google">{t("Google Search", "Pesquisa no Google")}</option>
-                  <option value="Social Media">{t("Social Media (Facebook, Instagram, etc.)", "Redes Sociais (Facebook, Instagram, etc.)")}</option>
-                  <option value="Recommendation">{t("Recommendation / Friend", "Recomendação / Amigo")}</option>
+                  <option value="Social Media">
+                    {t(
+                      "Social Media (Facebook, Instagram, etc.)",
+                      "Redes Sociais (Facebook, Instagram, etc.)",
+                    )}
+                  </option>
+                  <option value="Recommendation">
+                    {t("Recommendation / Friend", "Recomendação / Amigo")}
+                  </option>
                   <option value="Other">{t("Other", "Outro")}</option>
                 </select>
               </div>
@@ -1188,7 +1520,10 @@ function Home() {
                 <textarea
                   rows={4}
                   className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-ink-soft/40 focus:border-accent focus:outline-none transition rounded-lg"
-                  placeholder={t("Tell us more about your dream trip...", "Fale-nos mais sobre a sua viagem de sonho...")}
+                  placeholder={t(
+                    "Tell us more about your dream trip...",
+                    "Fale-nos mais sobre a sua viagem de sonho...",
+                  )}
                 />
               </div>
               <button
