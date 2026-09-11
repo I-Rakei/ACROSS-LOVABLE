@@ -28,14 +28,14 @@ import { useLanguage } from "@/components/language-provider";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — AcrossTours DMC" },
+      { title: "Privacy Policy | AcrossTours DMC" },
       {
         name: "description",
         content:
           "How AcrossTours DMC collects, uses, protects and shares your personal data across our website, booking forms and client portal.",
       },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Privacy Policy — AcrossTours DMC" },
+      { property: "og:title", content: "Privacy Policy | AcrossTours DMC" },
       {
         property: "og:description",
         content:
@@ -88,8 +88,8 @@ function PrivacyPolicyPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/85 leading-relaxed font-medium">
             {t(
-              "We know your travel plans, documents and preferences are personal. This page explains exactly what we collect, why, and the control you have over it — across our website, our inquiry forms and the client portal we're building.",
-              "Sabemos que os seus planos de viagem, documentos e preferências são pessoais. Esta página explica exactamente o que recolhemos, porquê, e o controlo que tem sobre isso — no nosso website, nos formulários de pedido de informação e no portal do cliente que estamos a construir.",
+              "We know your travel plans, documents and preferences are personal. This page explains exactly what we collect, why, and the control you have over it, across our website, our inquiry forms and the client portal we're building.",
+              "Sabemos que os seus planos de viagem, documentos e preferências são pessoais. Esta página explica exactamente o que recolhemos, porquê, e o controlo que tem sobre isso, no nosso website, nos formulários de pedido de informação e no portal do cliente que estamos a construir.",
             )}
           </p>
           <p className="mt-4 text-sm text-white/60 font-medium">
@@ -130,7 +130,7 @@ function PrivacyPolicyPage() {
             <Reveal variant="slide">
               <p className="text-base text-ink-soft leading-relaxed">
                 {t(
-                  `AcrossTours DMC ("AcrossTours", "we", "us" or "our") is a Destination Management Company based in Maputo, Mozambique. This Privacy Policy applies to acrosstour.com, our booking and inquiry forms, our email and phone communications, and — once launched — our client portal (together, the "Services"). By using our Services, you agree to the collection and use of information as described here.`,
+                  `AcrossTours DMC ("AcrossTours", "we", "us" or "our") is a Destination Management Company based in Maputo, Mozambique. This Privacy Policy applies to acrosstour.com, our booking and inquiry forms, our email and phone communications, and (once launched) our client portal (together, the "Services"). By using our Services, you agree to the collection and use of information as described here.`,
                   `A AcrossTours DMC ("AcrossTours", "nós" ou "nosso") é uma Destination Management Company sediada em Maputo, Moçambique. Esta Política de Privacidade aplica-se ao acrosstour.com, aos nossos formulários de reserva e de pedido de informação, às nossas comunicações por e-mail e telefone e, assim que for lançado, ao nosso portal do cliente (em conjunto, os "Serviços"). Ao utilizar os nossos Serviços, concorda com a recolha e utilização de informação conforme aqui descrito.`,
                 )}
               </p>
@@ -176,8 +176,8 @@ function PrivacyPolicyPage() {
             >
               <p>
                 {t(
-                  "We only collect what we need to plan your trip, respond to your inquiry, or — in future — run your client portal account.",
-                  "Apenas recolhemos o que é necessário para planear a sua viagem, responder ao seu pedido ou, futuramente, gerir a sua conta no portal do cliente.",
+                  "We only collect data you choose to give us. We do not track your browsing activity, build advertising profiles, or buy data about you from anyone else. If you don't submit a form or create a portal account, we don't hold any personal data on you.",
+                  "Apenas recolhemos dados que decida fornecer-nos. Não rastreamos a sua actividade de navegação, não criamos perfis publicitários, nem compramos dados sobre si a terceiros. Se não submeter um formulário ou criar uma conta no portal, não detemos quaisquer dados pessoais seus.",
                 )}
               </p>
               <SubHeading>{t("Information you give us", "Informação que nos fornece")}</SubHeading>
@@ -207,25 +207,10 @@ function PrivacyPolicyPage() {
                   )}
                 </li>
               </ul>
-              <SubHeading>{t("Information collected automatically", "Informação recolhida automaticamente")}</SubHeading>
-              <ul>
-                <li>
-                  {t(
-                    "Your language preference (English/Português), stored in your browser so we don't ask twice.",
-                    "A sua preferência de idioma (Inglês/Português), guardada no seu navegador para não perguntarmos duas vezes.",
-                  )}
-                </li>
-                <li>
-                  {t(
-                    "Basic technical data such as browser type, device type and general usage of the site, via standard web server logs.",
-                    "Dados técnicos básicos como tipo de navegador, tipo de dispositivo e utilização geral do site, através de registos padrão do servidor.",
-                  )}
-                </li>
-              </ul>
               <p className="mt-3">
                 {t(
-                  "We do not currently ask you to create a password-protected account, and we do not process payments directly on this website.",
-                  "Actualmente não pedimos que crie uma conta protegida por palavra-passe, nem processamos pagamentos directamente neste website.",
+                  "Your language preference (English/Português) is saved on your own device so we don't ask twice; it stays in your browser and is never sent to or collected by us. See Section 5 for details. We do not currently ask you to create a password-protected account, and we do not process payments directly on this website.",
+                  "A sua preferência de idioma (Inglês/Português) é guardada no seu próprio dispositivo para não perguntarmos duas vezes; permanece no seu navegador e nunca é enviada ou recolhida por nós. Veja a Secção 5 para mais detalhes. Actualmente não pedimos que crie uma conta protegida por palavra-passe, nem processamos pagamentos directamente neste website.",
                 )}
               </p>
             </Section>
@@ -255,10 +240,10 @@ function PrivacyPolicyPage() {
             >
               <p>{t("We rely on one or more of the following legal bases, consistent with Mozambique's data protection framework and, where applicable, the EU General Data Protection Regulation (GDPR) for travellers based in the EU:", "Baseamo-nos numa ou mais das seguintes bases legais, em conformidade com o regime de protecção de dados de Moçambique e, quando aplicável, com o Regulamento Geral sobre a Protecção de Dados (RGPD) da UE para viajantes sediados na UE:")}</p>
               <ul>
-                <li><strong className="text-ink">{t("Consent", "Consentimento")}</strong> — {t("when you submit an inquiry form or subscribe to marketing.", "quando submete um formulário de pedido de informação ou subscreve marketing.")}</li>
-                <li><strong className="text-ink">{t("Contract", "Contrato")}</strong> — {t("when processing is necessary to arrange the travel services you've booked or requested.", "quando o tratamento é necessário para organizar os serviços de viagem que reservou ou solicitou.")}</li>
-                <li><strong className="text-ink">{t("Legitimate interest", "Interesse legítimo")}</strong> — {t("to operate, secure and improve our Services.", "para operar, proteger e melhorar os nossos Serviços.")}</li>
-                <li><strong className="text-ink">{t("Legal obligation", "Obrigação legal")}</strong> — {t("where we must retain or disclose data to comply with the law.", "quando devemos reter ou divulgar dados para cumprir a lei.")}</li>
+                <li><strong className="text-ink">{t("Consent", "Consentimento")}</strong>: {t("when you submit an inquiry form or subscribe to marketing.", "quando submete um formulário de pedido de informação ou subscreve marketing.")}</li>
+                <li><strong className="text-ink">{t("Contract", "Contrato")}</strong>: {t("when processing is necessary to arrange the travel services you've booked or requested.", "quando o tratamento é necessário para organizar os serviços de viagem que reservou ou solicitou.")}</li>
+                <li><strong className="text-ink">{t("Legitimate interest", "Interesse legítimo")}</strong>: {t("to operate, secure and improve our Services.", "para operar, proteger e melhorar os nossos Serviços.")}</li>
+                <li><strong className="text-ink">{t("Legal obligation", "Obrigação legal")}</strong>: {t("where we must retain or disclose data to comply with the law.", "quando devemos reter ou divulgar dados para cumprir a lei.")}</li>
               </ul>
             </Section>
 
@@ -277,11 +262,14 @@ function PrivacyPolicyPage() {
               <ul>
                 <li>
                   <strong className="text-ink">{t("Language preference", "Preferência de idioma")}</strong>{" "}
-                  ({t("localStorage key", "chave de localStorage")}: <code className="text-xs bg-muted px-1.5 py-0.5 rounded">across_lang</code>) —{" "}
-                  {t("remembers whether you prefer English or Português.", "guarda se prefere Inglês ou Português.")}
+                  ({t("localStorage key", "chave de localStorage")}: <code className="text-xs bg-muted px-1.5 py-0.5 rounded">across_lang</code>):{" "}
+                  {t(
+                    "remembers whether you prefer English or Português. This stays on your device only; it is never sent to or collected by us.",
+                    "guarda se prefere Inglês ou Português. Isto permanece apenas no seu dispositivo; nunca é enviado ou recolhido por nós.",
+                  )}
                 </li>
                 <li>
-                  <strong className="text-ink">{t("Offline caching", "Cache offline")}</strong> —{" "}
+                  <strong className="text-ink">{t("Offline caching", "Cache offline")}</strong>:{" "}
                   {t(
                     "a service worker caches static assets (images, fonts, styles) on your device so the site loads faster on repeat visits. It does not collect or transmit personal data.",
                     "um service worker guarda em cache recursos estáticos (imagens, fontes, estilos) no seu dispositivo para que o site carregue mais rapidamente em visitas repetidas. Não recolhe nem transmite dados pessoais.",
@@ -290,8 +278,8 @@ function PrivacyPolicyPage() {
               </ul>
               <p className="mt-3">
                 {t(
-                  "We do not currently use third-party advertising cookies or analytics trackers. If that changes — for example, if we add analytics to better understand site usage — we will update this section and request consent via a cookie banner where required by law.",
-                  "Actualmente não utilizamos cookies de publicidade de terceiros nem ferramentas de análise. Caso isso mude — por exemplo, se adicionarmos análise para compreender melhor a utilização do site — actualizaremos esta secção e solicitaremos consentimento através de um aviso de cookies sempre que exigido por lei.",
+                  "We do not use third-party advertising cookies or analytics trackers, and we do not collect any browsing or usage data beyond what's described above. If that ever changes, we will update this section and request consent via a cookie banner where required by law.",
+                  "Não utilizamos cookies de publicidade de terceiros nem ferramentas de análise, e não recolhemos quaisquer dados de navegação ou de utilização para além do descrito acima. Caso isso alguma vez mude, actualizaremos esta secção e solicitaremos consentimento através de um aviso de cookies sempre que exigido por lei.",
                 )}
               </p>
               <p className="mt-3">
@@ -311,25 +299,25 @@ function PrivacyPolicyPage() {
               <p>{t("We share personal data only where necessary, and never sell it. Recipients include:", "Apenas partilhamos dados pessoais quando necessário, e nunca os vendemos. Os destinatários incluem:")}</p>
               <ul>
                 <li>
-                  <strong className="text-ink">{t("Form delivery processor", "Processador de formulários")}</strong> —{" "}
+                  <strong className="text-ink">{t("Form delivery processor", "Processador de formulários")}</strong>:{" "}
                   {t(
                     "inquiry and booking forms on this site are delivered to our team using Web3Forms, a third-party form-processing service. The data you submit is transmitted securely to Web3Forms and forwarded to our inbox; it is not used by Web3Forms for its own marketing.",
                     "os formulários de pedido de informação e reserva neste site são entregues à nossa equipa através do Web3Forms, um serviço de terceiros para processamento de formulários. Os dados que submete são transmitidos de forma segura ao Web3Forms e reencaminhados para a nossa caixa de entrada; não são utilizados pelo Web3Forms para fins de marketing próprios.",
                   )}
                 </li>
                 <li>
-                  <strong className="text-ink">{t("Travel suppliers", "Fornecedores de viagem")}</strong> —{" "}
+                  <strong className="text-ink">{t("Travel suppliers", "Fornecedores de viagem")}</strong>:{" "}
                   {t(
                     "hotels, airlines, transport operators, activity providers and other suppliers, but only the details needed to fulfil your specific booking (e.g. name, dates, dietary needs).",
                     "hotéis, companhias aéreas, operadoras de transporte, fornecedores de actividades e outros parceiros, mas apenas os dados necessários para concretizar a sua reserva específica (ex.: nome, datas, requisitos alimentares).",
                   )}
                 </li>
                 <li>
-                  <strong className="text-ink">{t("Hosting & infrastructure providers", "Fornecedores de alojamento e infraestrutura")}</strong> —{" "}
+                  <strong className="text-ink">{t("Hosting & infrastructure providers", "Fornecedores de alojamento e infraestrutura")}</strong>:{" "}
                   {t("who store and serve our website and its data on our behalf, under confidentiality obligations.", "que armazenam e disponibilizam o nosso website e os seus dados em nosso nome, sob obrigações de confidencialidade.")}
                 </li>
                 <li>
-                  <strong className="text-ink">{t("Authorities", "Autoridades")}</strong> —{" "}
+                  <strong className="text-ink">{t("Authorities", "Autoridades")}</strong>:{" "}
                   {t("where required by law, regulation, or to protect the rights, safety or property of AcrossTours, our travellers, or others.", "quando exigido por lei, regulamento, ou para proteger os direitos, a segurança ou o património da AcrossTours, dos nossos viajantes ou de terceiros.")}
                 </li>
               </ul>
@@ -343,8 +331,8 @@ function PrivacyPolicyPage() {
             >
               <p>
                 {t(
-                  "Because travel is inherently cross-border, your data may be transferred to and processed in countries outside Mozambique — for example, where a hotel, airline or our service providers are based. Where we transfer personal data internationally, we take steps to ensure it remains protected consistently with this Policy, including using providers with appropriate safeguards.",
-                  "Como a actividade turística é, por natureza, transfronteiriça, os seus dados poderão ser transferidos e tratados em países fora de Moçambique — por exemplo, onde um hotel, companhia aérea ou os nossos prestadores de serviços estejam sediados. Sempre que transferimos dados pessoais internacionalmente, tomamos medidas para garantir que permanecem protegidos de forma consistente com esta Política, incluindo a utilização de prestadores com salvaguardas adequadas.",
+                  "Because travel is inherently cross-border, your data may be transferred to and processed in countries outside Mozambique, for example where a hotel, airline or our service providers are based. Where we transfer personal data internationally, we take steps to ensure it remains protected consistently with this Policy, including using providers with appropriate safeguards.",
+                  "Como a actividade turística é, por natureza, transfronteiriça, os seus dados poderão ser transferidos e tratados em países fora de Moçambique, por exemplo onde um hotel, companhia aérea ou os nossos prestadores de serviços estejam sediados. Sempre que transferimos dados pessoais internacionalmente, tomamos medidas para garantir que permanecem protegidos de forma consistente com esta Política, incluindo a utilização de prestadores com salvaguardas adequadas.",
                 )}
               </p>
             </Section>
@@ -395,8 +383,8 @@ function PrivacyPolicyPage() {
               </ul>
               <p className="mt-3">
                 {t(
-                  "To exercise any of these rights, contact us using the details in Section 16 — we'll respond within a reasonable time and, in any case, within the period required by applicable law.",
-                  "Para exercer qualquer um destes direitos, contacte-nos através dos dados na Secção 16 — responderemos num prazo razoável e, em todo o caso, dentro do prazo exigido pela lei aplicável.",
+                  "To exercise any of these rights, contact us using the details in Section 16. We'll respond within a reasonable time and, in any case, within the period required by applicable law.",
+                  "Para exercer qualquer um destes direitos, contacte-nos através dos dados na Secção 16. Responderemos num prazo razoável e, em todo o caso, dentro do prazo exigido pela lei aplicável.",
                 )}
               </p>
             </Section>
@@ -409,16 +397,15 @@ function PrivacyPolicyPage() {
             >
               <p>
                 {t(
-                  "We're building a client portal so travellers and corporate clients can manage bookings, itineraries and documents in one place. This Policy has been written to already cover that portal, and will apply to it in full once it launches. When the portal goes live, it will additionally involve:",
-                  "Estamos a construir um portal do cliente para que viajantes e clientes corporativos possam gerir reservas, itinerários e documentos num só lugar. Esta Política já foi redigida para cobrir esse portal, e aplicar-se-á a ele na íntegra assim que for lançado. Quando o portal entrar em funcionamento, envolverá adicionalmente:",
+                  "We're building a client portal so travellers and corporate clients can manage bookings, itineraries and documents in one place. This Policy has been written to already cover that portal, and will apply to it in full once it launches. The same principle applies there as everywhere else on our Services: the portal will only ever collect data you actively give us, entered or uploaded by you. We will not collect additional data about you behind the scenes. Once live, the information you provide there will include:",
+                  "Estamos a construir um portal do cliente para que viajantes e clientes corporativos possam gerir reservas, itinerários e documentos num só lugar. Esta Política já foi redigida para cobrir esse portal, e aplicar-se-á a ele na íntegra assim que for lançado. Aplica-se aí o mesmo princípio que em todo o resto dos nossos Serviços: o portal apenas recolherá dados que nos forneça activamente, introduzidos ou carregados por si. Não recolheremos dados adicionais sobre si de forma automática. Uma vez lançado, a informação que fornecer incluirá:",
                 )}
               </p>
               <ul>
                 <li>{t("Account credentials: your email address and a securely hashed password (we never store passwords in plain text).", "Credenciais de conta: o seu endereço de e-mail e uma palavra-passe protegida por hash (nunca guardamos palavras-passe em texto simples).")}</li>
                 <li>{t("Booking history and itinerary details linked to your account.", "Histórico de reservas e detalhes de itinerários associados à sua conta.")}</li>
                 <li>{t("Travel document details you choose to upload (e.g. passport number/expiry) to speed up future bookings, stored encrypted and accessible only to authorised staff.", "Detalhes de documentos de viagem que opte por carregar (ex.: número/validade do passaporte) para agilizar reservas futuras, armazenados de forma encriptada e acessíveis apenas a pessoal autorizado.")}</li>
-                <li>{t("Billing and payment references, processed via a PCI-DSS-compliant payment provider — we will never store full card numbers on our own servers.", "Referências de facturação e pagamento, processadas através de um prestador de pagamentos em conformidade com PCI-DSS — nunca armazenaremos números completos de cartão nos nossos próprios servidores.")}</li>
-                <li>{t("Account activity logs (e.g. sign-in times) for fraud prevention and account security.", "Registos de actividade da conta (ex.: horários de início de sessão) para prevenção de fraude e segurança da conta.")}</li>
+                <li>{t("Billing and payment references, processed via a PCI-DSS-compliant payment provider. We will never store full card numbers on our own servers.", "Referências de facturação e pagamento, processadas através de um prestador de pagamentos em conformidade com PCI-DSS. Nunca armazenaremos números completos de cartão nos nossos próprios servidores.")}</li>
               </ul>
               <p className="mt-3">
                 {t(
@@ -464,8 +451,8 @@ function PrivacyPolicyPage() {
             >
               <p>
                 {t(
-                  "We will only send you promotional emails or messages about offers and packages if you've opted in — for example, by subscribing or indicating interest when you submit a form. You can opt out at any time by using the unsubscribe link in any marketing email, or by contacting us directly; we'll still send you essential service messages related to an active booking.",
-                  "Apenas lhe enviaremos e-mails ou mensagens promocionais sobre ofertas e pacotes se tiver dado o seu consentimento — por exemplo, ao subscrever ou ao indicar interesse ao submeter um formulário. Pode cancelar a subscrição a qualquer momento através do link de cancelamento em qualquer e-mail de marketing, ou contactando-nos directamente; continuaremos a enviar mensagens essenciais relacionadas com uma reserva activa.",
+                  "We will only send you promotional emails or messages about offers and packages if you've opted in, for example by subscribing or indicating interest when you submit a form. You can opt out at any time by using the unsubscribe link in any marketing email, or by contacting us directly; we'll still send you essential service messages related to an active booking.",
+                  "Apenas lhe enviaremos e-mails ou mensagens promocionais sobre ofertas e pacotes se tiver dado o seu consentimento, por exemplo ao subscrever ou ao indicar interesse ao submeter um formulário. Pode cancelar a subscrição a qualquer momento através do link de cancelamento em qualquer e-mail de marketing, ou contactando-nos directamente; continuaremos a enviar mensagens essenciais relacionadas com uma reserva activa.",
                 )}
               </p>
             </Section>
