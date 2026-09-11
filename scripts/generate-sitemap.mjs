@@ -21,6 +21,7 @@ const staticRoutes = [
   { loc: "/", file: "src/routes/index.tsx", changefreq: "weekly", priority: "1.0" },
   { loc: "/packages", file: "src/routes/packages.tsx", changefreq: "weekly", priority: "0.8" },
   { loc: "/special-packages", file: "src/routes/special-packages.index.tsx", changefreq: "weekly", priority: "0.8" },
+  { loc: "/privacy-policy", file: "src/routes/privacy-policy.tsx", changefreq: "yearly", priority: "0.3" },
 ];
 
 // Dynamic routes — one per special package, sourced from the data file itself so a new

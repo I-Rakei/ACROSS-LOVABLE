@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SpecialPackagesIndexRouteImport } from './routes/special-packages.index'
 import { Route as SpecialPackagesSlugRouteImport } from './routes/special-packages.$slug'
 
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
@@ -38,12 +44,14 @@ const SpecialPackagesSlugRoute = SpecialPackagesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/packages': typeof PackagesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/special-packages/$slug': typeof SpecialPackagesSlugRoute
   '/special-packages/': typeof SpecialPackagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/packages': typeof PackagesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/special-packages/$slug': typeof SpecialPackagesSlugRoute
   '/special-packages': typeof SpecialPackagesIndexRoute
 }
@@ -51,19 +59,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/packages': typeof PackagesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/special-packages/$slug': typeof SpecialPackagesSlugRoute
   '/special-packages/': typeof SpecialPackagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/packages' | '/special-packages/$slug' | '/special-packages/'
+    | '/'
+    | '/packages'
+    | '/privacy-policy'
+    | '/special-packages/$slug'
+    | '/special-packages/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/packages' | '/special-packages/$slug' | '/special-packages'
+  to:
+    | '/'
+    | '/packages'
+    | '/privacy-policy'
+    | '/special-packages/$slug'
+    | '/special-packages'
   id:
     | '__root__'
     | '/'
     | '/packages'
+    | '/privacy-policy'
     | '/special-packages/$slug'
     | '/special-packages/'
   fileRoutesById: FileRoutesById
@@ -71,12 +90,20 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PackagesRoute: typeof PackagesRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SpecialPackagesSlugRoute: typeof SpecialPackagesSlugRoute
   SpecialPackagesIndexRoute: typeof SpecialPackagesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/packages': {
       id: '/packages'
       path: '/packages'
@@ -111,6 +138,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PackagesRoute: PackagesRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SpecialPackagesSlugRoute: SpecialPackagesSlugRoute,
   SpecialPackagesIndexRoute: SpecialPackagesIndexRoute,
 }
