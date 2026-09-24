@@ -15,6 +15,7 @@ import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
 import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
+import { FormCaptcha, useFormCaptcha } from "@/components/form-captcha";
 
 import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
 import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
@@ -395,17 +396,22 @@ function PackagesPage() {
   const { package: packageParam } = Route.useSearch();
   const [selectedPackage, setSelectedPackage] = useState("");
   const [status, setStatus] = useState<InquiryStatus>("idle");
+  const captcha = useFormCaptcha();
   const { t, lang } = useLanguage();
 
   const handleInquirySubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const captchaToken = captcha.requireToken();
+    if (!captchaToken) return;
     setStatus("submitting");
 
     const ok = await submitToWeb3Forms(form, {
       subject: `New Package Inquiry — ${selectedPackage || "Custom Package"}`,
       from_name: "AcrossTours DMC — Packages",
+      "h-captcha-response": captchaToken,
     });
+    captcha.reset();
 
     if (ok) {
       setStatus("success");
@@ -716,6 +722,8 @@ function PackagesPage() {
                   )}
                 />
               </div>
+
+              <FormCaptcha captcha={captcha} />
 
               <button
                 type="submit"

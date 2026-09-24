@@ -5,12 +5,9 @@ import {
   createRootRouteWithContext,
   useRouter,
   HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect } from "react";
 
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../components/language-provider";
 import { GlobalLoader } from "../components/global-loader";
 
@@ -66,9 +63,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -104,8 +98,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "AcrossTours DMC — Leisure & Corporate Travel in Mozambique" },
       {
         name: "description",
@@ -138,7 +130,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: LOGO_URL },
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/logos/across-tour-white.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/logos/across-tour-logo.png", type: "image/png", sizes: "512x512" },
       { rel: "apple-touch-icon", href: "/logos/across-tour-logo.png" },
@@ -157,25 +148,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -193,6 +169,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <HeadContent />
       <LanguageProvider>
         <GlobalLoader />
         <Outlet />

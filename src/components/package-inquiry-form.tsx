@@ -3,22 +3,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 import { useLanguage } from "@/components/language-provider";
+import { FormCaptcha, useFormCaptcha } from "@/components/form-captcha";
 import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
 
 export function PackageInquiryForm({ packageName }: { packageName: string }) {
   const { t, lang } = useLanguage();
   const [status, setStatus] = useState<InquiryStatus>("idle");
+  const captcha = useFormCaptcha();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const captchaToken = captcha.requireToken();
+    if (!captchaToken) return;
     setStatus("submitting");
 
     const ok = await submitToWeb3Forms(form, {
       subject: `New Special Package Inquiry — ${packageName}`,
       package: packageName,
       from_name: "AcrossTours DMC — Special Packages",
+      "h-captcha-response": captchaToken,
     });
+    captcha.reset();
 
     if (ok) {
       setStatus("success");
@@ -189,6 +195,8 @@ export function PackageInquiryForm({ packageName }: { packageName: string }) {
           )}
         />
       </div>
+
+      <FormCaptcha captcha={captcha} />
 
       <button
         type="submit"

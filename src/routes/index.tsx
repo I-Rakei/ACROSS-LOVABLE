@@ -20,6 +20,7 @@ import {
   faCircleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
+import { FormCaptcha, useFormCaptcha } from "@/components/form-captcha";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -755,17 +756,22 @@ function Home() {
   const [tourIndex, setTourIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
   const [contactStatus, setContactStatus] = useState<InquiryStatus>("idle");
+  const captcha = useFormCaptcha();
   const { t, lang } = useLanguage();
 
   const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const captchaToken = captcha.requireToken();
+    if (!captchaToken) return;
     setContactStatus("submitting");
 
     const ok = await submitToWeb3Forms(form, {
       subject: "New Contact Form Inquiry — AcrossTours DMC",
       from_name: "AcrossTours DMC — Contact Us",
+      "h-captcha-response": captchaToken,
     });
+    captcha.reset();
 
     if (ok) {
       setContactStatus("success");
@@ -1590,6 +1596,7 @@ function Home() {
                   )}
                 />
               </div>
+              <FormCaptcha captcha={captcha} />
               <button
                 type="submit"
                 disabled={contactStatus === "submitting"}
