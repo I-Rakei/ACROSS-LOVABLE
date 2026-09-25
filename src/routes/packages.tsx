@@ -11,18 +11,17 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
 import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
 
-import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
-import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
-import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.jpg";
-import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
-import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
-import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.jpg";
-import pkgHero from "@/assets/Across/Hero images/hero 4 Packages Page.jpg";
+import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.webp";
+import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.webp";
+import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.webp";
+import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.webp";
+import pkgPonta from "@/assets/Across/Special Packages/Bilene.webp";
+import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.webp";
+import pkgHero from "@/assets/Across/Hero images/hero 4 Packages Page.webp";
 
 type PackageSearch = {
   package?: string;
@@ -482,14 +481,14 @@ function PackagesPage() {
         <div className="container-x">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packages.map((pkg, i) => (
-              <Reveal key={pkg.title.en} delay={i * 0.1}>
+              <div key={pkg.title.en}>
                 <PackageCard
                   pkg={pkg}
                   lang={lang}
                   handleSelectPackage={handleSelectPackage}
                   t={t}
                 />
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
@@ -498,7 +497,7 @@ function PackagesPage() {
       {/* Inquiry Form */}
       <section id="inquiry" className="py-20 bg-background border-t border-border/40">
         <div className="container-x max-w-4xl">
-          <Reveal>
+          <div>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <div className="eyebrow mb-4">
                 {t("Bookings & Inquiries", "Reservas & Informações")}
@@ -513,9 +512,9 @@ function PackagesPage() {
                 )}
               </p>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.1}>
+          <div>
             <form
               onSubmit={handleInquirySubmit}
               className="bg-[#f4f4f4] p-5 sm:p-6 lg:p-8 space-y-4 rounded-xl shadow-sm"
@@ -746,7 +745,7 @@ function PackagesPage() {
                 </p>
               )}
             </form>
-          </Reveal>
+          </div>
         </div>
       </section>
 

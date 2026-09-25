@@ -22,7 +22,6 @@ import {
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 
 export const Route = createFileRoute("/privacy-policy")({
@@ -103,7 +102,7 @@ function PrivacyPolicyPage() {
         <div className="container-x grid lg:grid-cols-4 gap-12">
           {/* Table of contents */}
           <div className="lg:col-span-1">
-            <Reveal variant="slide">
+            <div>
               <nav className="lg:sticky lg:top-28 bg-card border border-border/60 rounded-2xl p-5">
                 <div className="text-[10px] uppercase tracking-wider text-ink-soft font-bold mb-3">
                   {t("On This Page", "Nesta Página")}
@@ -122,19 +121,19 @@ function PrivacyPolicyPage() {
                   ))}
                 </ul>
               </nav>
-            </Reveal>
+            </div>
           </div>
 
           {/* Content */}
           <div className="lg:col-span-3 space-y-14">
-            <Reveal variant="slide">
+            <div>
               <p className="text-base text-ink-soft leading-relaxed">
                 {t(
                   `AcrossTours DMC ("AcrossTours", "we", "us" or "our") is a Destination Management Company based in Maputo, Mozambique. This Privacy Policy applies to acrosstour.com, our booking and inquiry forms, our email and phone communications, and (once launched) our client portal (together, the "Services"). By using our Services, you agree to the collection and use of information as described here.`,
                   `A AcrossTours DMC ("AcrossTours", "nós" ou "nosso") é uma Destination Management Company sediada em Maputo, Moçambique. Esta Política de Privacidade aplica-se ao acrosstour.com, aos nossos formulários de reserva e de pedido de informação, às nossas comunicações por e-mail e telefone e, assim que for lançado, ao nosso portal do cliente (em conjunto, os "Serviços"). Ao utilizar os nossos Serviços, concorda com a recolha e utilização de informação conforme aqui descrito.`,
                 )}
               </p>
-            </Reveal>
+            </div>
 
             {/* Who We Are */}
             <Section
@@ -508,13 +507,13 @@ function PrivacyPolicyPage() {
               </ul>
             </Section>
 
-            <Reveal variant="slide">
+            <div>
               <div className="pt-6 border-t border-border/60">
                 <Link to="/" className="text-sm font-semibold text-accent hover:underline">
                   {t("← Back to Home", "← Voltar ao Início")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -536,7 +535,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <Reveal variant="slide">
+    <div>
       <div id={id} className="scroll-mt-28">
         <h2 className="flex items-center gap-3 text-2xl font-bold text-ink mb-4">
           <span className="w-9 h-9 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
@@ -548,7 +547,7 @@ function Section({
           {children}
         </div>
       </div>
-    </Reveal>
+    </div>
   );
 }
 

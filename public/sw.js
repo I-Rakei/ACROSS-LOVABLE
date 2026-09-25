@@ -1,6 +1,6 @@
 // AcrossTours DMC — Service Worker for Fast Asset & Image Caching
-const CACHE_NAME = "across-tour-v1";
-const STATIC_ASSETS_CACHE = "across-tour-assets-v1";
+const CACHE_NAME = "across-tour-v2";
+const STATIC_ASSETS_CACHE = "across-tour-assets-v2";
 
 // Install Event: Skip waiting to activate instantly
 self.addEventListener("install", (event) => {

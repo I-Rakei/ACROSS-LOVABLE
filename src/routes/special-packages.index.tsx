@@ -4,12 +4,11 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
 import { SpecialPackageCard } from "@/components/special-package-card";
 import { specialPackages } from "@/data/special-packages";
-import pkgHero from "@/assets/Across/Hero images/hero 4 Packages Page.jpg";
+import pkgHero from "@/assets/Across/Hero images/hero 4 Packages Page.webp";
 
 const BREADCRUMB_JSON_LD = {
   "@context": "https://schema.org",
@@ -102,16 +101,16 @@ function SpecialPackagesIndexPage() {
       {/* Full Catalog */}
       <section className="py-16 pb-20 bg-background">
         <div className="container-x">
-          <Reveal variant="slide">
+          <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-10">
               {t("All Special Packages", "Todos os Pacotes Especiais")}
             </h2>
-          </Reveal>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specialPackages.map((pkg, i) => (
-              <Reveal variant="slide" key={pkg.slug} delay={i * 0.1}>
+              <div key={pkg.slug}>
                 <SpecialPackageCard pkg={pkg} lang={lang} t={t} />
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>

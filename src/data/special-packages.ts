@@ -2,23 +2,23 @@
 // Q104787 (Sentidos Beach Retreat), both dated 2026/08/07, and Q104846 (Nampula & Ilha de
 // Moçambique), dated 2026/08/21. All priced for 2 pax sharing.
 
-import anantaraHero from "@/assets/Special/Anatara/3.jpg";
-import anantara12 from "@/assets/Special/Anatara/12.jpg";
-import anantara13 from "@/assets/Special/Anatara/13.jpg";
-import anantara14 from "@/assets/Special/Anatara/14.jpg";
-import anantara9 from "@/assets/Special/Anatara/9.jpg";
+import anantaraHero from "@/assets/Special/Anatara/3.webp";
+import anantara12 from "@/assets/Special/Anatara/12.webp";
+import anantara13 from "@/assets/Special/Anatara/13.webp";
+import anantara14 from "@/assets/Special/Anatara/14.webp";
+import anantara9 from "@/assets/Special/Anatara/9.webp";
 
-import sentidosHero from "@/assets/Special/Sentidos/5.jpg";
-import sentidos6 from "@/assets/Special/Sentidos/6.jpg";
-import sentidos8 from "@/assets/Special/Sentidos/8.jpg";
-import sentidos9 from "@/assets/Special/Sentidos/9.jpg";
-import sentidos10 from "@/assets/Special/Sentidos/10.jpg";
+import sentidosHero from "@/assets/Special/Sentidos/5.webp";
+import sentidos6 from "@/assets/Special/Sentidos/6.webp";
+import sentidos8 from "@/assets/Special/Sentidos/8.webp";
+import sentidos9 from "@/assets/Special/Sentidos/9.webp";
+import sentidos10 from "@/assets/Special/Sentidos/10.webp";
 
-import nampulaIlhaHero from "@/assets/Special/NampulaIlha/17.jpg";
-import nampulaIlha1 from "@/assets/Special/NampulaIlha/1.jpg";
-import nampulaIlha4 from "@/assets/Special/NampulaIlha/4.jpg";
-import nampulaIlha5 from "@/assets/Special/NampulaIlha/5.jpg";
-import nampulaIlha18 from "@/assets/Special/NampulaIlha/18.jpg";
+import nampulaIlhaHero from "@/assets/Special/NampulaIlha/17.webp";
+import nampulaIlha1 from "@/assets/Special/NampulaIlha/1.webp";
+import nampulaIlha4 from "@/assets/Special/NampulaIlha/4.webp";
+import nampulaIlha5 from "@/assets/Special/NampulaIlha/5.webp";
+import nampulaIlha18 from "@/assets/Special/NampulaIlha/18.webp";
 const nampulaIlhaGallery = [nampulaIlha1, nampulaIlha4, nampulaIlha5, nampulaIlha18];
 
 export interface SpecialPackageDay {

@@ -13,7 +13,6 @@ import {
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
 import { PackageInquiryForm } from "@/components/package-inquiry-form";
@@ -158,7 +157,7 @@ function SpecialPackageProfile() {
       {/* Gallery thumbnails — click to preview in the hero above */}
       <section className="py-10 bg-background">
         <div className="container-x">
-          <Reveal variant="slide">
+          <div>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
               {heroSlides.map((slide, i) => (
                 <button
@@ -183,7 +182,7 @@ function SpecialPackageProfile() {
                 </button>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -191,12 +190,12 @@ function SpecialPackageProfile() {
       <section className="py-10 bg-background">
         <div className="container-x grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-10">
-            <Reveal variant="slide">
+            <div>
               <h2 className="text-2xl font-bold text-ink mb-4">{t("Overview", "Visão Geral")}</h2>
               <p className="text-base text-ink-soft leading-relaxed">{pkg.description[lang]}</p>
-            </Reveal>
+            </div>
 
-            <Reveal variant="slide" delay={0.15}>
+            <div>
               <div className="grid sm:grid-cols-2 gap-8">
                 <div>
                   <h3 className="text-lg font-bold text-ink mb-3">{t("Includes", "Inclui")}</h3>
@@ -227,21 +226,21 @@ function SpecialPackageProfile() {
                   </ul>
                 </div>
               </div>
-            </Reveal>
+            </div>
 
-            <Reveal variant="slide" delay={0.2}>
+            <div>
               <div className="bg-secondary/20 border border-border/60 rounded-xl p-5">
                 <p className="text-xs text-ink-soft leading-relaxed">
                   <strong className="text-ink">{t("Important:", "Importante:")}</strong>{" "}
                   {pkg.important[lang]}
                 </p>
               </div>
-            </Reveal>
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <Reveal variant="slide" delay={0.1}>
+            <div>
               <div className="bg-card border border-border/60 rounded-2xl p-6 sm:p-8 lg:sticky lg:top-28">
                 <div className="space-y-4 mb-6 pb-6 border-b border-border/60">
                   <div className="flex items-start gap-3">
@@ -296,7 +295,7 @@ function SpecialPackageProfile() {
                   {t("Inquire Now", "Pedir Informações")}
                 </a>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -304,7 +303,7 @@ function SpecialPackageProfile() {
       {/* Package-specific inquiry form */}
       <section id="inquire" className="py-10 bg-background">
         <div className="container-x max-w-3xl">
-          <Reveal variant="slide">
+          <div>
             <div className="mb-8">
               <div className="eyebrow mb-4">
                 {t("Bookings & Inquiries", "Reservas & Informações")}
@@ -319,10 +318,10 @@ function SpecialPackageProfile() {
                 )}
               </p>
             </div>
-          </Reveal>
-          <Reveal variant="slide" delay={0.1}>
+          </div>
+          <div>
             <PackageInquiryForm packageName={pkg.title.en} />
-          </Reveal>
+          </div>
         </div>
       </section>
 

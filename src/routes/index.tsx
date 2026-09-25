@@ -23,30 +23,29 @@ import { submitToWeb3Forms, type InquiryStatus } from "@/lib/web3forms";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import { AcrossLogo } from "@/components/across-logo";
 import { AnimatedWhyChooseUsSvg } from "@/components/animated-why-choose-us";
 import { ImageWithSpinner } from "@/components/image-with-spinner";
-import quimbrasImg from "@/assets/Across/Why choose US/quimbras.png";
+import quimbrasImg from "@/assets/Across/Why choose US/quimbras.webp";
 
 // Hero Images
-import hero1 from "@/assets/Across/Hero images/hero 1.jpg";
-import hero2 from "@/assets/Across/Hero images/hero 2.jpg";
-import hero3 from "@/assets/Across/Hero images/hero 3.jpg";
+import hero1 from "@/assets/Across/Hero images/hero 1.webp";
+import hero2 from "@/assets/Across/Hero images/hero 2.webp";
+import hero3 from "@/assets/Across/Hero images/hero 3.webp";
 
 // Leisure & Business Travel Solutions
-import serviceBusiness from "@/assets/Across/Leisure & Business Travel Solutions/Business Travel.jpg";
-import serviceHoliday from "@/assets/Across/Leisure & Business Travel Solutions/Africa Holiday.jpg";
-import serviceTransport from "@/assets/Across/Leisure & Business Travel Solutions/Transport Logistics.jpg";
+import serviceBusiness from "@/assets/Across/Leisure & Business Travel Solutions/Business Travel.webp";
+import serviceHoliday from "@/assets/Across/Leisure & Business Travel Solutions/Africa Holiday.webp";
+import serviceTransport from "@/assets/Across/Leisure & Business Travel Solutions/Transport Logistics.webp";
 
 // Special Packages Images
-import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.jpg";
-import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.jpg";
-import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.jpg";
-import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.jpg";
-import pkgPonta from "@/assets/Across/Special Packages/Bilene.jpg";
-import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.jpg";
+import pkgMaputo from "@/assets/Across/Special Packages/Maputo City Tour.webp";
+import pkgMafalala from "@/assets/Across/Special Packages/Mafalala Cultural Walking Tour.webp";
+import pkgInhaca from "@/assets/Across/Special Packages/Inhaca Island Day Trip.webp";
+import pkgKruger from "@/assets/Across/Special Packages/kruger-national-park-south-africa.webp";
+import pkgPonta from "@/assets/Across/Special Packages/Bilene.webp";
+import pkgEswatini from "@/assets/Across/Special Packages/Eswatini Cultural Day Trip.webp";
 
 // Facts Image
 import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-location-map-flag-pin.avif";
@@ -54,7 +53,7 @@ import factsImg from "@/assets/Across/Mozambique Country Facts/mozambique-locati
 import { SpecialPackagesCarousel } from "@/components/special-packages-carousel";
 
 // Visa Section Image
-import visaImg from "@/assets/Across/VISA/Image.jpg";
+import visaImg from "@/assets/Across/VISA/Image.webp";
 
 // Service Modal SVGs
 import modalCorporateSVG from "@/assets/Modals/Corporate Travel Solutions.svg";
@@ -635,7 +634,7 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
     <>
       <div className="grid md:grid-cols-3 gap-6">
         {services.map((s, i) => (
-          <Reveal key={s.title.en} delay={i * 0.1}>
+          <div key={s.title.en}>
             <button
               type="button"
               onClick={() => setOpenIdx(i)}
@@ -667,7 +666,7 @@ function ServiceGrid({ lang }: { lang: "en" | "pt" }) {
                 </span>
               </div>
             </button>
-          </Reveal>
+          </div>
         ))}
       </div>
 
@@ -831,9 +830,9 @@ function Home() {
             <ImageWithSpinner
               src={slide.image}
               alt="AcrossTours Background"
-              loading="eager"
+              loading={idx === 0 ? "eager" : "lazy"}
               decoding="async"
-              fetchPriority="high"
+              fetchPriority={idx === 0 ? "high" : "low"}
               containerClassName="w-full h-full"
               className="w-full h-full object-cover"
             />
@@ -913,14 +912,14 @@ function Home() {
       <section id="about" className="py-20 bg-background">
         <div className="container-x">
           <div className="grid lg:grid-cols-12 gap-4 lg:gap-x-6 items-center">
-            <Reveal className="lg:col-span-4 flex justify-center lg:justify-start">
+            <div className="lg:col-span-4 flex justify-center lg:justify-start">
               <AcrossLogo className="h-40 sm:h-48 lg:h-56 w-auto text-brand-blue" />
-            </Reveal>
+            </div>
             <div className="lg:col-span-7 space-y-6">
-              <Reveal>
+              <div>
                 <div className="eyebrow mb-4">{t("About Us", "Sobre Nós")}</div>
-              </Reveal>
-              <Reveal delay={0.15} className="space-y-6 text-base text-ink-soft leading-relaxed">
+              </div>
+              <div className="space-y-6 text-base text-ink-soft leading-relaxed">
                 <p>
                   <strong>AcrossTours</strong>{" "}
                   {t(
@@ -934,7 +933,7 @@ function Home() {
                     "A nossa gama de serviços inclui assistência em terra completa desde reservas de alojamento, aluguer de viaturas, motoristas particulares, transfers de aeroporto, conferências, excursões, entre outros, bem como voos para lazer e negócios, incluindo voos privados. Operamos actualmente em Moçambique e Angola.",
                   )}
                 </p>
-              </Reveal>
+              </div>
             </div>
           </div>
         </div>
@@ -968,15 +967,14 @@ function Home() {
                 ),
               },
             ].map((item, idx) => (
-              <Reveal
+              <div
                 key={item.label}
-                delay={idx * 0.1}
                 className="bg-background p-8 flex flex-col h-full"
               >
                 <FontAwesomeIcon icon={item.icon} className="w-8 h-8 text-accent mb-6" />
                 <h3 className="text-xl mb-3">{item.label}</h3>
                 <p className="text-base text-ink-soft leading-relaxed flex-1">{item.text}</p>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
@@ -986,7 +984,7 @@ function Home() {
       <section id="services" className="py-20 bg-background">
         <div className="container-x">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-            <Reveal>
+            <div>
               <div className="eyebrow mb-4">{t("Products & Services", "Produtos & Serviços")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
                 {t(
@@ -994,7 +992,7 @@ function Home() {
                   "Os nossos serviços dividem-se em 3 unidades de negócios",
                 )}
               </h2>
-            </Reveal>
+            </div>
           </div>
 
           <ServiceGrid lang={lang} />
@@ -1004,19 +1002,19 @@ function Home() {
       {/* PRODUCTS & SERVICES DETAILS */}
       <section id="services-details" className="py-8 sm:py-12 bg-background overflow-hidden">
         <div className="container-x">
-          <Reveal>
+          <div>
             <div className="eyebrow mb-2 sm:mb-3 text-xs sm:text-sm">
               {t("Our Products & Services", "Os Nossos Produtos & Serviços")}
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-5 sm:mb-8 text-ink tracking-tight">
               {t("Complete Travel & Logistics Support", "Apoio Completo em Viagens e Logística")}
             </h2>
-          </Reveal>
+          </div>
 
           {/* Two columns layout */}
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10">
             {/* Corporate Card */}
-            <Reveal>
+            <div>
               <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -1069,10 +1067,10 @@ function Home() {
                   ))}
                 </ul>
               </div>
-            </Reveal>
+            </div>
 
             {/* Leisure Card */}
-            <Reveal delay={0.15}>
+            <div>
               <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -1110,7 +1108,7 @@ function Home() {
                   ))}
                 </ul>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -1119,7 +1117,7 @@ function Home() {
       <section id="special-packages" className="py-20 bg-background">
         <div className="container-x">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-            <Reveal variant="slide">
+            <div>
               <div className="eyebrow mb-4">{t("Special Packages", "Pacotes Especiais")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
                 {t(
@@ -1127,10 +1125,8 @@ function Home() {
                   "Escapadinhas seleccionadas para momentos especiais",
                 )}
               </h2>
-            </Reveal>
-            <Reveal
-              variant="slide"
-              delay={0.1}
+            </div>
+            <div
               className="flex flex-col items-start lg:items-end gap-3"
             >
               <p className="max-w-md text-base text-ink-soft leading-relaxed lg:text-right">
@@ -1146,12 +1142,12 @@ function Home() {
                 {t("View all special packages", "Ver todos os pacotes especiais")}{" "}
                 <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
               </Link>
-            </Reveal>
+            </div>
           </div>
 
-          <Reveal variant="slide" delay={0.15}>
+          <div>
             <SpecialPackagesCarousel lang={lang} t={t} />
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -1159,7 +1155,7 @@ function Home() {
       <section id="activities" className="py-20 bg-background">
         <div className="container-x">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-            <Reveal>
+            <div>
               <div className="eyebrow mb-4">{t("Activities", "Actividades")}</div>
               <h2 className="text-4xl lg:text-5xl max-w-2xl">
                 {t(
@@ -1167,8 +1163,8 @@ function Home() {
                   "Experiências seleccionadas em Moçambique",
                 )}
               </h2>
-            </Reveal>
-            <Reveal delay={0.1} className="flex items-center gap-4">
+            </div>
+            <div className="flex items-center gap-4">
               <Link
                 to="/packages"
                 className="text-sm font-semibold text-accent inline-flex items-center gap-2 hover:gap-3 transition-all mr-2 sm:mr-4"
@@ -1192,7 +1188,7 @@ function Home() {
                   <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
                 </button>
               </div>
-            </Reveal>
+            </div>
           </div>
 
           {/* Sliding Carousel Track Container */}
@@ -1231,7 +1227,7 @@ function Home() {
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             {/* Left side: Image and Overlay Badge */}
             <div className="lg:col-span-6 relative">
-              <Reveal>
+              <div>
                 <div className="relative">
                   <ImageWithSpinner
                     src={factsImg}
@@ -1251,12 +1247,12 @@ function Home() {
                     </div>
                   </div>
                 </div>
-              </Reveal>
+              </div>
             </div>
 
             {/* Right side: Typography & Facts Grid */}
             <div className="lg:col-span-6 space-y-8">
-              <Reveal>
+              <div>
                 <h2 className="text-4xl lg:text-5xl text-ink leading-tight mb-6">
                   {t("Mozambique Country Facts", "Factos Sobre Moçambique")}
                 </h2>
@@ -1300,7 +1296,7 @@ function Home() {
                     );
                   })}
                 </div>
-              </Reveal>
+              </div>
             </div>
           </div>
         </div>
@@ -1309,7 +1305,7 @@ function Home() {
       {/* PASSPORT & TRAVEL REQUIREMENTS */}
       <section className="py-20 bg-background">
         <div className="container-x">
-          <Reveal>
+          <div>
             <div className="bg-card rounded-2xl shadow-sm overflow-hidden grid md:grid-cols-2">
               {/* Content */}
               <div className="p-8 lg:p-12 flex flex-col justify-center order-2 md:order-1">
@@ -1347,7 +1343,7 @@ function Home() {
                 />
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -1357,6 +1353,8 @@ function Home() {
         <ImageWithSpinner
           src={quimbrasImg}
           alt="Why Choose Us"
+          loading="lazy"
+          decoding="async"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover object-center"
         />
@@ -1364,7 +1362,7 @@ function Home() {
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
 
         <div className="relative container-x max-w-4xl text-center z-10">
-          <Reveal>
+          <div>
             <div className="eyebrow !text-white mb-3">
               {t("Why Choose Us", "Porquê Escolher-nos")}
             </div>
@@ -1380,14 +1378,14 @@ function Home() {
                 "Orgulhamo-nos de fazer arranjos orientados para a entrega de itinerários e experiências de sucesso, com base na melhor relação custo-benefício. Personalizamos todos os nossos pacotes para satisfazer as suas necessidades exactas. Na AcrossTours orgulhamo-nos do excelente serviço e atenção aos detalhes para que possa desfrutar.",
               )}
             </p>
-          </Reveal>
+          </div>
         </div>
       </section>
 
       {/* QUOTE FORM */}
       <section id="contact" className="py-20 bg-background text-foreground">
         <div className="container-x grid lg:grid-cols-2 gap-16">
-          <Reveal>
+          <div>
             <div className="eyebrow mb-4">{t("Contact Us", "Contacte-nos")}</div>
             <h2 className="text-4xl lg:text-5xl leading-tight mb-10">
               {t("Tell Us About Your Trip", "Conte-nos Sobre a Sua Viagem")}
@@ -1439,9 +1437,9 @@ function Home() {
                 </div>
               </div>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.15}>
+          <div>
             <form
               onSubmit={handleContactSubmit}
               className="bg-[#f4f4f4] p-8 lg:p-10 space-y-5 rounded-2xl shadow-sm"
@@ -1619,7 +1617,7 @@ function Home() {
                 </p>
               )}
             </form>
-          </Reveal>
+          </div>
         </div>
       </section>
 

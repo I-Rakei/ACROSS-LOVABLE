@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../components/language-provider";
-import { GlobalLoader } from "../components/global-loader";
 
 const SITE_URL = "https://acrosstour.com";
 const LOGO_URL = `${SITE_URL}/logos/across-tour-logo.png`;
@@ -139,9 +138,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/logos/across-tour-white.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/logos/across-tour-logo.png", type: "image/png", sizes: "512x512" },
-      { rel: "apple-touch-icon", href: "/logos/across-tour-logo.png" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -194,7 +193,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <GlobalLoader />
         <Outlet />
       </LanguageProvider>
     </QueryClientProvider>
